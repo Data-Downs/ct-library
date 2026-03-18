@@ -44,9 +44,9 @@ export function BookCard({ book, viewMode, onSelect, activeTheme }: BookCardProp
     return (
       <button
         onClick={() => onSelect(book)}
-        className="grid grid-cols-[1fr_1fr_4rem] gap-x-4 items-baseline py-2.5 px-2 w-full text-left bg-transparent border-0 cursor-pointer group hover:bg-gray-300/30 transition-colors"
+        className="grid grid-cols-[1fr_1fr_4rem] gap-x-4 items-baseline py-2.5 px-2 w-full text-left bg-transparent border-0 cursor-pointer group hover:bg-white transition-colors border-b border-gray-300/40"
       >
-        <span className="text-base font-normal text-fg group-hover:text-gray-600 transition-colors truncate">
+        <span className="text-base font-medium text-fg group-hover:text-gray-600 transition-colors truncate">
           {book.title}
         </span>
         <span className="text-sm text-gray-500 truncate">

@@ -148,9 +148,7 @@ export function Library() {
           </div>
           <div>
             {filteredBooks.map((book) => (
-              <div key={book.id} className="border-b border-gray-300/50">
-                <BookCard book={book} viewMode="list" onSelect={setSelectedBook} activeTheme={selectedTheme} />
-              </div>
+              <BookCard key={book.id} book={book} viewMode="list" onSelect={setSelectedBook} activeTheme={selectedTheme} />
             ))}
           </div>
         </div>
