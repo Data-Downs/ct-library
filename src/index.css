@@ -3,7 +3,7 @@
 @theme {
   --color-bg: #D8D8D8;
   --color-fg: #1a1a1a;
-  --font-sans: 'Questrial', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -12,6 +12,7 @@ body {
   background-color: var(--color-bg);
   color: var(--color-fg);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 ::selection {
