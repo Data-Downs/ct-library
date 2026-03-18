@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charlotte's Library — Book Review Tool</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: #D8D8D8;
+    color: #1a1a1a;
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 2rem; font-weight: 400; margin-bottom: 0.5rem; }
+  .subtitle { color: #666; font-size: 0.95rem; margin-bottom: 2rem; line-height: 1.6; }
+  .stats {
+    display: flex; gap: 2rem; margin-bottom: 2rem; padding: 1rem;
+    background: white; border-radius: 8px;
+  }
+  .stat { text-align: center; }
+  .stat-num { font-size: 1.5rem; font-weight: 600; }
+  .stat-label { font-size: 0.75rem; color: #888; }
+  .controls {
+    display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: center; flex-wrap: wrap;
+  }
+  .controls input[type="text"] {
+    flex: 1; min-width: 200px; padding: 0.6rem 1rem; border: 1px solid #999;
+    border-radius: 6px; background: transparent; font-size: 0.9rem;
+    font-family: inherit;
+  }
+  .controls input:focus { outline: none; border-color: #1a1a1a; }
+  .filter-btn {
+    padding: 0.5rem 1rem; border: 1px solid #999; border-radius: 20px;
+    background: transparent; cursor: pointer; font-size: 0.85rem;
+    font-family: inherit; transition: all 0.15s;
+  }
+  .filter-btn.active { background: #1a1a1a; color: #D8D8D8; border-color: #1a1a1a; }
+  .filter-btn:hover:not(.active) { border-color: #1a1a1a; }
+
+  .book-card {
+    background: white; border-radius: 8px; padding: 1.25rem;
+    margin-bottom: 0.75rem; transition: opacity 0.2s;
+    border-left: 4px solid transparent;
+  }
+  .book-card.confirmed { border-left-color: #4caf50; }
+  .book-card.skipped { border-left-color: #ccc; opacity: 0.5; }
+  .book-card.skipped .card-body { display: none; }
+  .card-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 1rem; margin-bottom: 0.75rem;
+  }
+  .card-header-left { flex: 1; }
+  .book-title-display { font-size: 1.1rem; font-weight: 500; }
+  .book-author-display { font-size: 0.85rem; color: #888; margin-top: 0.15rem; }
+  .book-source { font-size: 0.7rem; color: #aaa; }
+  .confidence {
+    font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: 10px;
+    white-space: nowrap;
+  }
+  .confidence.high { background: #e8f5e9; color: #2e7d32; }
+  .confidence.medium { background: #fff3e0; color: #e65100; }
+  .confidence.low { background: #ffebee; color: #c62828; }
+
+  .toggle-row {
+    display: flex; gap: 0.5rem; align-items: center;
+  }
+  .toggle-btn {
+    padding: 0.35rem 0.75rem; border: 1px solid #ccc; border-radius: 4px;
+    background: transparent; cursor: pointer; font-size: 0.8rem;
+    font-family: inherit; transition: all 0.15s;
+  }
+  .toggle-btn.yes { }
+  .toggle-btn.yes.active { background: #4caf50; color: white; border-color: #4caf50; }
+  .toggle-btn.no.active { background: #999; color: white; border-color: #999; }
+
+  .card-body { margin-top: 0.75rem; }
+  .edit-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .edit-field label {
+    display: block; font-size: 0.7rem; color: #888; margin-bottom: 0.25rem;
+  }
+  .edit-field input, .edit-field textarea {
+    width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;
+    font-size: 0.85rem; font-family: inherit; background: #fafafa;
+  }
+  .edit-field textarea { resize: vertical; min-height: 3rem; }
+  .edit-field input:focus, .edit-field textarea:focus {
+    outline: none; border-color: #1a1a1a; background: white;
+  }
+  .note-existing {
+    font-size: 0.8rem; color: #e65100; background: #fff3e0;
+    padding: 0.5rem 0.75rem; border-radius: 4px; margin-bottom: 0.75rem;
+  }
+
+  .export-bar {
+    position: sticky; bottom: 0; background: #1a1a1a; color: #D8D8D8;
+    padding: 1rem 1.5rem; border-radius: 8px; margin-top: 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+  }
+  .export-bar .count { font-size: 0.9rem; }
+  .export-btn {
+    padding: 0.6rem 1.5rem; background: white; color: #1a1a1a;
+    border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem;
+    font-weight: 500; font-family: inherit; transition: opacity 0.15s;
+  }
+  .export-btn:hover { opacity: 0.85; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+
+<h1>Book Review Tool</h1>
+<p class="subtitle">
+  These books were extracted from Charlotte's shelf photos but haven't been added to the library yet.
+  Review each one: confirm it's correct, fix the title or author if needed, add any notes, or skip it entirely.
+  When you're done, export the confirmed books and send the JSON file to Chris.
+</p>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num" id="total-count">0</div><div class="stat-label">Total</div></div>
+  <div class="stat"><div class="stat-num" id="confirmed-count">0</div><div class="stat-label">Confirmed</div></div>
+  <div class="stat"><div class="stat-num" id="skipped-count">0</div><div class="stat-label">Skipped</div></div>
+  <div class="stat"><div class="stat-num" id="remaining-count">0</div><div class="stat-label">Remaining</div></div>
+</div>
+
+<div class="controls">
+  <input type="text" id="search" placeholder="Search by title or author...">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="confirmed">Confirmed</button>
+  <button class="filter-btn" data-filter="skipped">Skipped</button>
+  <button class="filter-btn" data-filter="unreviewed">Unreviewed</button>
+  <button class="filter-btn" data-filter="low">Low confidence</button>
+</div>
+
+<div id="book-list"></div>
+
+<div class="export-bar">
+  <span class="count"><span id="export-count">0</span> books ready to export</span>
+  <button class="export-btn" onclick="exportBooks()">Export confirmed books</button>
+</div>
+
+<script>
+// Books already in the library (by title, lowercase)
+const alreadyImported = new Set([
+  "east","ottolenghi flavour","dishoom: from bombay with love","jerusalem","plenty",
+  "the cooking of vienna's empire","kyoto: a cultural and culinary guide",
+  "the constance spry cookery book","the moosewood cookbook","the kitchen diaries",
+  "the god of small things","les misérables","things fall apart","the famished road",
+  "shantaram","white teeth","londoners: the days and nights of london now",
+  "wide sargasso sea","beloved","the wind-up bird chronicle","the remains of the day",
+  "atlas of brutalist architecture","goya","roman gardens: villas of the countryside",
+  "ways of seeing","being and event","24/7: late capitalism and the ends of sleep",
+  "the second sex","the mushroom at the end of the world","the undercommons",
+  "a life's work: on becoming a mother","outline","nothing to envy: real lives in north korea",
+  "the year of magical thinking","berlin","the world atlas","in patagonia",
+  "empire: how britain made the modern world","orientalism","the invention of tradition",
+  "underland: a deep time journey","braiding sweetgrass","ariel",
+  "citizen: an american lyric","don't let me be lonely","a room of one's own",
+  "on photography",
+  // new-books.ts (already imported batch)
+  "a thousand plateaus","being and time","the three ecologies","the primacy of perception",
+  "matter and memory","critique of judgement","inner experience","pedagogy of the oppressed",
+  "aesthetic theory","minima moralia","the culture industry","illuminations","mythologies",
+  "the pleasure of the text","capital (volume 1)","the system of objects",
+  "the hermeneutics of the subject","the fear of freedom","the outsider","labyrinths",
+  "letters to a young poet","either/or","against nature","the gay science",
+  "living in the end times","violence","hilma af klint: painting the universe",
+  "interaction of color","film as a subversive art","a brief history of curating",
+  "penguin by design","understanding media","the weird and the eerie",
+  "staying with the trouble","meeting the universe halfway","blue nights",
+  "simple passion","a man's place","h is for hawk","the covenant of water",
+  "melancholy i–ii","flesh","mothers: an essay on love and cruelty","the argonauts",
+  "king kong theory","animal joy","bhagavad gita","the upanishads",
+  "the tibetan book of the dead","tao te ching","the interior castle",
+  "on mysticism: the experience of ecstasy","dark nights of the soul","falling upward",
+  "the surrender experiment","becoming animal","finding the mother tree",
+  "the end of everything","the tao of physics","the hero with a thousand faces",
+  "the artist's way","no bad parts","emergent strategy","pleasure activism",
+  "the book you wish your parents had read","nothing to fear: demystifying death",
+  "the beautiful risk of education","together","what is madness?","not working: why we have to stop",
+  "adventures of ideas","antifragile","from dawn to decadence",
+  "cook, eat, repeat","the doctor's kitchen","the new vegan","5:2 veggie & vegan"
+]);
+
+// Remaining books to review
+const remainingBooks = [
+  { title: "Richard Rohr (unidentified title)", author: "Richard Rohr", confidence: "low", source: "IMG_8015", note: "Spine partially obscured — could be The Universal Christ or another Rohr title" },
+  { title: "The Plague", author: "Albert Camus", confidence: "medium", source: "IMG_8016", note: "Or could be Jacqueline Rose title" },
+  { title: "Practicing Dying", author: "Charlotte Northedge", confidence: "medium", source: "IMG_8016" },
+  { title: "Morpho: Skeleton and Bone Reference Points", author: "Michel Lauricella", confidence: "high", source: "IMG_8016" },
+  { title: "A State of Grace", author: "Various", confidence: "medium", source: "IMG_8018" },
+  { title: "Twelve Steps and Twelve Traditions", author: "Alcoholics Anonymous", confidence: "high", source: "IMG_8018" },
+  { title: "Radical Pedagogies", author: "Various", confidence: "high", source: "IMG_8019" },
+  { title: "The Art of Participation: 1950 to Now", author: "Various", confidence: "high", source: "IMG_8019" },
+  { title: "The Song of Songs", author: "Iain M. Duguid", confidence: "high", source: "IMG_8022" },
+  { title: "Superagency", author: "Reid Hoffman & Greg Beato", confidence: "high", source: "IMG_8023" },
+  { title: "Turner and Constable", author: "Various", confidence: "high", source: "IMG_8024" },
+  { title: "Ill Feelings", author: "Alice Hattrick", confidence: "high", source: "IMG_8024" },
+  { title: "Women in Praise of the Sacred", author: "Jane Hirshfield (ed.)", confidence: "medium", source: "IMG_8025" },
+  { title: "Alice Neel", author: "Various", confidence: "high", source: "IMG_8025" },
+  { title: "Yes, And...: A Year of Daily Meditations", author: "Richard Rohr", confidence: "high", source: "IMG_8025" },
+  { title: "Pensées", author: "Blaise Pascal", confidence: "high", source: "IMG_8025" },
+  { title: "Non-Places: An Introduction to Supermodernity", author: "Marc Augé", confidence: "high", source: "IMG_8026" },
+  { title: "Black Mountain Poems", author: "Various", confidence: "high", source: "IMG_8026" },
+  { title: "Locality, Regeneration & Diversities", author: "Bennett & Butler", confidence: "high", source: "IMG_8026" },
+  { title: "The Russian Linesman", author: "Mark Wallinger", confidence: "high", source: "IMG_8026" },
+  { title: "A Clinical Introduction to Lacanian Psychoanalysis", author: "Bruce Fink", confidence: "high", source: "IMG_8026" },
+  { title: "Freud (Volume 2)", author: "Sigmund Freud", confidence: "high", source: "IMG_8027" },
+  { title: "Thought in the Act", author: "Brian Massumi & Erin Manning", confidence: "medium", source: "IMG_8027" },
+  { title: "Selected Poetry", author: "Johann Wolfgang von Goethe", confidence: "high", source: "IMG_8027" },
+  { title: "The Seven Spiritual Laws of Success", author: "Deepak Chopra", confidence: "high", source: "IMG_8027" },
+  { title: "Avatars, Gods and Goddesses of Vedic Culture", author: "Stephen Knapp", confidence: "high", source: "IMG_8028" },
+  { title: "Hymns to the Goddess and Hymns to Kali", author: "Arthur Avalon", confidence: "high", source: "IMG_8028" },
+  { title: "The Conscious Parent", author: "Shefali Tsabary", confidence: "high", source: "IMG_8028" },
+  { title: "A Short History of Islamic Thought", author: "Fitzroy Morrissey", confidence: "high", source: "IMG_8028" },
+  { title: "Yoko Ono: Music of the Mind", author: "Tate", confidence: "high", source: "IMG_8028" },
+  { title: "Story of O", author: "Pauline Réage", confidence: "high", source: "IMG_8029" },
+  { title: "Becoming Supernatural", author: "Dr. Joe Dispenza", confidence: "high", source: "IMG_8029" },
+  { title: "Letting Go", author: "David R. Hawkins", confidence: "high", source: "IMG_8029" },
+  { title: "Romanticism and Art", author: "William Vaughan", confidence: "high", source: "IMG_8030" },
+  { title: "The Golden Mole", author: "Catherine Rundell", confidence: "high", source: "IMG_8030" },
+  { title: "A Concise History of Modern Painting", author: "Herbert Read", confidence: "high", source: "IMG_8030" },
+  { title: "The Woman's Dictionary of Symbols and Sacred Objects", author: "Barbara G. Walker", confidence: "high", source: "IMG_8031" },
+  { title: "Postmodernism, or, The Cultural Logic of Late Capitalism", author: "Fredric Jameson", confidence: "high", source: "IMG_8031" },
+  { title: "Five Centuries of British Painting", author: "Andrew Wilson", confidence: "high", source: "IMG_8032" },
+  { title: "The Photograph as Contemporary Art", author: "Charlotte Cotton", confidence: "high", source: "IMG_8032" },
+  { title: "The Tantric Way", author: "Mookerjee & Khanna", confidence: "high", source: "IMG_8032" },
+  { title: "Design for Social Innovation", author: "Ezio Manzini", confidence: "medium", source: "IMG_8032" },
+  { title: "A Guide to the Buddhist Path", author: "Sangharakshita", confidence: "high", source: "IMG_8032" },
+  { title: "Facing Love Addiction", author: "Pia Mellody", confidence: "high", source: "IMG_8032" },
+  { title: "The 5 Love Languages", author: "Gary Chapman", confidence: "high", source: "IMG_8032" },
+  { title: "Onsen and Ryokan of Japan", author: "Various", confidence: "high", source: "IMG_8033" },
+  { title: "Fischli Weiss: Flowers & Questions", author: "Various (Tate)", confidence: "high", source: "IMG_8033" },
+  { title: "The Wild Dyer", author: "Abigail Booth", confidence: "high", source: "IMG_8033" },
+  { title: "The Continental Aesthetics Reader", author: "Clive Cazeaux (ed.)", confidence: "high", source: "IMG_8034" },
+  { title: "Parables for the Virtual", author: "Brian Massumi", confidence: "high", source: "IMG_8034" },
+  { title: "The Book of Life", author: "Jiddu Krishnamurti", confidence: "high", source: "IMG_8034" },
+  { title: "Visions of Excess", author: "Georges Bataille", confidence: "high", source: "IMG_8034" },
+  { title: "Empire (Hardt & Negri)", author: "Michael Hardt & Antonio Negri", confidence: "high", source: "IMG_8034", note: "Different from Niall Ferguson's Empire — political theory text" },
+  { title: "The World in 2050", author: "Hamish McRae", confidence: "high", source: "IMG_8035" },
+  { title: "Nervous States", author: "William Davies", confidence: "high", source: "IMG_8036" },
+  { title: "Symbolic Misery (Volume 2)", author: "Bernard Stiegler", confidence: "high", source: "IMG_8036" },
+  { title: "The Seminar: The Formations of the Unconscious", author: "Jacques Lacan", confidence: "high", source: "IMG_8036" },
+  { title: "Cinema 1: The Movement-Image", author: "Gilles Deleuze", confidence: "high", source: "IMG_8037" },
+  { title: "Harmony Korine", author: "Darian Leader (intro)", confidence: "medium", source: "IMG_8037" },
+  { title: "The Tao of Pooh & The Te of Piglet", author: "Benjamin Hoff", confidence: "high", source: "IMG_8037" },
+  { title: "The Lost Spirit of Capitalism", author: "Bernard Stiegler", confidence: "high", source: "IMG_8038" },
+  { title: "The Essentials of Vedic Astrology", author: "Komilla Sutton", confidence: "high", source: "IMG_8038" },
+  { title: "Nihil Unbound", author: "Ray Brassier", confidence: "high", source: "IMG_8039" },
+  { title: "As Bill Sees It", author: "Alcoholics Anonymous", confidence: "high", source: "IMG_8039" },
+  { title: "Interrogating the Real", author: "Slavoj Žižek", confidence: "high", source: "IMG_8039" },
+  { title: "Hannah Arendt (unidentified title)", author: "Hannah Arendt", confidence: "medium", source: "IMG_8040", note: "Possibly On Revolution or The Human Condition" },
+  { title: "Averno", author: "Louise Glück", confidence: "medium", source: "IMG_8040" },
+  { title: "The Meaning of Things", author: "A.C. Grayling", confidence: "medium", source: "IMG_8041" },
+  { title: "Urban Tantra", author: "Daniel Scott", confidence: "high", source: "IMG_8041" },
+  { title: "Wild Swimming", author: "Various", confidence: "high", source: "IMG_8043" },
+  { title: "Depression (A Very Short Introduction)", author: "Various (Oxford)", confidence: "medium", source: "IMG_8043" },
+  { title: "Philosophical Devices", author: "David Papineau", confidence: "high", source: "IMG_8043" },
+  { title: "Speed and Politics", author: "Paul Virilio", confidence: "high", source: "IMG_8043" },
+  { title: "One-Dimensional Man", author: "Herbert Marcuse", confidence: "medium", source: "IMG_8044" },
+  { title: "Sigmund Freud (Volume VIII)", author: "Sigmund Freud", confidence: "high", source: "IMG_8044" },
+  { title: "Democracy and Education", author: "John Dewey", confidence: "high", source: "IMG_8044" },
+  { title: "The Language of Things", author: "Deyan Sudjic", confidence: "high", source: "IMG_8045" },
+  { title: "#Accelerate", author: "Various", confidence: "high", source: "IMG_8045" },
+  { title: "Prince of Networks", author: "Graham Harman", confidence: "high", source: "IMG_8045" },
+  { title: "Renegade: The Lives and Tales of Mark E. Smith", author: "Mark E. Smith", confidence: "high", source: "IMG_8046" },
+  { title: "A New Philosophy of Society", author: "Manuel DeLanda", confidence: "medium", source: "IMG_8046" },
+  { title: "Perfect Health", author: "Deepak Chopra", confidence: "high", source: "IMG_8046" },
+  { title: "Philosophy for Life", author: "Jules Evans", confidence: "high", source: "IMG_8047" },
+  { title: "Timaeus and Critias", author: "Plato", confidence: "high", source: "IMG_8047" },
+  { title: "Socialism: A Very Short Introduction", author: "Michael Newman", confidence: "high", source: "IMG_8047" },
+  { title: "The Interface Effect", author: "Alexander Galloway", confidence: "high", source: "IMG_8047" },
+  { title: "Two Regimes of Madness", author: "Gilles Deleuze", confidence: "high", source: "IMG_8047" },
+  { title: "Badiou: A Subject to Truth", author: "Peter Hallward", confidence: "high", source: "IMG_8048" },
+  { title: "The Cultural Turn", author: "Fredric Jameson", confidence: "high", source: "IMG_8048" },
+  { title: "Speculative Aesthetics", author: "Various", confidence: "medium", source: "IMG_8048" },
+  { title: "Chaosmosis", author: "Félix Guattari", confidence: "high", source: "IMG_8048" },
+  { title: "Touching Peace", author: "Thich Nhat Hanh", confidence: "high", source: "IMG_8048" },
+  { title: "Free to Learn", author: "Peter Gray", confidence: "high", source: "IMG_8048" },
+  { title: "Art as Far as the Eye Can See", author: "Paul Virilio", confidence: "high", source: "IMG_8049" },
+  { title: "The Information Bomb", author: "Paul Virilio", confidence: "high", source: "IMG_8049" },
+  { title: "Bill Viola: Writings 1973–1994", author: "Bill Viola", confidence: "high", source: "IMG_8050" },
+  { title: "Art Beyond Representation", author: "Barbara Bolt", confidence: "high", source: "IMG_8050" },
+  { title: "The Lacanian Subject", author: "Bruce Fink", confidence: "high", source: "IMG_8050" },
+  { title: "Jean Baudrillard: Art and Artefice", author: "Nicholas Zurbrugg", confidence: "high", source: "IMG_8050" },
+  { title: "The Dreamer's Dictionary", author: "Various", confidence: "high", source: "IMG_8050" },
+  { title: "Gerhard Richter: Writings 1962–1993", author: "Gerhard Richter", confidence: "high", source: "IMG_8051" },
+  { title: "Dyes from Plants", author: "Various", confidence: "high", source: "IMG_8051" },
+  { title: "Mind-Forg'd Manacles: William Blake and Slavery", author: "Various", confidence: "high", source: "IMG_8051" },
+  { title: "The EY Exhibition: Picasso 1932", author: "Tate", confidence: "high", source: "IMG_8052" },
+  { title: "Permanent Food (magazine/art project)", author: "Maurizio Cattelan", confidence: "high", source: "IMG_8053" },
+  { title: "Selected Poetry", author: "Lord Byron", confidence: "high", source: "IMG_8053" },
+  { title: "Experimental Politics", author: "Maurizio Lazzarato", confidence: "high", source: "IMG_8053" },
+  { title: "Là-Bas", author: "J.K. Huysmans", confidence: "high", source: "IMG_8053" },
+  { title: "Malicious Damage", author: "Ilsa Colsell", confidence: "high", source: "IMG_8054" },
+  { title: "Understanding a Photograph", author: "John Berger", confidence: "high", source: "IMG_8054" },
+  { title: "Bells and Whistles", author: "Graham Harman", confidence: "high", source: "IMG_8054" },
+  { title: "The Quadruple Object", author: "Graham Harman", confidence: "high", source: "IMG_8054" },
+  { title: "Form and Object", author: "Tristan Garcia", confidence: "high", source: "IMG_8054" },
+];
+
+// State
+const state = remainingBooks.map((b, i) => ({
+  ...b,
+  id: i,
+  status: 'unreviewed', // 'confirmed' | 'skipped' | 'unreviewed'
+  editedTitle: b.title,
+  editedAuthor: b.author,
+  editedNote: b.note || '',
+}));
+
+let filter = 'all';
+let searchQuery = '';
+
+function updateStats() {
+  const confirmed = state.filter(b => b.status === 'confirmed').length;
+  const skipped = state.filter(b => b.status === 'skipped').length;
+  const remaining = state.filter(b => b.status === 'unreviewed').length;
+  document.getElementById('total-count').textContent = state.length;
+  document.getElementById('confirmed-count').textContent = confirmed;
+  document.getElementById('skipped-count').textContent = skipped;
+  document.getElementById('remaining-count').textContent = remaining;
+  document.getElementById('export-count').textContent = confirmed;
+}
+
+function getFiltered() {
+  return state.filter(b => {
+    if (filter === 'confirmed' && b.status !== 'confirmed') return false;
+    if (filter === 'skipped' && b.status !== 'skipped') return false;
+    if (filter === 'unreviewed' && b.status !== 'unreviewed') return false;
+    if (filter === 'low' && b.confidence !== 'low' && b.confidence !== 'medium') return false;
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      if (!b.editedTitle.toLowerCase().includes(q) && !b.editedAuthor.toLowerCase().includes(q)) return false;
+    }
+    return true;
+  });
+}
+
+function setStatus(id, status) {
+  state[id].status = status;
+  updateStats();
+  render();
+}
+
+function updateField(id, field, value) {
+  state[id][field] = value;
+}
+
+function render() {
+  const list = document.getElementById('book-list');
+  const filtered = getFiltered();
+
+  list.innerHTML = filtered.map(b => `
+    <div class="book-card ${b.status}">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="book-title-display">${b.editedTitle}</div>
+          <div class="book-author-display">${b.editedAuthor}</div>
+          <div class="book-source">${b.source}</div>
+        </div>
+        <span class="confidence ${b.confidence}">${b.confidence}</span>
+        <div class="toggle-row">
+          <button class="toggle-btn yes ${b.status === 'confirmed' ? 'active' : ''}" onclick="setStatus(${b.id}, '${b.status === 'confirmed' ? 'unreviewed' : 'confirmed'}')">✓ Confirm</button>
+          <button class="toggle-btn no ${b.status === 'skipped' ? 'active' : ''}" onclick="setStatus(${b.id}, '${b.status === 'skipped' ? 'unreviewed' : 'skipped'}')">✕ Skip</button>
+        </div>
+      </div>
+      ${b.note ? `<div class="note-existing">AI note: ${b.note}</div>` : ''}
+      <div class="card-body">
+        <div class="edit-row">
+          <div class="edit-field">
+            <label>Title</label>
+            <input type="text" value="${b.editedTitle.replace(/"/g, '&quot;')}" onchange="updateField(${b.id}, 'editedTitle', this.value)">
+          </div>
+          <div class="edit-field">
+            <label>Author</label>
+            <input type="text" value="${b.editedAuthor.replace(/"/g, '&quot;')}" onchange="updateField(${b.id}, 'editedAuthor', this.value)">
+          </div>
+        </div>
+        <div class="edit-field">
+          <label>Charlotte's note (optional)</label>
+          <textarea onchange="updateField(${b.id}, 'editedNote', this.value)">${b.editedNote}</textarea>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  updateStats();
+}
+
+// Search
+document.getElementById('search').addEventListener('input', (e) => {
+  searchQuery = e.target.value;
+  render();
+});
+
+// Filter buttons
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filter = btn.dataset.filter;
+    render();
+  });
+});
+
+// Export
+function exportBooks() {
+  const confirmed = state
+    .filter(b => b.status === 'confirmed')
+    .map(b => ({
+      title: b.editedTitle,
+      author: b.editedAuthor,
+      note: b.editedNote || undefined,
+      source: b.source,
+      confidence: b.confidence,
+    }));
+
+  const blob = new Blob([JSON.stringify(confirmed, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `charlotte-library-reviewed-${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// Auto-save to localStorage
+function save() {
+  localStorage.setItem('ct-library-review', JSON.stringify(state));
+}
+function load() {
+  const saved = localStorage.getItem('ct-library-review');
+  if (saved) {
+    try {
+      const parsed = JSON.parse(saved);
+      parsed.forEach((s, i) => {
+        if (state[i]) {
+          state[i].status = s.status;
+          state[i].editedTitle = s.editedTitle;
+          state[i].editedAuthor = s.editedAuthor;
+          state[i].editedNote = s.editedNote;
+        }
+      });
+    } catch(e) {}
+  }
+}
+
+// Auto-save on any change
+const origSetStatus = setStatus;
+setStatus = function(id, status) {
+  origSetStatus(id, status);
+  save();
+};
+const origUpdateField = updateField;
+updateField = function(id, field, value) {
+  origUpdateField(id, field, value);
+  save();
+};
+
+load();
+render();
+</script>
+</body>
+</html>
