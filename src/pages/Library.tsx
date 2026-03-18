@@ -159,16 +159,16 @@ export function Library() {
         </div>
       )}
 
-      {/* Recommendations — inline below the grid when a theme is active */}
+      {/* Recommendations — below the grid when a theme is active */}
       {selectedThemeData && selectedThemeData.recommendations.length > 0 && (
-        <div className="mt-12 pt-8 border-t border-gray-300">
-          <p className="text-sm text-gray-400 mb-6">
-            If you're drawn to this theme, you might also enjoy
-          </p>
-          <div className={selectedTheme
-            ? 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2'
-            : 'grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2'
-          }>
+        <div className="mt-14">
+          <div className="border-t border-gray-400 pt-6 mb-6">
+            <h3 className="text-lg font-normal text-fg m-0">Recommendations</h3>
+            <p className="text-sm text-gray-400 mt-1">
+              Other books along the lines of this theme
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
             {selectedThemeData.recommendations.map((rec) => (
               <RecommendationCard key={rec.title} rec={rec} />
             ))}
