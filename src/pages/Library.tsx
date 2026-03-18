@@ -2,13 +2,13 @@ import { useState, useMemo } from 'react'
 import { books, themeDescriptions } from '../data/books'
 import { BookCard } from '../components/BookCard'
 import { BookModal } from '../components/BookModal'
-import { ThemeFilter } from '../components/ThemeFilter'
 import { RecommendationCard } from '../components/RecommendationCard'
+import { GenreFilter } from '../components/GenreFilter'
+import { SubjectFilter } from '../components/SubjectFilter'
+import { ThemeFilter } from '../components/ThemeFilter'
 import { SortControl } from '../components/SortControl'
 import { ViewToggle } from '../components/ViewToggle'
-import type { Book, Theme, ViewMode, SortMode } from '../types'
-
-type Section = 'library' | 'cookbooks'
+import type { Book, Genre, Subject, Theme, ViewMode, SortMode } from '../types'
 
 function sortBooks(list: Book[], mode: SortMode): Book[] {
   return [...list].sort((a, b) => {
@@ -29,31 +29,55 @@ function sortBooks(list: Book[], mode: SortMode): Book[] {
 }
 
 export function Library() {
-  const [section, setSection] = useState<Section>('library')
+  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null)
+  const [selectedSubject, setSelectedSubject] = useState<Subject | null>(null)
   const [selectedTheme, setSelectedTheme] = useState<Theme | null>(null)
   const [viewMode, setViewMode] = useState<ViewMode>('grid')
   const [sortMode, setSortMode] = useState<SortMode>('title')
   const [search, setSearch] = useState('')
   const [selectedBook, setSelectedBook] = useState<Book | null>(null)
 
-  const libraryBooks = useMemo(() => books.filter((b) => !b.isCookbook), [])
-  const cookbookBooks = useMemo(() => books.filter((b) => b.isCookbook), [])
-
-  const bookCounts = useMemo(() => {
+  // Genre counts (always from full library)
+  const genreCounts = useMemo(() => {
     const counts: Record<string, number> = {}
-    libraryBooks.forEach((book) => {
-      book.themes.forEach((theme) => {
-        counts[theme] = (counts[theme] || 0) + 1
-      })
+    books.forEach((b) => { counts[b.genre] = (counts[b.genre] || 0) + 1 })
+    return counts
+  }, [])
+
+  // Books filtered by genre
+  const genreFiltered = useMemo(() => {
+    if (!selectedGenre) return books
+    return books.filter((b) => b.genre === selectedGenre)
+  }, [selectedGenre])
+
+  // Subject counts (from genre-filtered books)
+  const subjectCounts = useMemo(() => {
+    const counts: Record<string, number> = {}
+    genreFiltered.forEach((b) => {
+      b.subjects.forEach((s) => { counts[s] = (counts[s] || 0) + 1 })
     })
     return counts
-  }, [libraryBooks])
+  }, [genreFiltered])
 
-  const activeBooks = section === 'library' ? libraryBooks : cookbookBooks
+  // Books filtered by genre + subject
+  const subjectFiltered = useMemo(() => {
+    if (!selectedSubject) return genreFiltered
+    return genreFiltered.filter((b) => b.subjects.includes(selectedSubject))
+  }, [genreFiltered, selectedSubject])
 
+  // Theme counts (from genre+subject filtered, excluding cookbooks)
+  const themeCounts = useMemo(() => {
+    const counts: Record<string, number> = {}
+    subjectFiltered.forEach((b) => {
+      b.themes.forEach((t) => { counts[t] = (counts[t] || 0) + 1 })
+    })
+    return counts
+  }, [subjectFiltered])
+
+  // Final filtered + sorted books
   const filteredBooks = useMemo(() => {
-    let result = activeBooks
-    if (section === 'library' && selectedTheme) {
+    let result = subjectFiltered
+    if (selectedTheme) {
       result = result.filter((b) => b.themes.includes(selectedTheme))
     }
     if (search.trim()) {
@@ -65,47 +89,40 @@ export function Library() {
       )
     }
     return sortBooks(result, sortMode)
-  }, [activeBooks, selectedTheme, search, section, sortMode])
+  }, [subjectFiltered, selectedTheme, search, sortMode])
 
-  const selectedThemeData = selectedTheme
-    ? themeDescriptions.find((t) => t.name === selectedTheme)
-    : null
+  const showThemes = selectedGenre !== 'Cookbook' && selectedGenre !== 'Reference'
+
+  const handleGenreChange = (genre: Genre | null) => {
+    setSelectedGenre(genre)
+    setSelectedSubject(null)
+    setSelectedTheme(null)
+  }
+
+  const handleSubjectChange = (subject: Subject | null) => {
+    setSelectedSubject(subject)
+    setSelectedTheme(null)
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-16">
-      {/* Header area */}
+      {/* Header */}
       <div className="mb-10">
         <h2 className="text-4xl md:text-5xl font-normal text-fg mb-2">
           Library
         </h2>
         <p className="text-gray-500 text-base">
-          {libraryBooks.length} books across {Object.keys(bookCounts).length} themes
-          {cookbookBooks.length > 0 && ` · ${cookbookBooks.length} cookbooks`}
+          {books.length} books across {Object.keys(genreCounts).length} genres
         </p>
       </div>
 
-      {/* Section toggle */}
-      <div className="flex gap-6 mb-8 border-b border-gray-400">
-        <button
-          onClick={() => { setSection('library'); setSelectedTheme(null) }}
-          className={`pb-2.5 text-sm transition-colors cursor-pointer bg-transparent border-b-2 ${
-            section === 'library'
-              ? 'border-fg text-fg font-semibold'
-              : 'border-transparent text-gray-500 hover:text-fg'
-          }`}
-        >
-          Library
-        </button>
-        <button
-          onClick={() => { setSection('cookbooks'); setSelectedTheme(null) }}
-          className={`pb-2.5 text-sm transition-colors cursor-pointer bg-transparent border-b-2 ${
-            section === 'cookbooks'
-              ? 'border-fg text-fg font-semibold'
-              : 'border-transparent text-gray-500 hover:text-fg'
-          }`}
-        >
-          Cookbooks
-        </button>
+      {/* Genre tabs */}
+      <div className="mb-6">
+        <GenreFilter
+          selected={selectedGenre}
+          onSelect={handleGenreChange}
+          counts={genreCounts}
+        />
       </div>
 
       {/* Controls row */}
@@ -121,13 +138,24 @@ export function Library() {
         <ViewToggle mode={viewMode} onChange={setViewMode} />
       </div>
 
+      {/* Subject filter */}
+      {Object.keys(subjectCounts).length > 0 && (
+        <div className="mb-4">
+          <SubjectFilter
+            selected={selectedSubject}
+            onSelect={handleSubjectChange}
+            counts={subjectCounts}
+          />
+        </div>
+      )}
+
       {/* Charlotte's themes */}
-      {section === 'library' && (
+      {showThemes && Object.keys(themeCounts).length > 0 && (
         <div className="mb-8">
           <ThemeFilter
             selected={selectedTheme}
             onSelect={setSelectedTheme}
-            bookCounts={bookCounts}
+            bookCounts={themeCounts}
           />
         </div>
       )}
@@ -159,22 +187,24 @@ export function Library() {
         </div>
       )}
 
-      {/* Recommendations — below the grid when a theme is active */}
-      {selectedThemeData && selectedThemeData.recommendations.length > 0 && (
-        <div className="mt-14">
-          <div className="border-t border-gray-400 pt-6 mb-6">
-            <h3 className="text-lg font-normal text-fg m-0">Recommendations</h3>
-            <p className="text-sm text-gray-500 mt-1">
-              Other books along the lines of this theme
-            </p>
+      {/* Recommendations (when theme is active) */}
+      {selectedTheme && (() => {
+        const themeData = themeDescriptions.find((t) => t.name === selectedTheme)
+        if (!themeData?.recommendations?.length) return null
+        return (
+          <div className="mt-14">
+            <div className="border-t border-gray-400 pt-6 mb-6">
+              <h3 className="text-lg font-normal text-fg m-0">Recommendations</h3>
+              <p className="text-sm text-gray-500 mt-1">Other books along the lines of this theme</p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+              {themeData.recommendations.map((rec) => (
+                <RecommendationCard key={rec.title} rec={rec} />
+              ))}
+            </div>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
-            {selectedThemeData.recommendations.map((rec) => (
-              <RecommendationCard key={rec.title} rec={rec} />
-            ))}
-          </div>
-        </div>
-      )}
+        )
+      })()}
 
       {selectedBook && (
         <BookModal book={selectedBook} onClose={() => setSelectedBook(null)} />

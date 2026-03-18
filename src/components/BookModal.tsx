@@ -59,9 +59,20 @@ export function BookModal({ book, onClose }: BookModalProps) {
               <p className="text-sm text-gray-500 mb-4">{book.author}</p>
 
               <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-500 mb-4">
+                <span>{book.genre}</span>
                 <span>Published {book.year}</span>
                 {book.pages && <span>{book.pages} pages</span>}
               </div>
+
+              {book.subjects.length > 0 && (
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                  {book.subjects.map((subject) => (
+                    <span key={subject} className="text-xs px-2.5 py-1 rounded-full border border-gray-400 text-gray-600">
+                      {subject}
+                    </span>
+                  ))}
+                </div>
+              )}
 
               {book.themes.length > 0 && (
                 <div className="flex flex-wrap gap-1.5 mb-4">

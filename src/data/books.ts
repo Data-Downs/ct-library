@@ -1,6 +1,4 @@
 import type { Book, HeroSelection, ThemeDescription } from '../types'
-import { newBooks } from './new-books'
-import { reviewedBooks } from './reviewed-books'
 
 export const themeDescriptions: ThemeDescription[] = [
   {
@@ -153,6 +151,18 @@ export const themeDescriptions: ThemeDescription[] = [
       },
     ],
   },
+  {
+    name: 'Consciousness and the Sacred',
+    tagline: 'What lies beyond the rational self',
+    description: 'Charlotte\'s library has a deep strand of mystical and contemplative thought — from the Upanishads to Teresa of Ávila, from Bataille\'s ecstasy to Lacan\'s unconscious. These books push past the boundary of what the thinking subject can know, seeking experience that dissolves the self.',
+    recommendations: [],
+  },
+  {
+    name: 'The Machine and the Human',
+    tagline: 'What technology does to consciousness, attention, and political life',
+    description: 'McLuhan, Virilio, Stiegler, Baudrillard, Crary — Charlotte has assembled a sustained investigation into how speed, screens, and mediation reshape human experience. These books ask whether something essential about being human is being lost to the machine.',
+    recommendations: [],
+  },
 ]
 
 const existingBooks: Book[] = [
@@ -165,7 +175,8 @@ const existingBooks: Book[] = [
     synopsis: 'Meera Sodha grew up in a vegetarian household in Lincolnshire, where her mother cooked extraordinary Indian food every day. In East, she draws on her family\'s roots and her travels across Asia to deliver over 120 vegetarian and vegan recipes — from quick weeknight dals and stir-fries to elaborate celebration dishes. The book moves through Japan, China, Vietnam, Thailand, Indonesia, and the Indian subcontinent, offering everything from miso aubergine and peanut chaat to coconut laksa and cardamom rice pudding. It\'s a book about flavour without borders, about how vegetable cooking can be as rich and satisfying as any meat-based tradition.',
     year: 2019, pages: 304, coverColour: '#e8c840',
     amazonUrl: 'https://www.amazon.co.uk/dp/0241387566',
-    themes: [], themeNotes: {}, isCookbook: true,
+    themes: [], themeNotes: {},
+    genre: 'Cookbook', subjects: [],
   },
   {
     id: 'ottolenghi-flavour',
@@ -175,7 +186,8 @@ const existingBooks: Book[] = [
     synopsis: 'Flavour is built around a simple idea: that great vegetable cooking comes from understanding three processes — charring, infusing, and ageing. Ottolenghi and Belfrage break down over 100 recipes to show how techniques like browning butter, blooming spices in oil, fermenting, and slow-roasting can coax maximum flavour from plants. The book is organised not by ingredient but by method, teaching you the principles behind dishes like curry-leaf popcorn, burnt aubergine with tahini, and hasselback beetroot with lime leaf butter. It\'s both a cookbook and a manifesto for rethinking what vegetables can do.',
     year: 2020, pages: 320, coverColour: '#d94f6b',
     amazonUrl: 'https://www.amazon.co.uk/dp/1785038931',
-    themes: [], themeNotes: {}, isCookbook: true,
+    themes: [], themeNotes: {},
+    genre: 'Cookbook', subjects: [],
   },
   {
     id: 'dishoom',
@@ -185,7 +197,8 @@ const existingBooks: Book[] = [
     synopsis: 'Dishoom is part cookbook, part love letter to the Irani cafés of Bombay — those once-ubiquitous gathering places where chai was bottomless and conversation flowed freely. The Thakrar brothers trace the history of these cafés, many now vanished, and share the recipes that made their London restaurants a phenomenon: the legendary black daal (simmered for 24 hours), the bacon naan roll, the lamb biryani, the chicken ruby. Between the recipes are stories of old Bombay — the mill workers, the film stars, the characters who gave each café its personality. Beautifully photographed and deeply personal.',
     year: 2019, pages: 400, coverColour: '#1a4a6e',
     amazonUrl: 'https://www.amazon.co.uk/dp/1408890674',
-    themes: [], themeNotes: {}, isCookbook: true,
+    themes: [], themeNotes: {},
+    genre: 'Cookbook', subjects: [],
   },
   {
     id: 'jerusalem',
@@ -195,7 +208,8 @@ const existingBooks: Book[] = [
     synopsis: 'Two chefs — one Israeli, one Palestinian — both born in Jerusalem in the same year, collaborate on a book about the food of their shared, divided city. Jerusalem explores the culinary traditions of the Arab, Jewish, Christian, and Armenian communities, from the hummus stalls of the Old City to the spice markets and home kitchens. The recipes — roasted aubergine with tahini and pomegranate, lamb shawarma, chopped salads, stuffed vegetables — are deeply rooted in the city\'s layered history. It\'s a book about what food can hold when politics cannot.',
     year: 2012, pages: 320, coverColour: '#c8a870',
     amazonUrl: 'https://www.amazon.co.uk/dp/0091943744',
-    themes: [], themeNotes: {}, isCookbook: true,
+    themes: [], themeNotes: {},
+    genre: 'Cookbook', subjects: [],
   },
   {
     id: 'plenty',
@@ -205,7 +219,8 @@ const existingBooks: Book[] = [
     synopsis: 'Before Plenty, vegetarian cooking in Britain was largely an afterthought — worthy but dull. Ottolenghi changed all that with this collection from his Guardian column, proving that vegetables could be the star of any meal. Recipes like roasted butternut squash with burnt aubergine and pomegranate, mushroom lasagne with ricotta, and saffron tagliatelle move far beyond the expected. The book draws on Middle Eastern, Mediterranean, and Asian traditions, always with Ottolenghi\'s signature abundance — more herbs, more spice, more colour. It launched a revolution in how we eat.',
     year: 2010, pages: 288, coverColour: '#7ab648',
     amazonUrl: 'https://www.amazon.co.uk/dp/0091933684',
-    themes: [], themeNotes: {}, isCookbook: true,
+    themes: [], themeNotes: {},
+    genre: 'Cookbook', subjects: [],
   },
   {
     id: 'cooking-viennas-empire',
@@ -215,7 +230,8 @@ const existingBooks: Book[] = [
     synopsis: 'Part of the classic Time-Life Foods of the World series, this volume explores the kitchens of the old Austro-Hungarian Empire — from the coffeehouses of Vienna to the farmhouses of Hungary, Bohemia, and the Balkans. Joseph Wechsberg, a Czech-born writer and gastronome, guides the reader through Sachertorte, Wiener Schnitzel, Hungarian goulash, Czech dumplings, and the elaborate pastry traditions that made Viennese baking legendary. Richly illustrated and written with warmth and authority, it captures a vanished culinary world where empires were held together partly by what people ate.',
     year: 1968, pages: 208, coverColour: '#8b4513',
     amazonUrl: 'https://www.amazon.co.uk/dp/0809400499',
-    themes: [], themeNotes: {}, isCookbook: true,
+    themes: [], themeNotes: {},
+    genre: 'Cookbook', subjects: [],
   },
   {
     id: 'kyoto-food',
@@ -225,7 +241,8 @@ const existingBooks: Book[] = [
     synopsis: 'A guide to Kyoto that goes beyond the tourist trail, exploring the ancient capital through its food culture, tea ceremonies, temple gardens, and seasonal rituals. The book traces the development of kaiseki cuisine — the multi-course meal that elevates simplicity to high art — and visits the tofu shops, pickle makers, and market stalls that have sustained the city for centuries. It\'s a meditation on how a place can preserve its traditions while remaining alive, and on the Japanese aesthetic of finding beauty in impermanence.',
     year: 2005, pages: 240, coverColour: '#d4a574',
     amazonUrl: 'https://www.amazon.co.uk/dp/0804837775',
-    themes: [], themeNotes: {}, isCookbook: true,
+    themes: [], themeNotes: {},
+    genre: 'Cookbook', subjects: [],
   },
   {
     id: 'constance-spry',
@@ -235,7 +252,8 @@ const existingBooks: Book[] = [
     synopsis: 'First published in 1956, this mammoth volume was the bible of post-war British cooking. Constance Spry, the legendary flower arranger and domestic arts educator, teamed with Rosemary Hume of the Cordon Bleu school to produce a comprehensive guide covering everything from basic stocks to elaborate dinner party menus. The recipes are classical — soufflés, terrines, roasts, sauces — but the voice is surprisingly modern: opinionated, practical, and often very funny. Spry invented Coronation Chicken for the Queen\'s coronation in 1953, and the recipe is here alongside hundreds of others that defined an era of British entertaining.',
     year: 1956, pages: 1216, coverColour: '#c0392b',
     amazonUrl: 'https://www.amazon.co.uk/dp/1909166219',
-    themes: [], themeNotes: {}, isCookbook: true,
+    themes: [], themeNotes: {},
+    genre: 'Cookbook', subjects: [],
   },
   {
     id: 'moosewood',
@@ -245,7 +263,8 @@ const existingBooks: Book[] = [
     synopsis: 'Originally published in 1977 and hand-lettered by Katzen herself, The Moosewood Cookbook emerged from the collectively run Moosewood Restaurant in Ithaca, New York, and became one of the best-selling cookbooks of all time. The recipes — mushroom-barley soup, spanakopita, tahini dressing, baba ganoush — now feel like old friends, but at the time they were revolutionary: proof that meatless food could be hearty, satisfying, and full of flavour. The charming hand-drawn illustrations and handwritten recipes give it a warmth that no digital cookbook has matched.',
     year: 1977, pages: 248, coverColour: '#e67e22',
     amazonUrl: 'https://www.amazon.co.uk/dp/1580081304',
-    themes: [], themeNotes: {}, isCookbook: true,
+    themes: [], themeNotes: {},
+    genre: 'Cookbook', subjects: [],
   },
   {
     id: 'nigel-slater-kitchen-diaries',
@@ -255,7 +274,8 @@ const existingBooks: Book[] = [
     synopsis: 'A diary of a year\'s cooking, from January to December, recording what Nigel Slater cooked and ate each day. It\'s deceptively simple — a roast chicken here, a bowl of soup there — but the cumulative effect is a portrait of a life lived in close attention to the seasons. Spring brings asparagus and new potatoes; summer is all tomatoes and stone fruit; autumn means mushrooms and game; winter calls for slow braises and baked puddings. Slater writes about food the way a poet writes about weather — noticing everything, never forcing it, always finding exactly the right word.',
     year: 2005, pages: 384, coverColour: '#f0e4d0',
     amazonUrl: 'https://www.amazon.co.uk/dp/0007241704',
-    themes: [], themeNotes: {}, isCookbook: true,
+    themes: [], themeNotes: {},
+    genre: 'Cookbook', subjects: [],
   },
 
   // ── The Library ───────────────────────────────────────────────────
@@ -272,6 +292,7 @@ const existingBooks: Book[] = [
       'The Politics of Otherness': 'Roy\'s "Love Laws" — the unwritten rules of caste that determine who may be loved and how much — are the engine of this novel\'s tragedy. The Untouchable Velutha is destroyed not for what he does but for who he is.',
       'The Body as Battleground': 'The forbidden relationship at the heart of the novel is punished through bodies — beaten, drowned, separated. Caste is enforced not through abstract rules but through the physical control of who may touch whom.',
     },
+    genre: 'Fiction', subjects: ['Literature & Memoir'],
   },
   {
     id: 'les-miserables',
@@ -286,6 +307,7 @@ const existingBooks: Book[] = [
       'The Politics of Otherness': 'Valjean is branded an ex-convict and permanently excluded from society for stealing bread. Hugo shows how poverty itself is a form of othering — the poor are not citizens but threats to be managed.',
       'Ruins and Resilience': 'The novel is built around reinvention after destruction — Valjean rebuilds his life from nothing, Paris rebuilds after revolution, and Hugo argues that mercy, not law, is what allows human beings to survive their own history.',
     },
+    genre: 'Fiction', subjects: ['Literature & Memoir'],
   },
   {
     id: 'things-fall-apart',
@@ -300,6 +322,7 @@ const existingBooks: Book[] = [
       'The Politics of Otherness': 'Achebe wrote this novel specifically to counter the colonial narrative that Africa had no culture before Europeans arrived. The Igbo world he depicts is complex, sophisticated, and self-governing — the "other" was never the blank slate colonisers needed it to be.',
       'Ruins and Resilience': 'The title says it all. A complete world — with its own laws, gods, and social order — falls apart under colonial pressure. Achebe records both the collapse and what existed before it, ensuring the ruins carry memory.',
     },
+    genre: 'Fiction', subjects: ['Literature & Memoir'],
   },
   {
     id: 'famished-road',
@@ -314,6 +337,7 @@ const existingBooks: Book[] = [
       'What Lies Beneath': 'Azaro sees the spirit world that exists beneath and alongside the physical one. Political corruption, poverty, and violence are shown to have a mythic dimension — the "famished road" of the title is a hunger that runs through reality itself.',
       'Ruins and Resilience': 'Azaro chooses to stay in the living world despite its suffering. In a nation on the brink of independence, surrounded by chaos, the act of remaining — of refusing to return to the spirit realm — is itself a form of radical resilience.',
     },
+    genre: 'Fiction', subjects: ['Literature & Memoir'],
   },
   {
     id: 'shantaram',
@@ -327,6 +351,7 @@ const existingBooks: Book[] = [
     themeNotes: {
       'Place and Belonging': 'A fugitive with no right to be anywhere finds a home in a Bombay slum. Roberts shows how belonging can be earned through presence, generosity, and the willingness to be changed by a place — even when you have no legal claim to it.',
     },
+    genre: 'Fiction', subjects: ['Literature & Memoir'],
   },
   {
     id: 'white-teeth',
@@ -341,6 +366,7 @@ const existingBooks: Book[] = [
       'The Politics of Otherness': 'Every character in White Teeth is negotiating what it means to belong in a country that isn\'t sure it wants them. Samad\'s anguish about raising Muslim children in secular London is the novel\'s most poignant exploration of otherness as a daily, lived condition.',
       'Place and Belonging': 'Smith\'s London is a place where identities are constantly being remade — through intermarriage, through food, through argument. Belonging here isn\'t about roots but about the ongoing, messy, comic negotiation of sharing a city.',
     },
+    genre: 'Fiction', subjects: ['Literature & Memoir'],
   },
   {
     id: 'londoners',
@@ -355,6 +381,7 @@ const existingBooks: Book[] = [
       'The Politics of Otherness': 'The voices in this book include refugees, immigrants, and people who feel like strangers in their own city. Taylor lets them speak for themselves, revealing how belonging in London is never settled — it\'s always being questioned, claimed, and contested.',
       'Place and Belonging': 'London emerges not as a fixed place but as two hundred different cities layered on top of each other. Each voice adds another London. The book argues that a city is nothing more — or less — than the sum of the lives lived in it.',
     },
+    genre: 'Non-fiction', subjects: ['Literature & Memoir'],
   },
   {
     id: 'wide-sargasso-sea',
@@ -369,6 +396,7 @@ const existingBooks: Book[] = [
       'The Politics of Otherness': 'Antoinette belongs nowhere — too white for the Black community, too Creole for her English husband. Rhys shows how colonial othering works not just between races but within them, stripping identity down to nothing.',
       'Place and Belonging': 'Jamaica is a character in this novel — its heat, its colours, its danger. When Antoinette is taken to England, the loss of place is inseparable from the loss of self. Rhys shows that to be uprooted is to be unmade.',
     },
+    genre: 'Fiction', subjects: ['Literature & Memoir'],
   },
   {
     id: 'beloved',
@@ -384,6 +412,7 @@ const existingBooks: Book[] = [
       'What Lies Beneath': 'The ghost of Beloved is the past that refuses to stay buried. Morrison makes literal what is psychologically true: that trauma lives in the house, in the body, in the very air — and that it will manifest until it is faced.',
       'The Body as Battleground': 'Sethe\'s body bears the scars of slavery — literally, a tree of welts on her back. Her desperate act of violence is a mother\'s attempt to keep her children\'s bodies free. The novel insists that slavery was, above all, a crime against the body.',
     },
+    genre: 'Fiction', subjects: ['Literature & Memoir'],
   },
   {
     id: 'wind-up-bird',
@@ -397,6 +426,7 @@ const existingBooks: Book[] = [
     themeNotes: {
       'What Lies Beneath': 'Murakami\'s protagonist descends into a dry well and finds that beneath suburban Tokyo lies a labyrinth of wartime violence, suppressed memory, and metaphysical darkness. The novel argues that what we call "ordinary life" is a thin crust over something vast and terrifying.',
     },
+    genre: 'Fiction', subjects: ['Literature & Memoir'],
   },
   {
     id: 'remains-of-the-day',
@@ -410,6 +440,7 @@ const existingBooks: Book[] = [
     themeNotes: {
       'What Lies Beneath': 'Everything important in this novel happens beneath what Stevens says. His dignity is a mask. His loyalty is complicity. His "professional" distance from Miss Kenton is suppressed love. Ishiguro creates a character whose entire life is a surface concealing what lies beneath.',
     },
+    genre: 'Fiction', subjects: ['Literature & Memoir'],
   },
   {
     id: 'atlas-brutalist-architecture',
@@ -424,6 +455,7 @@ const existingBooks: Book[] = [
       'Ruins and Resilience': 'Brutalism was born from the rubble of World War II — an architecture of reconstruction, built in concrete because concrete was cheap and ambition was not. These buildings are monuments to the belief that you could build a better society from the ruins of the old one.',
       'Place and Belonging': 'Every Brutalist building was designed to shape how people live together — housing estates, universities, civic centres. The atlas documents architecture as an act of community-making, where the built environment embodies a society\'s aspirations for collective belonging.',
     },
+    genre: 'Art Catalogue', subjects: ['Design & Architecture'],
   },
   {
     id: 'goya',
@@ -438,6 +470,7 @@ const existingBooks: Book[] = [
       'Seeing and Power': 'Goya used his position as court painter to smuggle truth into images of power. His royal portraits are subtly unflattering; his war etchings are an act of witness against the state. Hughes shows an artist who understood that the act of seeing is never neutral.',
       'What Lies Beneath': 'The Black Paintings of Goya\'s final years — Saturn devouring his son, witches\' sabbaths, drowning dogs — reveal the nightmare beneath Enlightenment civilisation. Goya painted what polite society refused to see: the violence, madness, and cruelty that lie beneath the surface.',
     },
+    genre: 'Non-fiction', subjects: ['Art & Visual Culture'],
   },
   {
     id: 'roman-gardens',
@@ -451,6 +484,7 @@ const existingBooks: Book[] = [
     themeNotes: {
       'Place and Belonging': 'Roman gardens were designed landscapes — nature shaped by philosophy, politics, and aesthetics. They show how a civilisation expressed its relationship to the natural world, turning land into a mirror of its values and desires.',
     },
+    genre: 'Reference', subjects: ['Art & Visual Culture', 'History & Politics'],
   },
   {
     id: 'ways-of-seeing',
@@ -464,6 +498,7 @@ const existingBooks: Book[] = [
     themeNotes: {
       'Seeing and Power': 'The foundational text for this entire theme. Berger demonstrates that the way we see art is shaped by assumptions about property, gender, and class — and that learning to see differently is the first step toward thinking differently about power.',
     },
+    genre: 'Non-fiction', subjects: ['Art & Visual Culture', 'Critical Theory'],
   },
   {
     id: 'badiou-being-event',
@@ -477,6 +512,7 @@ const existingBooks: Book[] = [
     themeNotes: {
       'What Lies Beneath': 'Badiou argues that the most important things — revolutions, love, art — erupt from beneath the surface of "what is." The event is precisely what the existing order cannot predict or contain. Truth is what lies beneath being.',
     },
+    genre: 'Philosophy', subjects: ['Continental Philosophy'],
   },
   {
     id: '247',
@@ -491,6 +527,7 @@ const existingBooks: Book[] = [
       'What Lies Beneath': 'Crary reveals the hidden war that capitalism wages on human consciousness — colonising attention, eroding the boundary between day and night, and attacking sleep as an unproductive interruption. The violence is invisible precisely because it has become the texture of daily life.',
       'The Body as Battleground': 'Sleep is the body\'s refusal to be productive. Crary frames the biological need for rest as a site of resistance — the last frontier where the body asserts its own rhythms against the demands of the market.',
     },
+    genre: 'Philosophy', subjects: ['Critical Theory'],
   },
   {
     id: 'second-sex',
@@ -505,6 +542,7 @@ const existingBooks: Book[] = [
       'The Politics of Otherness': 'Beauvoir\'s central argument: woman has been constructed as man\'s "Other" — not a subject in her own right but a mirror for male identity. The entire apparatus of femininity is a system for producing and maintaining this otherness.',
       'The Body as Battleground': 'Beauvoir traces how the female body — menstruation, pregnancy, ageing — is used to justify women\'s subordination. The body is not destiny, she argues, but it has been made into a cage by a society that reads biology as fate.',
     },
+    genre: 'Philosophy', subjects: ['Feminism & Gender', 'Continental Philosophy'],
   },
   {
     id: 'mushroom-end-of-world',
@@ -518,6 +556,7 @@ const existingBooks: Book[] = [
     themeNotes: {
       'Ruins and Resilience': 'Tsing\'s central insight: the matsutake mushroom thrives in devastated forests, creating value in landscapes that capitalism has used up and abandoned. Life doesn\'t need pristine conditions — it finds ways to flourish in the ruins.',
     },
+    genre: 'Non-fiction', subjects: ['Nature & Science'],
   },
   {
     id: 'undercommons',
@@ -532,6 +571,7 @@ const existingBooks: Book[] = [
       'Seeing and Power': 'Harney and Moten argue that the university — supposedly a place of free knowledge — is actually a machine for producing compliant subjects. Genuine study happens fugitively, in the margins, beyond the institution\'s gaze.',
       'Ruins and Resilience': 'The "undercommons" is a form of survival within hostile institutions — informal networks of care, study, and solidarity that exist beneath and despite the structures designed to govern them. Resilience as refusal.',
     },
+    genre: 'Philosophy', subjects: ['Critical Theory'],
   },
   {
     id: 'lifes-work',
@@ -545,6 +585,7 @@ const existingBooks: Book[] = [
     themeNotes: {
       'The Body as Battleground': 'Motherhood as Cusk describes it is an overwhelmingly physical experience — the body split open by birth, colonised by a newborn\'s needs, reshaped beyond recognition. The self doesn\'t just change; it is obliterated and rebuilt around the body\'s new demands.',
     },
+    genre: 'Non-fiction', subjects: ['Literature & Memoir', 'Feminism & Gender'],
   },
   {
     id: 'outline',
@@ -558,6 +599,7 @@ const existingBooks: Book[] = [
     themeNotes: {
       'The Body as Battleground': 'The narrator has been so thoroughly emptied by divorce and motherhood that she exists only as an outline — a negative space defined by others\' stories. Cusk shows what happens to a woman\'s self when the roles that defined her body (wife, mother) are stripped away.',
     },
+    genre: 'Fiction', subjects: ['Literature & Memoir'],
   },
   {
     id: 'nothing-to-envy',
@@ -572,6 +614,7 @@ const existingBooks: Book[] = [
       'The Politics of Otherness': 'North Korea\'s songbun system assigns citizens a political classification at birth that determines their entire life. Demick shows othering as total state control — where even your loyalty is predetermined, and stepping outside your assigned identity means death.',
       'Ruins and Resilience': 'A country collapses in slow motion — the famine, the crumbling infrastructure, the erosion of belief. Yet people fall in love, raise children, and find ways to survive. The defectors\' stories are acts of resilience against a system designed to make individual survival impossible.',
     },
+    genre: 'Non-fiction', subjects: ['History & Politics'],
   },
   {
     id: 'year-of-magical-thinking',
@@ -585,6 +628,7 @@ const existingBooks: Book[] = [
     themeNotes: {
       'Ruins and Resilience': 'Didion\'s grief is a personal apocalypse — the complete destruction of the life she knew. The "magical thinking" of the title is itself a form of resilience: the mind\'s refusal to accept ruin, even as the writer\'s discipline forces her to document it with absolute precision.',
     },
+    genre: 'Non-fiction', subjects: ['Literature & Memoir'],
   },
   {
     id: 'berlin',
@@ -599,6 +643,7 @@ const existingBooks: Book[] = [
       'Ruins and Resilience': 'Berlin is the city of ruins and resilience — bombed flat, divided by a wall, reunified, gentrified. MacLean shows that Berlin\'s identity is not any single incarnation but the pattern of destruction and reinvention itself.',
       'Place and Belonging': 'From Huguenot refugees to Turkish guest workers to post-Wall artists, Berlin has always been shaped by people who arrived from elsewhere. MacLean argues that the city\'s genius lies in its capacity to absorb newcomers and be transformed by them.',
     },
+    genre: 'Non-fiction', subjects: ['History & Politics'],
   },
   {
     id: 'world-atlas',
@@ -612,6 +657,7 @@ const existingBooks: Book[] = [
     themeNotes: {
       'Place and Belonging': 'An atlas is a map of belonging itself — who lives where, which borders divide them, which rivers connect them. A physical atlas invites a slower, more contemplative relationship with geography than any screen can offer.',
     },
+    genre: 'Reference', subjects: ['History & Politics'],
   },
   {
     id: 'in-patagonia',
@@ -626,6 +672,7 @@ const existingBooks: Book[] = [
       'Ruins and Resilience': 'Patagonia as Chatwin finds it is a landscape of remnants — Welsh colonies that never quite took root, outlaw hideouts, extinct animals. The beauty of the book is in how life persists at the edge of the world, in the most inhospitable conditions.',
       'Place and Belonging': 'Chatwin\'s Patagonia is half real, half invented — a place that exists as much in the imagination as on the map. The book asks whether belonging to a place requires living there, or whether some places belong to us through story and longing.',
     },
+    genre: 'Non-fiction', subjects: ['Literature & Memoir'],
   },
   {
     id: 'empire',
@@ -639,6 +686,7 @@ const existingBooks: Book[] = [
     themeNotes: {
       'Seeing and Power': 'Ferguson tells the story of Empire from the coloniser\'s perspective — and that framing is itself an exercise of narrative power. Reading it alongside Said and Achebe reveals how the same history looks completely different depending on who controls the telling.',
     },
+    genre: 'Non-fiction', subjects: ['History & Politics'],
   },
   {
     id: 'orientalism',
@@ -653,6 +701,7 @@ const existingBooks: Book[] = [
       'The Politics of Otherness': 'The book that gave us the vocabulary for understanding how otherness is manufactured. Said showed that "the Orient" was a European invention — a projection of everything the West needed its Other to be: exotic, irrational, available for conquest.',
       'Seeing and Power': 'Said\'s devastating insight: knowledge about "the Orient" was never neutral scholarship but a tool of imperial governance. The scholars, painters, and novelists who represented the East were — knowingly or not — producing the justification for dominating it.',
     },
+    genre: 'Non-fiction', subjects: ['History & Politics', 'Critical Theory'],
   },
   {
     id: 'invention-of-tradition',
@@ -666,6 +715,7 @@ const existingBooks: Book[] = [
     themeNotes: {
       'Seeing and Power': 'Hobsbawm reveals that what appears to be timeless tradition is often recent fabrication designed to legitimate power. The kilt, the royal ceremony, the colonial ritual — all invented to create the illusion of ancient authority. Seeing through the invention is an act of intellectual liberation.',
     },
+    genre: 'Non-fiction', subjects: ['History & Politics'],
   },
   {
     id: 'underland',
@@ -680,6 +730,7 @@ const existingBooks: Book[] = [
       'What Lies Beneath': 'The most literal expression of this theme in the collection. Macfarlane descends into caves, mines, catacombs, and nuclear waste stores to discover what the underground world reveals about memory, time, and what we choose to bury.',
       'Place and Belonging': 'Macfarlane shows that "place" extends downward — beneath every landscape lies another landscape, layered with geological and human history. To truly know where you are, you must understand what lies beneath your feet.',
     },
+    genre: 'Non-fiction', subjects: ['Nature & Science', 'Literature & Memoir'],
   },
   {
     id: 'braiding-sweetgrass',
@@ -693,6 +744,7 @@ const existingBooks: Book[] = [
     themeNotes: {
       'Ruins and Resilience': 'Kimmerer writes from the ruins of colonisation — the near-destruction of indigenous languages, knowledge systems, and land. Yet Braiding Sweetgrass is not a book about loss but about what survives: the sweetgrass still grows, the stories are still told, and reciprocity with the land remains possible.',
     },
+    genre: 'Non-fiction', subjects: ['Nature & Science'],
   },
   {
     id: 'ariel',
@@ -707,6 +759,7 @@ const existingBooks: Book[] = [
       'What Lies Beneath': '"Lady Lazarus" rises from the dead; "Daddy" excavates the buried father. Plath\'s poems are eruptions — the controlled surface of language splitting open to reveal fury, pain, and a terrifying clarity that was always there, underneath.',
       'The Body as Battleground': 'Plath writes from inside the body with unprecedented intensity — the body burned, resurrected, cut open, transformed. In Ariel, the female body is simultaneously a prison and the raw material for the most powerful art of its era.',
     },
+    genre: 'Poetry', subjects: ['Literature & Memoir'],
   },
   {
     id: 'citizen',
@@ -722,6 +775,7 @@ const existingBooks: Book[] = [
       'Seeing and Power': 'By making racial microaggressions visible — naming them, cataloguing them, refusing to let them pass — Rankine turns seeing into a political act. The book forces you to notice what you\'ve been trained not to see.',
       'The Body as Battleground': 'Rankine documents what it means to move through the world in a Black body — the hypervisibility, the surveillance, the exhaustion of being constantly perceived as a threat. The body in Citizen is never just a body; it\'s always a political surface.',
     },
+    genre: 'Poetry', subjects: ['Feminism & Gender'],
   },
   {
     id: 'dont-let-me-be-lonely',
@@ -735,6 +789,7 @@ const existingBooks: Book[] = [
     themeNotes: {
       'The Politics of Otherness': 'Rankine describes the loneliness of belonging to a country that does not fully recognise you. The alienation here is quieter than in Citizen but no less devastating — a slow erosion of selfhood by a culture that renders you invisible.',
     },
+    genre: 'Poetry', subjects: ['Literature & Memoir'],
   },
   {
     id: 'room-of-ones-own',
@@ -749,6 +804,7 @@ const existingBooks: Book[] = [
       'Seeing and Power': 'Woolf asks the most basic question about creative power: who gets to write, and why? Her answer — that genius requires material conditions, not just talent — reveals how literary tradition has been shaped by money, gender, and access rather than merit alone.',
       'The Body as Battleground': 'Shakespeare\'s imagined sister is trapped not by lack of talent but by her female body — by pregnancy, by lack of education, by the impossibility of a woman walking alone into a theatre. Woolf shows that the body\'s freedoms determine the mind\'s possibilities.',
     },
+    genre: 'Non-fiction', subjects: ['Feminism & Gender', 'Literature & Memoir'],
   },
   {
     id: 'on-photography',
@@ -762,10 +818,11 @@ const existingBooks: Book[] = [
     themeNotes: {
       'Seeing and Power': 'Sontag argues that the camera is not a neutral tool but an instrument of power — to photograph someone is to appropriate their image, to turn them into an object of consumption. Photography doesn\'t document reality; it produces a new reality that serves the photographer\'s purposes.',
     },
+    genre: 'Non-fiction', subjects: ['Art & Visual Culture', 'Critical Theory'],
   },
 ]
 
-export const books: Book[] = [...existingBooks, ...newBooks, ...reviewedBooks]
+export const books: Book[] = [...existingBooks]
 
 export const heroSelection: HeroSelection = {
   title: 'Ruins and Resilience',

@@ -9,7 +9,6 @@ export const newBooks: Book[] = [
     synopsis: 'Deleuze and Guattari abandon the tree-like structures of traditional philosophy in favour of the rhizome — a model of knowledge that grows sideways, without centre or hierarchy. Across fifteen "plateaus," they develop concepts like the body without organs, the war machine, and smooth vs. striated space, drawing on everything from linguistics to geology to music. It is one of the most ambitious and disorienting works of twentieth-century philosophy.',
     year: 1980, pages: 632, coverColour: '#4a4a4a',
     amazonUrl: 'https://www.amazon.co.uk/dp/0816614024',
-    genre: 'Philosophy', subjects: ['Continental Philosophy'],
     themes: ['What Lies Beneath'], themeNotes: { 'What Lies Beneath': 'Deleuze and Guattari argue that beneath the organised surfaces of thought, language, and society lie flows of desire and intensity that cannot be contained — the rhizome that breaks through every structure imposed upon it.' },
   },
   {
@@ -18,7 +17,6 @@ export const newBooks: Book[] = [
     synopsis: 'Heidegger asks the question that philosophy had forgotten: what does it mean to be? Through his analysis of Dasein — human existence as "being-there" — he reveals the structures of everyday life: care, anxiety, being-toward-death, and the call of conscience. Unfinished, difficult, and unavoidable.',
     year: 1927, pages: 589, coverColour: '#5d4037',
     amazonUrl: 'https://www.amazon.co.uk/dp/0631197702',
-    genre: 'Philosophy', subjects: ['Continental Philosophy'],
     themes: ['What Lies Beneath'], themeNotes: { 'What Lies Beneath': 'Heidegger argues that our everyday existence conceals the question of Being beneath a surface of routine and distraction. Anxiety — Angst — is what breaks through, revealing the nothing that underlies everything.' },
   },
   {
@@ -27,7 +25,6 @@ export const newBooks: Book[] = [
     synopsis: 'A short, fierce polemic arguing that ecological crisis is also a crisis of subjectivity and social relations. Guattari proposes "ecosophy" — an ethico-political articulation of the three registers of ecology: environmental, social, and mental.',
     year: 1989, pages: 80, coverColour: '#616161',
     amazonUrl: 'https://www.amazon.co.uk/dp/1847063055',
-    genre: 'Philosophy', subjects: ['Continental Philosophy'],
     themes: ['Ruins and Resilience'], themeNotes: { 'Ruins and Resilience': 'Guattari writes from the ruins of both capitalism and orthodox Marxism, arguing that genuine ecological resilience requires not just saving forests but remaking how we think, feel, and relate.' },
   },
   {
@@ -36,7 +33,6 @@ export const newBooks: Book[] = [
     synopsis: 'Against the Cartesian split between mind and body, Merleau-Ponty argues that perception is not a mental act but a bodily one. We know the world through our flesh, not through abstract thought. These essays develop his phenomenology of embodiment across aesthetics, politics, and science.',
     year: 1964, pages: 228, coverColour: '#37474f',
     amazonUrl: 'https://www.amazon.co.uk/dp/0810101645',
-    genre: 'Philosophy', subjects: ['Continental Philosophy'],
     themes: ['The Body as Battleground'], themeNotes: { 'The Body as Battleground': 'Merleau-Ponty insists that the body is not an object we have but the subject we are. All perception, all thought, all knowledge begins in the lived body — making embodiment the foundation of everything.' },
   },
   {
@@ -45,7 +41,6 @@ export const newBooks: Book[] = [
     synopsis: 'Bergson dismantles the assumption that the brain is a container for memories, arguing instead that the past survives in its entirety and that perception is always shaped by the virtual pressure of memory. A key influence on Deleuze and on process philosophy more broadly.',
     year: 1896, pages: 288, coverColour: '#78909c',
     amazonUrl: 'https://www.amazon.co.uk/dp/0486434159',
-    genre: 'Philosophy', subjects: ['Continental Philosophy'],
     themes: ['What Lies Beneath'], themeNotes: { 'What Lies Beneath': 'For Bergson, the entire past lies beneath every moment of perception — not stored somewhere, but coexisting with the present. Memory is what lies beneath consciousness, shaping everything we see.' },
   },
   {
@@ -54,7 +49,6 @@ export const newBooks: Book[] = [
     synopsis: 'Kant asks how we can judge something beautiful without relying on concepts, and how nature can appear purposeful without a designer. The Critique of Judgement bridges his earlier works on knowledge and morality, and laid the groundwork for modern aesthetics.',
     year: 1790, pages: 464, coverColour: '#455a64',
     amazonUrl: 'https://www.amazon.co.uk/dp/0199552460',
-    genre: 'Philosophy', subjects: ['Continental Philosophy'],
     themes: ['Seeing and Power'], themeNotes: { 'Seeing and Power': 'Kant\'s aesthetics reveal that judgements of beauty are never purely personal — they claim universal assent. The politics of taste, of who gets to define the beautiful, begins here.' },
   },
   {
@@ -63,7 +57,6 @@ export const newBooks: Book[] = [
     synopsis: 'Bataille pursues experience to its extreme: laughter, eroticism, sacrifice, and the moment when the self dissolves. Inner Experience is both a philosophical text and a record of spiritual crisis — mysticism without God, ecstasy without salvation.',
     year: 1943, pages: 224, coverColour: '#1a237e',
     amazonUrl: 'https://www.amazon.co.uk/dp/0791422496',
-    genre: 'Philosophy', subjects: ['Continental Philosophy', 'Spirituality & Mysticism'],
     themes: ['What Lies Beneath', 'The Body as Battleground'], themeNotes: { 'What Lies Beneath': 'Bataille seeks what lies beneath rational thought: ecstasy, terror, the sacred. Inner experience is the eruption of the unknown through the crust of the everyday.', 'The Body as Battleground': 'For Bataille, limit-experience happens in the body — through pain, pleasure, and the dissolution of boundaries. The body is where the self comes undone.' },
   },
   {
@@ -72,7 +65,6 @@ export const newBooks: Book[] = [
     synopsis: 'Freire attacks the "banking" model of education — where teachers deposit knowledge into passive students — and proposes instead a dialogical pedagogy in which teacher and student learn together. Written from his experience of literacy campaigns in Brazil, it remains the most influential text in critical pedagogy.',
     year: 1968, pages: 192, coverColour: '#b71c1c',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141988061',
-    genre: 'Non-fiction', subjects: ['Education & Pedagogy'],
     themes: ['The Politics of Otherness', 'Seeing and Power'], themeNotes: { 'The Politics of Otherness': 'Freire shows how education systems reproduce oppression by treating the oppressed as objects to be filled with the oppressor\'s knowledge. Liberation begins when the "other" becomes a subject who names their own world.', 'Seeing and Power': 'The banking model of education is a system for controlling what people see and know. Freire\'s dialogical method is an act of seeing together — shared inquiry rather than imposed truth.' },
   },
   {
@@ -81,7 +73,6 @@ export const newBooks: Book[] = [
     synopsis: 'Adorno argues that authentic art resists the administered world not through political content but through its form — its refusal to be easily consumed. Art\'s truth content lies in its negativity, in what it refuses to reconcile. Published posthumously and deliberately fragmentary.',
     year: 1970, pages: 400, coverColour: '#212121',
     amazonUrl: 'https://www.amazon.co.uk/dp/0826467547',
-    genre: 'Philosophy', subjects: ['Continental Philosophy', 'Critical Theory'],
     themes: ['Seeing and Power'], themeNotes: { 'Seeing and Power': 'Adorno argues that art\'s power lies not in what it shows but in what it refuses to show — its resistance to the culture industry\'s demand that everything be made visible, consumable, and profitable.' },
   },
   {
@@ -90,7 +81,6 @@ export const newBooks: Book[] = [
     synopsis: 'Written in American exile during the war, these 153 aphorisms dissect the corruptions of everyday life under capitalism — from the decline of gift-giving to the impossibility of dwelling. "There is no right life in the wrong one" is its most famous line.',
     year: 1951, pages: 256, coverColour: '#424242',
     amazonUrl: 'https://www.amazon.co.uk/dp/1844676412',
-    genre: 'Philosophy', subjects: ['Critical Theory'],
     themes: ['Ruins and Resilience'], themeNotes: { 'Ruins and Resilience': 'Written from the ruins of European civilisation, Minima Moralia asks whether any form of good life is possible in a damaged world. Adorno\'s answer is bleak but his persistence in asking is itself a form of intellectual resilience.' },
   },
   {
@@ -99,7 +89,6 @@ export const newBooks: Book[] = [
     synopsis: 'The culture industry produces the illusion of individuality while standardising everything. These essays — on jazz, television, astrology, and free time — argue that entertainment is not harmless pleasure but a mechanism of social control.',
     year: 1991, pages: 210, coverColour: '#37474f',
     amazonUrl: 'https://www.amazon.co.uk/dp/0415253802',
-    genre: 'Philosophy', subjects: ['Critical Theory'],
     themes: ['Seeing and Power'], themeNotes: {},
   },
   {
@@ -108,7 +97,6 @@ export const newBooks: Book[] = [
     synopsis: 'This collection includes "The Work of Art in the Age of Mechanical Reproduction," "The Storyteller," and the "Theses on the Philosophy of History" with its unforgettable image of the angel of history blown backwards into the future by the storm of progress. Edited and introduced by Hannah Arendt.',
     year: 1968, pages: 288, coverColour: '#1b5e20',
     amazonUrl: 'https://www.amazon.co.uk/dp/0712666354',
-    genre: 'Non-fiction', subjects: ['Critical Theory'],
     themes: ['Seeing and Power', 'Ruins and Resilience'], themeNotes: { 'Seeing and Power': 'Benjamin\'s essay on mechanical reproduction is the essential companion to Berger\'s Ways of Seeing — it asks what happens to art\'s "aura" when images can be infinitely copied.', 'Ruins and Resilience': 'The angel of history sees wreckage piled upon wreckage but cannot stop to mend it. Benjamin\'s image of progress as catastrophe is one of the most powerful in twentieth-century thought.' },
   },
   {
@@ -117,7 +105,6 @@ export const newBooks: Book[] = [
     synopsis: 'In short, brilliant essays, Barthes shows how bourgeois ideology naturalises itself through the mythologies of everyday life. A new car, a plate of food, a photograph of a Black soldier saluting the French flag — each conceals a political message beneath its apparent innocence.',
     year: 1957, pages: 160, coverColour: '#e8c840',
     amazonUrl: 'https://www.amazon.co.uk/dp/0099529750',
-    genre: 'Non-fiction', subjects: ['Critical Theory'],
     themes: ['Seeing and Power'], themeNotes: { 'Seeing and Power': 'Barthes reveals how power operates through the everyday — through images, objects, and cultural habits that appear natural but are in fact ideological constructions. Seeing through myth is the first act of resistance.' },
   },
   {
@@ -126,7 +113,6 @@ export const newBooks: Book[] = [
     synopsis: 'A slim, sensual book that treats reading as a bodily experience. Barthes distinguishes between texts that satisfy (pleasure) and texts that unsettle, that bring the reader to the edge of language (bliss/jouissance).',
     year: 1973, pages: 67, coverColour: '#ad1457',
     amazonUrl: 'https://www.amazon.co.uk/dp/0374521603',
-    genre: 'Non-fiction', subjects: ['Critical Theory', 'Literature & Memoir'],
     themes: ['The Body as Battleground'], themeNotes: {},
   },
   {
@@ -135,7 +121,6 @@ export const newBooks: Book[] = [
     synopsis: 'Beginning with the commodity — "an object outside us, a thing that by its properties satisfies human wants" — Marx traces how capitalism transforms human labour into abstract value, how surplus is extracted, and how the system reproduces itself. The foundational text of political economy.',
     year: 1867, pages: 1152, coverColour: '#b71c1c',
     amazonUrl: 'https://www.amazon.co.uk/dp/0140445684',
-    genre: 'Philosophy', subjects: ['Critical Theory', 'History & Politics'],
     themes: ['Seeing and Power'], themeNotes: {},
   },
   {
@@ -144,7 +129,6 @@ export const newBooks: Book[] = [
     synopsis: 'Before Baudrillard became the theorist of simulation, he wrote this semiotic analysis of consumer culture — how objects are arranged, displayed, and consumed not for their use but for their sign value.',
     year: 1968, pages: 224, coverColour: '#455a64',
     amazonUrl: 'https://www.amazon.co.uk/dp/1844670538',
-    genre: 'Philosophy', subjects: ['Critical Theory'],
     themes: ['Seeing and Power'], themeNotes: {},
   },
   {
@@ -153,7 +137,6 @@ export const newBooks: Book[] = [
     synopsis: 'In these 1981-82 Collège de France lectures, Foucault traces how the ancient Greek injunction to "know yourself" was originally inseparable from practices of self-care — spiritual exercises, meditation, confession. He shows how Christianity and modernity stripped self-knowledge from self-care, creating the modern subject.',
     year: 2005, pages: 566, coverColour: '#616161',
     amazonUrl: 'https://www.amazon.co.uk/dp/0312425708',
-    genre: 'Philosophy', subjects: ['Continental Philosophy'],
     themes: ['The Body as Battleground'], themeNotes: {},
   },
   {
@@ -162,7 +145,6 @@ export const newBooks: Book[] = [
     synopsis: 'Written in 1941 as fascism consumed Europe, Fromm argues that modern freedom — liberation from feudal bonds — created a psychic vacuum that people fill with submission to authority, compulsive conformity, or destructive rage. Still devastatingly relevant.',
     year: 1941, pages: 300, coverColour: '#795548',
     amazonUrl: 'https://www.amazon.co.uk/dp/0415253888',
-    genre: 'Non-fiction', subjects: ['Psychoanalysis'],
     themes: ['The Politics of Otherness'], themeNotes: {},
   },
   {
@@ -171,7 +153,6 @@ export const newBooks: Book[] = [
     synopsis: 'Camus\'s first novel is a study in alienation. Meursault does not cry at his mother\'s funeral, begins a casual affair the next day, and shoots a man for no clear reason. His real crime, it turns out, is his refusal to perform the emotions society demands. A founding text of existentialism and absurdism.',
     year: 1942, pages: 123, coverColour: '#f5f5f5',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141198060',
-    genre: 'Fiction', subjects: ['Literature & Memoir'],
     themes: ['The Politics of Otherness'], themeNotes: { 'The Politics of Otherness': 'Meursault is condemned not for murder but for his failure to perform acceptable grief, love, and remorse. Camus shows how society punishes those who refuse to wear its emotional masks.' },
   },
   {
@@ -180,7 +161,6 @@ export const newBooks: Book[] = [
     synopsis: 'Borges creates worlds where libraries contain every possible book, where a map becomes as large as the territory it represents, where a man dreams another man into existence. These stories — "The Library of Babel," "The Garden of Forking Paths," "Pierre Menard, Author of the Quixote" — changed what fiction could do.',
     year: 1962, pages: 256, coverColour: '#1a237e',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141184841',
-    genre: 'Fiction', subjects: ['Literature & Memoir'],
     themes: ['What Lies Beneath'], themeNotes: { 'What Lies Beneath': 'Borges reveals infinite structures beneath the surface of reality — libraries that contain all possible books, gardens where time forks into parallel futures. His fiction makes the hidden architecture of the world visible.' },
   },
   {
@@ -189,7 +169,6 @@ export const newBooks: Book[] = [
     synopsis: 'Ten letters written between 1903 and 1908 to a young aspiring poet. Rilke counsels patience, solitude, and the willingness to live within uncertainty: "Be patient toward all that is unsolved in your heart and try to love the questions themselves."',
     year: 1929, pages: 80, coverColour: '#90a4ae',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141192844',
-    genre: 'Non-fiction', subjects: ['Literature & Memoir'],
     themes: [], themeNotes: {},
   },
   {
@@ -198,7 +177,6 @@ export const newBooks: Book[] = [
     synopsis: 'Written under multiple pseudonyms, Either/Or presents two ways of life: the aesthetic (devoted to pleasure, irony, and the moment) and the ethical (devoted to commitment, marriage, and duty). Kierkegaard does not resolve the tension — that is the point.',
     year: 1843, pages: 608, coverColour: '#263238',
     amazonUrl: 'https://www.amazon.co.uk/dp/0140445773',
-    genre: 'Philosophy', subjects: ['Continental Philosophy'],
     themes: [], themeNotes: {},
   },
   {
@@ -207,7 +185,6 @@ export const newBooks: Book[] = [
     synopsis: 'The ultimate novel of decadence. Des Esseintes, a jaded aristocrat, withdraws from the world and constructs an entirely artificial environment — gem-encrusted tortoise, orchestras of liqueurs, rooms designed for each hour of the day. A novel that influenced Wilde, Proust, and the entire Symbolist movement.',
     year: 1884, pages: 224, coverColour: '#4a148c',
     amazonUrl: 'https://www.amazon.co.uk/dp/0140447636',
-    genre: 'Fiction', subjects: ['Literature & Memoir'],
     themes: ['The Body as Battleground'], themeNotes: {},
   },
   {
@@ -216,7 +193,6 @@ export const newBooks: Book[] = [
     synopsis: 'Aphorisms, poems, and experiments in thought that range from the death of God to the eternal return, from the will to power to the "gay" (joyful) science of living without metaphysical comfort. The book where Nietzsche is most himself.',
     year: 1882, pages: 396, coverColour: '#00695c',
     amazonUrl: 'https://www.amazon.co.uk/dp/0394719859',
-    genre: 'Philosophy', subjects: ['Continental Philosophy'],
     themes: ['What Lies Beneath'], themeNotes: {},
   },
   {
@@ -225,7 +201,6 @@ export const newBooks: Book[] = [
     synopsis: 'Structured around the Kübler-Ross stages of grief, Žižek argues that global capitalism is approaching its terminal crisis and maps our collective responses — from ideological denial to revolutionary possibility.',
     year: 2010, pages: 504, coverColour: '#d32f2f',
     amazonUrl: 'https://www.amazon.co.uk/dp/1844677028',
-    genre: 'Philosophy', subjects: ['Critical Theory'],
     themes: ['Ruins and Resilience'], themeNotes: {},
   },
   {
@@ -234,7 +209,6 @@ export const newBooks: Book[] = [
     synopsis: 'The real violence, Žižek argues, is not the spectacular eruptions we see on the news but the systemic violence embedded in the smooth functioning of capitalism — and the symbolic violence of language that frames how we see the world.',
     year: 2008, pages: 224, coverColour: '#b71c1c',
     amazonUrl: 'https://www.amazon.co.uk/dp/1846680271',
-    genre: 'Philosophy', subjects: ['Critical Theory'],
     themes: ['What Lies Beneath', 'Seeing and Power'], themeNotes: { 'What Lies Beneath': 'Žižek\'s central point: the most dangerous violence is invisible — the systemic violence that maintains "normal" social order. What we call peace is itself a form of violence, hidden beneath the surface.' },
   },
 
@@ -245,7 +219,6 @@ export const newBooks: Book[] = [
     synopsis: 'Hilma af Klint was creating large-scale abstract paintings in 1906, years before Kandinsky\'s first abstractions. Working in secrecy, guided by séances and spiritual visions, she produced a body of work that challenges the entire narrative of modern art.',
     year: 2016, pages: 160, coverColour: '#1565c0',
     amazonUrl: 'https://www.amazon.co.uk/dp/3863358384',
-    genre: 'Art Catalogue', subjects: ['Art & Visual Culture'],
     themes: ['Seeing and Power', 'What Lies Beneath'], themeNotes: { 'What Lies Beneath': 'Af Klint painted what she saw in séances and spiritual visions — the invisible forces beneath the material world. Her art makes the hidden visible, decades before the art world was ready to see it.' },
   },
   {
@@ -254,7 +227,6 @@ export const newBooks: Book[] = [
     synopsis: 'Based on Albers\'s legendary course at Yale, this book demonstrates through practical exercises that colour is the most relative medium in art — the same colour looks completely different depending on what surrounds it. A foundational text for anyone who works with colour.',
     year: 1963, pages: 208, coverColour: '#e8c840',
     amazonUrl: 'https://www.amazon.co.uk/dp/0300179359',
-    genre: 'Non-fiction', subjects: ['Art & Visual Culture', 'Design & Architecture'],
     themes: ['Seeing and Power'], themeNotes: { 'Seeing and Power': 'Albers proves that we never see colour objectively — context determines everything. A lesson in how what we see is always shaped by what surrounds it.' },
   },
   {
@@ -263,7 +235,6 @@ export const newBooks: Book[] = [
     synopsis: 'Vogel — founder of Cinema 16, the most important film society in American history — surveys hundreds of films that push against censorship, convention, and the limits of what can be shown. From Buñuel to the avant-garde, from propaganda to pornography.',
     year: 1974, pages: 336, coverColour: '#ff6f00',
     amazonUrl: 'https://www.amazon.co.uk/dp/1904764878',
-    genre: 'Non-fiction', subjects: ['Art & Visual Culture'],
     themes: ['Seeing and Power'], themeNotes: {},
   },
   {
@@ -272,7 +243,6 @@ export const newBooks: Book[] = [
     synopsis: 'Conversations with the curators who invented the contemporary art exhibition as we know it — Harald Szeemann, Pontus Hultén, Walter Hopps, Lucy Lippard, and others. A history of how art comes to be shown, seen, and understood.',
     year: 2008, pages: 240, coverColour: '#616161',
     amazonUrl: 'https://www.amazon.co.uk/dp/3905829550',
-    genre: 'Non-fiction', subjects: ['Art & Visual Culture'],
     themes: ['Seeing and Power'], themeNotes: {},
   },
   {
@@ -281,7 +251,6 @@ export const newBooks: Book[] = [
     synopsis: 'From the first three-stripe paperbacks of the 1930s through Jan Tschichold\'s typographic revolution to the contemporary covers, this book traces how Penguin\'s design made good books accessible and beautiful. Design history as cultural history.',
     year: 2005, pages: 256, coverColour: '#d32f2f',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141024232',
-    genre: 'Non-fiction', subjects: ['Design & Architecture'],
     themes: ['Seeing and Power'], themeNotes: {},
   },
   {
@@ -290,7 +259,6 @@ export const newBooks: Book[] = [
     synopsis: 'McLuhan argues that it is not the content of media that matters but the medium itself — television, print, radio each restructure perception, thought, and social organisation. Written in 1964, it predicted the internet age with uncanny accuracy.',
     year: 1964, pages: 392, coverColour: '#37474f',
     amazonUrl: 'https://www.amazon.co.uk/dp/0262631598',
-    genre: 'Non-fiction', subjects: ['Critical Theory'],
     themes: ['Seeing and Power'], themeNotes: { 'Seeing and Power': 'McLuhan showed that media don\'t just carry messages — they restructure how we perceive reality. The medium is the message: whoever controls the medium controls the shape of thought itself.' },
   },
   {
@@ -299,7 +267,6 @@ export const newBooks: Book[] = [
     synopsis: 'The weird is when something is present that should not be — a Lovecraftian entity, a glitch in reality. The eerie is when something is absent that should be there — an abandoned building, an empty landscape. Fisher reads these affects through Lovecraft, Daphne du Maurier, Kubrick, and Joy Division.',
     year: 2016, pages: 148, coverColour: '#263238',
     amazonUrl: 'https://www.amazon.co.uk/dp/1910924385',
-    genre: 'Non-fiction', subjects: ['Critical Theory', 'Literature & Memoir'],
     themes: ['What Lies Beneath'], themeNotes: { 'What Lies Beneath': 'Fisher\'s weird is precisely what erupts from beneath the surface of the normal — the thing that should not be there but is. His eerie is the opposite: the unsettling absence that reveals how thin the surface always was.' },
   },
   {
@@ -308,7 +275,6 @@ export const newBooks: Book[] = [
     synopsis: 'Against both techno-optimism and apocalyptic despair, Haraway proposes "sympoiesis" — making-with, living-with, dying-with across species boundaries. She draws on string figures, science fiction, and the biology of symbiosis to imagine a liveable future on a damaged planet.',
     year: 2016, pages: 312, coverColour: '#00695c',
     amazonUrl: 'https://www.amazon.co.uk/dp/0822362244',
-    genre: 'Philosophy', subjects: ['Feminism & Gender', 'Nature & Science'],
     themes: ['Ruins and Resilience'], themeNotes: { 'Ruins and Resilience': 'Haraway refuses both despair and false hope. Her "staying with the trouble" is a form of resilience that doesn\'t look away from damage but makes new kinds of life possible within it.' },
   },
   {
@@ -317,7 +283,6 @@ export const newBooks: Book[] = [
     synopsis: 'Drawing on quantum physics and feminist theory, Barad argues that the boundaries between observer and observed, human and non-human, are not given but enacted through "intra-actions." A philosophically demanding rethinking of what matter, meaning, and measurement are.',
     year: 2007, pages: 524, coverColour: '#e91e63',
     amazonUrl: 'https://www.amazon.co.uk/dp/0822339153',
-    genre: 'Philosophy', subjects: ['Feminism & Gender'],
     themes: ['The Body as Battleground'], themeNotes: {},
   },
 
@@ -328,7 +293,6 @@ export const newBooks: Book[] = [
     synopsis: 'Written after the death of her daughter Quintana Roo, Blue Nights is Didion\'s meditation on parenthood, ageing, and the terrifying fragility of life. Where The Year of Magical Thinking was about grief, this is about fear — the fear that comes with growing old and losing the ability to protect those you love.',
     year: 2011, pages: 188, coverColour: '#1565c0',
     amazonUrl: 'https://www.amazon.co.uk/dp/0007432895',
-    genre: 'Non-fiction', subjects: ['Literature & Memoir'],
     themes: ['Ruins and Resilience', 'The Body as Battleground'], themeNotes: { 'Ruins and Resilience': 'After the ruin of her husband\'s death (documented in Magical Thinking), Didion faces another: her daughter\'s death. Blue Nights is about what is left when resilience itself begins to fail — the body ageing, memory fading.', 'The Body as Battleground': 'Didion writes about ageing as a physical experience — the body\'s betrayals, the loss of confidence in her own strength. The book is as much about embodied vulnerability as it is about grief.' },
   },
   {
@@ -337,7 +301,6 @@ export const newBooks: Book[] = [
     synopsis: 'In fewer than eighty pages, Ernaux records the obsession, waiting, and derangement of desire — stripping away literary artifice to leave only the raw facts of longing. "I accumulated signs of this passion as one might collect evidence."',
     year: 1991, pages: 76, coverColour: '#f5f5f5',
     amazonUrl: 'https://www.amazon.co.uk/dp/1788167171',
-    genre: 'Non-fiction', subjects: ['Literature & Memoir', 'Feminism & Gender'],
     themes: ['The Body as Battleground'], themeNotes: { 'The Body as Battleground': 'Ernaux writes desire as a bodily occupation — waiting by the phone, unable to eat, unable to think. The body is commandeered by passion, and Ernaux records it with forensic precision.' },
   },
   {
@@ -346,7 +309,6 @@ export const newBooks: Book[] = [
     synopsis: 'After her father\'s death, Ernaux writes his biography in flat, affectless prose — deliberately refusing the literary flourishes that would betray the distance between her educated self and his working-class world. A masterpiece of auto-sociobiography.',
     year: 1983, pages: 100, coverColour: '#78909c',
     amazonUrl: 'https://www.amazon.co.uk/dp/1788735374',
-    genre: 'Non-fiction', subjects: ['Literature & Memoir'],
     themes: ['The Politics of Otherness'], themeNotes: { 'The Politics of Otherness': 'Ernaux writes about class as a form of othering that operates within families. Her education separated her from her father\'s world — she became other to her own origins.' },
   },
   {
@@ -355,7 +317,6 @@ export const newBooks: Book[] = [
     synopsis: 'After her father\'s sudden death, Macdonald buys a goshawk named Mabel and attempts to train her — a process that becomes an unravelling, a withdrawal from the human world into the hawk\'s alien consciousness. Woven through is the story of T.H. White\'s disastrous attempt to do the same.',
     year: 2014, pages: 300, coverColour: '#f5f0e8',
     amazonUrl: 'https://www.amazon.co.uk/dp/0099575450',
-    genre: 'Non-fiction', subjects: ['Literature & Memoir', 'Nature & Science'],
     themes: ['Ruins and Resilience', 'Place and Belonging'], themeNotes: { 'Ruins and Resilience': 'Grief as a form of ruin — Macdonald\'s attempt to train a hawk is her attempt to survive the destruction of the world as she knew it. The hawk is both escape and means of return.' },
   },
   {
@@ -364,7 +325,6 @@ export const newBooks: Book[] = [
     synopsis: 'Spanning from 1900 to 1977, Verghese\'s epic follows a family in Kerala through colonialism, independence, and social upheaval, all shadowed by an inherited condition that means at least one member of each generation will drown. Medicine, love, and the weight of family history intertwine.',
     year: 2023, pages: 736, coverColour: '#00838f',
     amazonUrl: 'https://www.amazon.co.uk/dp/0802162177',
-    genre: 'Fiction', subjects: ['Literature & Memoir'],
     themes: ['Place and Belonging'], themeNotes: {},
   },
   {
@@ -373,7 +333,6 @@ export const newBooks: Book[] = [
     synopsis: 'Based on the life of the nineteenth-century painter Lars Hertervig, who was committed to an asylum, Fosse writes in his characteristic hypnotic, repetitive prose — circling obsessively around moments of beauty and collapse. Art and madness become indistinguishable.',
     year: 1995, pages: 200, coverColour: '#546e7a',
     amazonUrl: 'https://www.amazon.co.uk/dp/1564786544',
-    genre: 'Fiction', subjects: ['Literature & Memoir'],
     themes: ['What Lies Beneath'], themeNotes: {},
   },
   {
@@ -382,7 +341,6 @@ export const newBooks: Book[] = [
     synopsis: 'Each story follows a man at a different age, from seventeen to seventy-three, as the body asserts itself through sex, illness, appetite, and decay. Szalay writes about masculinity with the clinical eye of a diagnostician.',
     year: 2024, pages: 256, coverColour: '#455a64',
     amazonUrl: 'https://www.amazon.co.uk/dp/1787334562',
-    genre: 'Fiction', subjects: ['Literature & Memoir'],
     themes: ['The Body as Battleground'], themeNotes: {},
   },
   {
@@ -391,7 +349,6 @@ export const newBooks: Book[] = [
     synopsis: 'Rose examines how mothers are simultaneously idealised and blamed — made responsible for everything that goes wrong while denied the resources to do anything right. She draws on psychoanalysis, literature, and current affairs to argue that our hatred of mothers reveals something fundamental about how societies manage their own cruelty.',
     year: 2018, pages: 240, coverColour: '#ad1457',
     amazonUrl: 'https://www.amazon.co.uk/dp/0571331823',
-    genre: 'Non-fiction', subjects: ['Feminism & Gender'],
     themes: ['The Body as Battleground', 'The Politics of Otherness'], themeNotes: { 'The Body as Battleground': 'Rose shows how the mother\'s body becomes a site of social control — expected to sacrifice, nurture, and absorb blame. Motherhood is the battleground where society\'s cruelest contradictions are played out.', 'The Politics of Otherness': 'Mothers are simultaneously central to society and othered by it — idealised in the abstract, punished in practice. Rose reveals the politics behind this paradox.' },
   },
   {
@@ -400,7 +357,6 @@ export const newBooks: Book[] = [
     synopsis: 'Nelson writes about her relationship with the artist Harry Dodge — who is transitioning — while she is pregnant, weaving in Barthes, Wittgenstein, Judith Butler, and Eve Kosofsky Sedgwick. It\'s a book about how language both creates and fails to capture the people we love.',
     year: 2015, pages: 160, coverColour: '#37474f',
     amazonUrl: 'https://www.amazon.co.uk/dp/1783783044',
-    genre: 'Non-fiction', subjects: ['Feminism & Gender', 'Literature & Memoir'],
     themes: ['The Body as Battleground'], themeNotes: { 'The Body as Battleground': 'Two bodies in transformation — one through pregnancy, one through transition. Nelson shows that the body is never fixed but always becoming, and that love is the willingness to accompany that becoming.' },
   },
   {
@@ -409,7 +365,6 @@ export const newBooks: Book[] = [
     synopsis: 'Part memoir, part manifesto, Despentes refuses every polite feminist position and writes from the gutter — about being raped, about working in pornography, about the anger that respectable feminism would rather not acknowledge. Raw, confrontational, and essential.',
     year: 2006, pages: 144, coverColour: '#212121',
     amazonUrl: 'https://www.amazon.co.uk/dp/1846687632',
-    genre: 'Non-fiction', subjects: ['Feminism & Gender'],
     themes: ['The Body as Battleground', 'The Politics of Otherness'], themeNotes: {},
   },
   {
@@ -418,7 +373,6 @@ export const newBooks: Book[] = [
     synopsis: 'Alsadir investigates the involuntary expressions the body makes — the laugh, the blush, the cry — as moments when something authentic breaks through the social self. Drawing on psychoanalysis, poetry, and clown school, she asks what we lose when we learn to suppress these eruptions.',
     year: 2022, pages: 288, coverColour: '#1565c0',
     amazonUrl: 'https://www.amazon.co.uk/dp/1783786523',
-    genre: 'Non-fiction', subjects: ['Psychoanalysis', 'Literature & Memoir'],
     themes: ['What Lies Beneath', 'The Body as Battleground'], themeNotes: {},
   },
 
@@ -429,7 +383,6 @@ export const newBooks: Book[] = [
     synopsis: 'On the battlefield of Kurukshetra, the warrior Arjuna falters. Krishna — his charioteer and an incarnation of God — reveals the nature of the self, the paths of action and devotion, and the secret of acting without attachment to results. The most influential text in Hindu philosophy.',
     year: -200, pages: 400, coverColour: '#c62828',
     amazonUrl: 'https://www.amazon.co.uk/dp/8170520118',
-    genre: 'Reference', subjects: ['Spirituality & Mysticism'],
     themes: [], themeNotes: {},
   },
   {
@@ -438,7 +391,6 @@ export const newBooks: Book[] = [
     synopsis: 'The Upanishads are the philosophical core of the Vedas, composed between 800 and 200 BCE. Through dialogue, parable, and meditation, they explore the identity of the individual self (Atman) with the universal ground of being (Brahman). "Tat tvam asi" — "You are that."',
     year: -800, pages: 320, coverColour: '#ff8f00',
     amazonUrl: 'https://www.amazon.co.uk/dp/0140441638',
-    genre: 'Reference', subjects: ['Spirituality & Mysticism'],
     themes: [], themeNotes: {},
   },
   {
@@ -447,7 +399,6 @@ export const newBooks: Book[] = [
     synopsis: 'Traditionally read aloud to the dying and the recently dead, this text describes the experiences consciousness undergoes after death — the clear light, the peaceful and wrathful deities, and the process of rebirth. A manual for navigating the most radical transformation a being can undergo.',
     year: 760, pages: 432, coverColour: '#b71c1c',
     amazonUrl: 'https://www.amazon.co.uk/dp/0140455264',
-    genre: 'Reference', subjects: ['Spirituality & Mysticism'],
     themes: [], themeNotes: {},
   },
   {
@@ -456,7 +407,6 @@ export const newBooks: Book[] = [
     synopsis: 'The foundational text of Taoism. In paradoxical, enigmatic verses, Lao Tzu describes the Tao — the Way that cannot be spoken — and the practice of wu wei, effortless action. "The Tao that can be told is not the eternal Tao."',
     year: -400, pages: 160, coverColour: '#4e342e',
     amazonUrl: 'https://www.amazon.co.uk/dp/0140441131',
-    genre: 'Reference', subjects: ['Spirituality & Mysticism'],
     themes: [], themeNotes: {},
   },
   {
@@ -465,7 +415,6 @@ export const newBooks: Book[] = [
     synopsis: 'Written in 1577, The Interior Castle describes the soul as a crystal castle with seven concentric dwellings. The mystic moves inward through prayer, self-knowledge, and suffering until reaching the innermost mansion where the soul unites with God. One of the great texts of Christian mysticism.',
     year: 1577, pages: 240, coverColour: '#f5f0e8',
     amazonUrl: 'https://www.amazon.co.uk/dp/0486461459',
-    genre: 'Non-fiction', subjects: ['Spirituality & Mysticism'],
     themes: ['What Lies Beneath'], themeNotes: { 'What Lies Beneath': 'Teresa maps the hidden architecture of the soul — seven mansions beneath the surface of ordinary consciousness, each deeper and more luminous than the last. The ultimate journey inward.' },
   },
   {
@@ -474,7 +423,6 @@ export const newBooks: Book[] = [
     synopsis: 'A philosopher takes mysticism seriously — not as irrationality but as a tradition of thought that operates at the limits of language and selfhood. Critchley reads Christian mystics, Sufis, and secular ecstatics to ask what happens when the self encounters something it cannot contain.',
     year: 2019, pages: 240, coverColour: '#c62828',
     amazonUrl: 'https://www.amazon.co.uk/dp/1788161866',
-    genre: 'Philosophy', subjects: ['Spirituality & Mysticism', 'Continental Philosophy'],
     themes: ['What Lies Beneath'], themeNotes: {},
   },
   {
@@ -483,7 +431,6 @@ export const newBooks: Book[] = [
     synopsis: 'Drawing on the Christian mystical tradition of St. John of the Cross, Moore argues that periods of darkness, depression, and meaninglessness are not illnesses to be medicated but necessary passages in the soul\'s development. The dark night is not a breakdown but a breakthrough.',
     year: 2004, pages: 336, coverColour: '#1a237e',
     amazonUrl: 'https://www.amazon.co.uk/dp/0749925469',
-    genre: 'Non-fiction', subjects: ['Spirituality & Mysticism'],
     themes: ['Ruins and Resilience'], themeNotes: { 'Ruins and Resilience': 'Moore reframes depression and spiritual crisis as forms of necessary ruin — the dark night must be endured, not avoided, because what emerges on the other side is a deeper, more authentic self.' },
   },
   {
@@ -492,7 +439,6 @@ export const newBooks: Book[] = [
     synopsis: 'Rohr argues that the first half of life is about building identity, career, and ego — necessary work, but not the whole story. The second half begins when the container cracks: through failure, loss, or illness. Only then can the deeper self emerge.',
     year: 2011, pages: 200, coverColour: '#1565c0',
     amazonUrl: 'https://www.amazon.co.uk/dp/1118428560',
-    genre: 'Non-fiction', subjects: ['Spirituality & Mysticism', 'Recovery & Inner Work'],
     themes: ['Ruins and Resilience'], themeNotes: { 'Ruins and Resilience': 'Rohr reframes life\'s collapses — failure, loss, disillusionment — not as disasters but as necessary fallings that lead upward. Resilience is not about avoiding the fall but learning to fall well.' },
   },
   {
@@ -501,7 +447,6 @@ export const newBooks: Book[] = [
     synopsis: 'After a meditation experience in the 1970s, Singer decided to stop following his personal preferences and simply say yes to whatever life presented. The result: he built a billion-dollar software company, nearly went to prison, and discovered that surrender — not control — is the path to a meaningful life.',
     year: 2015, pages: 272, coverColour: '#795548',
     amazonUrl: 'https://www.amazon.co.uk/dp/0804141010',
-    genre: 'Non-fiction', subjects: ['Spirituality & Mysticism'],
     themes: [], themeNotes: {},
   },
   {
@@ -510,7 +455,6 @@ export const newBooks: Book[] = [
     synopsis: 'Drawing on phenomenology and indigenous ways of knowing, Abram invites the reader to rediscover the intelligence of the body and its kinship with the animate earth. Shadows, sounds, wind, and rain become doorways to a deeper engagement with the living world.',
     year: 2010, pages: 336, coverColour: '#33691e',
     amazonUrl: 'https://www.amazon.co.uk/dp/0375713697',
-    genre: 'Non-fiction', subjects: ['Nature & Science', 'Spirituality & Mysticism'],
     themes: ['The Body as Battleground', 'Place and Belonging'], themeNotes: {},
   },
   {
@@ -519,7 +463,6 @@ export const newBooks: Book[] = [
     synopsis: 'The scientist who discovered that trees communicate and share nutrients through underground fungal networks — the "wood wide web" — tells her life story alongside her research. A book about what lies beneath forests, and about resilience in both ecological and personal forms.',
     year: 2021, pages: 368, coverColour: '#2e7d32',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141990286',
-    genre: 'Non-fiction', subjects: ['Nature & Science'],
     themes: ['What Lies Beneath', 'Ruins and Resilience'], themeNotes: { 'What Lies Beneath': 'Simard\'s discovery is literal: beneath every forest lies a vast network of fungal connections through which trees share nutrients, send warnings, and nurture their young. The most important life in the forest is invisible.' },
   },
   {
@@ -528,7 +471,6 @@ export const newBooks: Book[] = [
     synopsis: 'Heat death, the Big Crunch, the Big Rip, vacuum decay, and the Big Bounce — Mack explains each possible ending of the universe with scientific rigour and an infectious sense of awe at the cosmic scales involved.',
     year: 2020, pages: 240, coverColour: '#f5f5f5',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141989785',
-    genre: 'Non-fiction', subjects: ['Nature & Science'],
     themes: ['Ruins and Resilience'], themeNotes: {},
   },
   {
@@ -537,7 +479,6 @@ export const newBooks: Book[] = [
     synopsis: 'First published in 1975, Capra argues that the worldview emerging from quantum physics and relativity resonates deeply with Hindu, Buddhist, and Taoist thought — both traditions pointing toward an interconnected, dynamic reality that defies mechanistic thinking.',
     year: 1975, pages: 368, coverColour: '#1565c0',
     amazonUrl: 'https://www.amazon.co.uk/dp/0006544894',
-    genre: 'Non-fiction', subjects: ['Nature & Science', 'Spirituality & Mysticism'],
     themes: [], themeNotes: {},
   },
   {
@@ -546,7 +487,6 @@ export const newBooks: Book[] = [
     synopsis: 'Campbell argues that the myths of every culture share a single underlying structure — the hero\'s journey: departure, initiation, return. Drawing on Freud, Jung, and worldwide mythology, he traces this pattern from the Buddha to Odysseus to Christ.',
     year: 1949, pages: 416, coverColour: '#212121',
     amazonUrl: 'https://www.amazon.co.uk/dp/1577315936',
-    genre: 'Non-fiction', subjects: ['Spirituality & Mysticism'],
     themes: [], themeNotes: {},
   },
   {

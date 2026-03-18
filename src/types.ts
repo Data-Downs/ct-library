@@ -1,3 +1,36 @@
+export type Genre =
+  | 'Fiction'
+  | 'Non-fiction'
+  | 'Poetry'
+  | 'Philosophy'
+  | 'Art Catalogue'
+  | 'Reference'
+  | 'Cookbook'
+
+export type Subject =
+  | 'Continental Philosophy'
+  | 'Critical Theory'
+  | 'Psychoanalysis'
+  | 'Art & Visual Culture'
+  | 'Literature & Memoir'
+  | 'Feminism & Gender'
+  | 'Spirituality & Mysticism'
+  | 'Education & Pedagogy'
+  | 'Nature & Science'
+  | 'History & Politics'
+  | 'Design & Architecture'
+  | 'Recovery & Inner Work'
+
+export type Theme =
+  | 'The Politics of Otherness'
+  | 'Seeing and Power'
+  | 'What Lies Beneath'
+  | 'Ruins and Resilience'
+  | 'The Body as Battleground'
+  | 'Place and Belonging'
+  | 'Consciousness and the Sacred'
+  | 'The Machine and the Human'
+
 export interface Book {
   id: string
   title: string
@@ -8,18 +41,11 @@ export interface Book {
   pages?: number
   coverColour: string
   amazonUrl: string
+  genre: Genre
+  subjects: Subject[]
   themes: Theme[]
   themeNotes: Partial<Record<Theme, string>>
-  isCookbook?: boolean
 }
-
-export type Theme =
-  | 'The Politics of Otherness'
-  | 'Seeing and Power'
-  | 'What Lies Beneath'
-  | 'Ruins and Resilience'
-  | 'The Body as Battleground'
-  | 'Place and Belonging'
 
 export interface ThemeRecommendation {
   title: string
