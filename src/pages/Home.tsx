@@ -48,7 +48,7 @@ export function Home() {
                     {book.title}
                   </h3>
                 </button>
-                <p className="text-sm text-gray-500 uppercase tracking-wider mb-4">{book.author}</p>
+                <p className="text-sm text-gray-500 mb-4">{book.author}</p>
                 <p className="text-base text-gray-600 leading-relaxed mb-5">
                   {book.description}
                 </p>
@@ -68,7 +68,7 @@ export function Home() {
         <p className="text-gray-500 text-base mb-4">View the full collection</p>
         <Link
           to="/library"
-          className="inline-block text-sm uppercase tracking-wider text-fg border-b-2 border-gray-900 pb-1 no-underline hover:text-gray-600 hover:border-gray-500 transition-colors"
+          className="inline-block text-sm text-fg border-b-2 border-gray-900 pb-1 no-underline hover:text-gray-600 hover:border-gray-500 transition-colors"
         >
           Browse the Library
         </Link>

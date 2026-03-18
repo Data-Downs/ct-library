@@ -83,7 +83,7 @@ export function Library() {
       <div className="flex gap-6 mb-8 border-b border-gray-400">
         <button
           onClick={() => { setSection('library'); setSelectedTheme(null) }}
-          className={`pb-2.5 text-sm uppercase tracking-wider transition-colors cursor-pointer bg-transparent border-b-2 ${
+          className={`pb-2.5 text-sm transition-colors cursor-pointer bg-transparent border-b-2 ${
             section === 'library'
               ? 'border-fg text-fg font-semibold'
               : 'border-transparent text-gray-500 hover:text-fg'
@@ -93,7 +93,7 @@ export function Library() {
         </button>
         <button
           onClick={() => { setSection('cookbooks'); setSelectedTheme(null) }}
-          className={`pb-2.5 text-sm uppercase tracking-wider transition-colors cursor-pointer bg-transparent border-b-2 ${
+          className={`pb-2.5 text-sm transition-colors cursor-pointer bg-transparent border-b-2 ${
             section === 'cookbooks'
               ? 'border-fg text-fg font-semibold'
               : 'border-transparent text-gray-500 hover:text-fg'
@@ -142,9 +142,9 @@ export function Library() {
       ) : (
         <div>
           <div className="grid grid-cols-[1fr_1fr_4rem] gap-x-4 px-2 pb-2 border-b border-gray-400">
-            <span className="text-xs text-gray-400 uppercase tracking-wider">Title</span>
-            <span className="text-xs text-gray-400 uppercase tracking-wider">Author</span>
-            <span className="text-xs text-gray-400 uppercase tracking-wider text-right">Year</span>
+            <span className="text-xs text-gray-400">Title</span>
+            <span className="text-xs text-gray-400">Author</span>
+            <span className="text-xs text-gray-400 text-right">Year</span>
           </div>
           <div>
             {filteredBooks.map((book) => (

@@ -56,7 +56,7 @@ export function BookModal({ book, onClose }: BookModalProps) {
               <h2 className="text-3xl font-normal text-fg mb-1 leading-tight">
                 {book.title}
               </h2>
-              <p className="text-sm text-gray-500 uppercase tracking-wider mb-4">{book.author}</p>
+              <p className="text-sm text-gray-500 mb-4">{book.author}</p>
 
               <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-500 mb-4">
                 <span>Published {book.year}</span>
@@ -94,7 +94,7 @@ export function BookModal({ book, onClose }: BookModalProps) {
               href={book.amazonUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm uppercase tracking-wider text-fg border-b-2 border-gray-900 pb-1 no-underline hover:text-gray-600 hover:border-gray-500 transition-colors"
+              className="inline-flex items-center gap-2 text-sm text-fg border-b-2 border-gray-900 pb-1 no-underline hover:text-gray-600 hover:border-gray-500 transition-colors"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M6 3H3v10h10v-3" />
