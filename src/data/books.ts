@@ -644,20 +644,20 @@ export const books: Book[] = [
 ]
 
 export const heroSelection: HeroSelection = {
-  title: 'March Picks',
-  description: "Three books I keep coming back to this month — each one about what it means to truly see a place, a person, or yourself. They're all books that changed how I think about belonging.",
+  title: 'Ruins and Resilience',
+  description: "How life continues after collapse — and what new forms emerge from the wreckage. This month I've picked three books about survival: a city that keeps rebuilding itself, a mushroom that thrives in devastated forests, and a writer who maps grief with the precision of a war correspondent. They're all about what remains when everything falls apart.",
   picks: [
     {
-      bookId: 'dishoom',
-      note: "This isn't just a cookbook — it's a love letter to Bombay and to the Irani cafés that are disappearing. Every recipe comes with a story, and the stories are as nourishing as the food. The black daal recipe alone is worth the cover price, but it's the photographs and the warmth that keep me coming back.",
+      bookId: 'berlin',
+      note: "Berlin has been bombed flat, divided by a wall, reunified, and gentrified — and each time it becomes something new. MacLean tells the story through its people: the refugees, the artists, the spies, the ravers. What I love is that he doesn't treat resilience as heroic. It's just what cities do. They absorb, they transform, they carry on. Berlin's identity isn't any single version of itself — it's the pattern of destruction and reinvention.",
     },
     {
-      bookId: 'god-of-small-things',
-      note: "I first read this at university and it floored me. Roy writes about Kerala with such precision and tenderness — the way she captures the unspoken rules of love and caste, and how children see through the cruelty that adults accept. The prose is unlike anything else. Every sentence is doing three things at once.",
+      bookId: 'mushroom-end-of-world',
+      note: "This is the book that changed how I think about ruins. Tsing follows the matsutake mushroom — a fungus that only grows in forests that have been damaged — and uses it to ask: what if capitalism's ruins aren't the end of the story? What if life finds ways to flourish in the wreckage? It's anthropology, ecology, and philosophy braided together, and it's the most hopeful book about the end of the world I've ever read.",
     },
     {
-      bookId: 'ways-of-seeing',
-      note: "Still the most important book about how we look at art. Berger strips away everything we think we know about paintings and asks: who made this, for whom, and why do we see it the way we do? It's short, it's fierce, and it changes your eyes. I re-read it every year.",
+      bookId: 'year-of-magical-thinking',
+      note: "Didion's husband dies at the dinner table and she spends a year trying to think her way through it. What makes this book extraordinary isn't the grief — it's the precision. She researches death the way she researched politics: reading medical journals, analysing her own irrationality, refusing to let pain be an excuse for sloppy thinking. It's a book about the mind's refusal to accept ruin, written by someone whose whole life has been an exercise in paying attention.",
     },
   ],
 }
