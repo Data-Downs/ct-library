@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Library</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <h1>My Library <span id="book-count" class="badge">0</span></h1>
+    </div>
+    <div class="header-right">
+      <button id="btn-add" class="btn btn-primary">+ Add Book</button>
+      <button id="btn-export" class="btn btn-secondary">Export</button>
+      <label class="btn btn-secondary import-label">
+        Import
+        <input type="file" id="btn-import" accept=".json" hidden>
+      </label>
+    </div>
+  </header>
+
+  <div class="filters">
+    <input type="text" id="filter-search" placeholder="Search by title or author...">
+    <select id="filter-status">
+      <option value="all">All Status</option>
+      <option value="unread">Unread</option>
+      <option value="reading">Reading</option>
+      <option value="read">Read</option>
+    </select>
+    <select id="filter-genre">
+      <option value="all">All Genres</option>
+    </select>
+    <select id="filter-sort">
+      <option value="title-asc">Title A–Z</option>
+      <option value="author-asc">Author A–Z</option>
+      <option value="rating-desc">Rating High–Low</option>
+      <option value="rating-asc">Rating Low–High</option>
+      <option value="date-desc">Recently Added</option>
+      <option value="status">Status</option>
+    </select>
+  </div>
+
+  <div id="book-grid"></div>
+  <div id="empty-state" class="empty-state hidden">No books found.</div>
+
+  <!-- Add/Edit Modal -->
+  <div id="book-modal" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <h2 id="modal-title">Add Book</h2>
+      <form id="book-form">
+        <label>Title <span class="required">*</span>
+          <input type="text" name="title" required>
+        </label>
+        <label>Author
+          <input type="text" name="author">
+        </label>
+        <label>Genre
+          <input type="text" name="genre" list="genre-list">
+          <datalist id="genre-list"></datalist>
+        </label>
+        <label>Status
+          <select name="status">
+            <option value="unread">Unread</option>
+            <option value="reading">Reading</option>
+            <option value="read">Read</option>
+          </select>
+        </label>
+        <label>Rating
+          <div id="rating-input" class="rating-input">
+            <span class="star" data-value="1">&#9734;</span>
+            <span class="star" data-value="2">&#9734;</span>
+            <span class="star" data-value="3">&#9734;</span>
+            <span class="star" data-value="4">&#9734;</span>
+            <span class="star" data-value="5">&#9734;</span>
+            <button type="button" id="rating-clear" class="rating-clear">Clear</button>
+          </div>
+          <input type="hidden" name="rating" value="0">
+        </label>
+        <label>Notes
+          <textarea name="notes" rows="3" placeholder="Your thoughts..."></textarea>
+        </label>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary btn-cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div id="delete-modal" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-content modal-small">
+      <h2>Delete Book</h2>
+      <p>Are you sure you want to remove <strong id="delete-book-title"></strong> from your library?</p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary btn-cancel">Cancel</button>
+        <button type="button" id="btn-confirm-delete" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
