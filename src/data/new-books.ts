@@ -555,6 +555,7 @@ export const newBooks: Book[] = [
     synopsis: 'The most widely used creativity course in the world. Cameron\'s central tools — morning pages (three pages of longhand stream-of-consciousness writing every day) and the artist date (a solo outing to fill the creative well) — have helped millions of blocked creatives start making work again.',
     year: 1992, pages: 272, coverColour: '#f5f0e8',
     amazonUrl: 'https://www.amazon.co.uk/dp/1788164296',
+    genre: 'Non-fiction', subjects: ['Recovery & Inner Work'],
     themes: [], themeNotes: {},
   },
   {
@@ -563,6 +564,7 @@ export const newBooks: Book[] = [
     synopsis: 'The creator of Internal Family Systems therapy explains how the mind is naturally multiple — composed of parts that carry different roles (managers, firefighters, exiles). Healing comes not from suppressing difficult parts but from understanding what they protect.',
     year: 2021, pages: 256, coverColour: '#e91e63',
     amazonUrl: 'https://www.amazon.co.uk/dp/1683646681',
+    genre: 'Non-fiction', subjects: ['Psychoanalysis', 'Recovery & Inner Work'],
     themes: ['What Lies Beneath'], themeNotes: { 'What Lies Beneath': 'Schwartz\'s model is built on the idea that beneath our protective parts — the anxiety, the anger, the numbing — lie exiled parts carrying pain and vulnerability. Healing means going beneath the surface to meet what was banished.' },
   },
   {
@@ -571,6 +573,7 @@ export const newBooks: Book[] = [
     synopsis: 'What if movements for social change could learn from how mushrooms, starlings, and mycelium organise? brown proposes "emergent strategy" — small-scale pattern shifts that create large-scale transformation, grounded in biomimicry, decentralisation, and pleasure.',
     year: 2017, pages: 280, coverColour: '#212121',
     amazonUrl: 'https://www.amazon.co.uk/dp/1849352607',
+    genre: 'Non-fiction', subjects: ['Feminism & Gender'],
     themes: ['Ruins and Resilience'], themeNotes: { 'Ruins and Resilience': 'brown argues that the old models of top-down organising have failed — and that new forms of resilience must be learned from nature: adaptive, emergent, fractal. Change is not imposed but grown.' },
   },
   {
@@ -579,6 +582,7 @@ export const newBooks: Book[] = [
     synopsis: 'A collection of essays, interviews, and practices exploring the idea that social justice should feel good — that pleasure is not a distraction from the work but the point of it. brown draws on Audre Lorde\'s "Uses of the Erotic" to build a politics grounded in joy.',
     year: 2019, pages: 448, coverColour: '#e91e63',
     amazonUrl: 'https://www.amazon.co.uk/dp/1849353263',
+    genre: 'Non-fiction', subjects: ['Feminism & Gender'],
     themes: ['The Body as Battleground'], themeNotes: {},
   },
   {
@@ -587,6 +591,7 @@ export const newBooks: Book[] = [
     synopsis: 'A psychotherapist explains how our own childhood experiences shape how we parent, and how to do better without beating ourselves up about it. Practical, compassionate, and grounded in attachment theory.',
     year: 2019, pages: 288, coverColour: '#4fc3f7',
     amazonUrl: 'https://www.amazon.co.uk/dp/0241251028',
+    genre: 'Non-fiction', subjects: ['Education & Pedagogy'],
     themes: [], themeNotes: {},
   },
   {
@@ -595,6 +600,7 @@ export const newBooks: Book[] = [
     synopsis: 'Drawing on her experience caring for the dying, McFadden describes the physical process of death with clarity and tenderness, arguing that understanding what happens removes the fear and allows for a more peaceful ending.',
     year: 2024, pages: 272, coverColour: '#f5f5f5',
     amazonUrl: 'https://www.amazon.co.uk/dp/0241663598',
+    genre: 'Non-fiction', subjects: ['Spirituality & Mysticism'],
     themes: ['The Body as Battleground'], themeNotes: {},
   },
   {
@@ -603,6 +609,7 @@ export const newBooks: Book[] = [
     synopsis: 'Against the culture of educational measurement and accountability, Biesta argues that the most important things education does — creating subjects, enabling freedom, fostering responsibility — are inherently unpredictable and cannot be reduced to outcomes.',
     year: 2013, pages: 178, coverColour: '#00838f',
     amazonUrl: 'https://www.amazon.co.uk/dp/1612050271',
+    genre: 'Non-fiction', subjects: ['Education & Pedagogy'],
     themes: [], themeNotes: {},
   },
   {
@@ -611,6 +618,7 @@ export const newBooks: Book[] = [
     synopsis: 'The Turkish journalist and political commentator — exiled for her opposition to Erdoğan — writes about the conditions for genuine collective action: trust, dignity, shared vulnerability, and the willingness to be changed by others.',
     year: 2022, pages: 256, coverColour: '#d32f2f',
     amazonUrl: 'https://www.amazon.co.uk/dp/0008393877',
+    genre: 'Non-fiction', subjects: ['History & Politics'],
     themes: ['The Politics of Otherness', 'Ruins and Resilience'], themeNotes: {},
   },
   {
@@ -619,6 +627,7 @@ export const newBooks: Book[] = [
     synopsis: 'A Lacanian psychoanalyst argues that the difference between neurosis and psychosis is not about severity but structure, and that understanding madness requires listening to what the mad person is actually saying rather than diagnosing them from the outside.',
     year: 2011, pages: 352, coverColour: '#424242',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141979399',
+    genre: 'Non-fiction', subjects: ['Psychoanalysis'],
     themes: ['What Lies Beneath'], themeNotes: {},
   },
   {
@@ -627,6 +636,7 @@ export const newBooks: Book[] = [
     synopsis: 'Drawing on psychoanalysis, literature, and art, Cohen argues that the compulsion to be always working, always productive, is itself a form of pathology. Through portraits of great loafers — Andy Warhol, Emily Dickinson, Orson Welles — he recovers the value of doing nothing.',
     year: 2018, pages: 256, coverColour: '#78909c',
     amazonUrl: 'https://www.amazon.co.uk/dp/1783781939',
+    genre: 'Non-fiction', subjects: ['Critical Theory', 'Psychoanalysis'],
     themes: ['The Body as Battleground'], themeNotes: {},
   },
   {
@@ -635,6 +645,7 @@ export const newBooks: Book[] = [
     synopsis: 'Process philosopher Whitehead examines how abstract ideas have material consequences, tracing the history of concepts like freedom, peace, and beauty from ancient Greece to the modern world. Philosophy as cultural history.',
     year: 1933, pages: 380, coverColour: '#37474f',
     amazonUrl: 'https://www.amazon.co.uk/dp/0029351901',
+    genre: 'Philosophy', subjects: ['Continental Philosophy'],
     themes: [], themeNotes: {},
   },
   {
@@ -643,6 +654,7 @@ export const newBooks: Book[] = [
     synopsis: 'Beyond resilience (which merely survives) lies antifragility — the property of systems that improve under stress. Taleb applies this idea to economics, health, politics, and personal life, arguing that we should design for volatility rather than trying to eliminate it.',
     year: 2012, pages: 544, coverColour: '#212121',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141038225',
+    genre: 'Non-fiction', subjects: ['Critical Theory'],
     themes: ['Ruins and Resilience'], themeNotes: { 'Ruins and Resilience': 'Taleb goes beyond resilience to argue that the best systems actually benefit from disorder. Not just surviving the ruins but being strengthened by them — antifragility as a principle of life.' },
   },
   {
@@ -651,6 +663,7 @@ export const newBooks: Book[] = [
     synopsis: 'Written when Barzun was 93, this monumental work traces the ideas, movements, and personalities that shaped the modern West — from Luther and Erasmus through the Enlightenment and Romanticism to the twentieth century\'s crisis of confidence.',
     year: 2000, pages: 912, coverColour: '#4e342e',
     amazonUrl: 'https://www.amazon.co.uk/dp/0060928832',
+    genre: 'Non-fiction', subjects: ['History & Politics'],
     themes: ['Ruins and Resilience'], themeNotes: {},
   },
 
@@ -661,7 +674,8 @@ export const newBooks: Book[] = [
     synopsis: 'Part cookbook, part food memoir, Nigella weaves recipes with essays on the pleasures and compulsions of cooking. From the joy of brown food to the comfort of repetition, it\'s an intimate portrait of a life lived in the kitchen.',
     year: 2020, pages: 352, coverColour: '#212121',
     amazonUrl: 'https://www.amazon.co.uk/dp/1784743186',
-    themes: [], themeNotes: {}, isCookbook: true,
+    genre: 'Cookbook', subjects: [],
+    themes: [], themeNotes: {},
   },
   {
     id: 'healing-cookbook', title: 'The Doctor\'s Kitchen', author: 'Dr. Rupy Aujla',
@@ -669,7 +683,8 @@ export const newBooks: Book[] = [
     synopsis: 'Dr. Aujla combines medical knowledge with practical recipes to show how food can be used to support health, reduce inflammation, and prevent chronic disease.',
     year: 2017, pages: 288, coverColour: '#2e7d32',
     amazonUrl: 'https://www.amazon.co.uk/dp/0008239339',
-    themes: [], themeNotes: {}, isCookbook: true,
+    genre: 'Cookbook', subjects: [],
+    themes: [], themeNotes: {},
   },
   {
     id: 'new-vegan', title: 'The New Vegan', author: 'Áine Carlin',
@@ -677,7 +692,8 @@ export const newBooks: Book[] = [
     synopsis: 'Carlin\'s debut cookbook makes vegan cooking approachable, with over 100 recipes that don\'t require specialist ingredients or complicated techniques.',
     year: 2015, pages: 208, coverColour: '#00838f',
     amazonUrl: 'https://www.amazon.co.uk/dp/0857832697',
-    themes: [], themeNotes: {}, isCookbook: true,
+    genre: 'Cookbook', subjects: [],
+    themes: [], themeNotes: {},
   },
   {
     id: '52-veggie-vegan', title: '5:2 Veggie & Vegan', author: 'Kate Harrison',
@@ -685,6 +701,7 @@ export const newBooks: Book[] = [
     synopsis: 'Vegetarian and vegan recipes designed around the 5:2 eating pattern, combining fasting-friendly calorie counts with genuinely appealing food.',
     year: 2018, pages: 304, coverColour: '#ff8f00',
     amazonUrl: 'https://www.amazon.co.uk/dp/1409171248',
-    themes: [], themeNotes: {}, isCookbook: true,
+    genre: 'Cookbook', subjects: [],
+    themes: [], themeNotes: {},
   },
 ]

@@ -1,4 +1,6 @@
 import type { Book, HeroSelection, ThemeDescription } from '../types'
+import { newBooks } from './new-books'
+import { reviewedBooks } from './reviewed-books'
 
 export const themeDescriptions: ThemeDescription[] = [
   {
@@ -822,7 +824,7 @@ const existingBooks: Book[] = [
   },
 ]
 
-export const books: Book[] = [...existingBooks]
+export const books: Book[] = [...existingBooks, ...newBooks, ...reviewedBooks]
 
 export const heroSelection: HeroSelection = {
   title: 'Ruins and Resilience',
