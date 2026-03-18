@@ -109,15 +109,18 @@ export function Library() {
       {filteredBooks.length === 0 ? (
         <p className="text-center text-stone py-12">No books found.</p>
       ) : viewMode === 'grid' ? (
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-1">
+        <div className={selectedTheme
+          ? 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1'
+          : 'grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-1'
+        }>
           {filteredBooks.map((book) => (
-            <BookCard key={book.id} book={book} viewMode="grid" onSelect={setSelectedBook} />
+            <BookCard key={book.id} book={book} viewMode="grid" onSelect={setSelectedBook} activeTheme={selectedTheme} />
           ))}
         </div>
       ) : (
         <div className="divide-y divide-stone-light/30">
           {filteredBooks.map((book) => (
-            <BookCard key={book.id} book={book} viewMode="list" onSelect={setSelectedBook} />
+            <BookCard key={book.id} book={book} viewMode="list" onSelect={setSelectedBook} activeTheme={selectedTheme} />
           ))}
         </div>
       )}

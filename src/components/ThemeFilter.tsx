@@ -43,11 +43,11 @@ export function ThemeFilter({ selected, onSelect, bookCounts, totalBooks }: Them
         ))}
       </div>
       {selectedDescription && (
-        <div className="mt-4 p-4 bg-warm-white rounded-lg">
-          <p className="text-sm font-serif italic text-charcoal/70 mb-1">
+        <div className="mt-6 py-6 border-t border-stone-light/40">
+          <h3 className="font-serif text-2xl md:text-3xl font-medium text-charcoal leading-snug mb-3">
             {selectedDescription.tagline}
-          </p>
-          <p className="text-xs text-stone leading-relaxed">
+          </h3>
+          <p className="text-sm text-stone leading-relaxed max-w-3xl">
             {selectedDescription.description}
           </p>
         </div>

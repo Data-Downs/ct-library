@@ -9,6 +9,7 @@ export interface Book {
   coverColour: string
   amazonUrl: string
   themes: Theme[]
+  themeNotes: Partial<Record<Theme, string>>
   isCookbook?: boolean
 }
 
