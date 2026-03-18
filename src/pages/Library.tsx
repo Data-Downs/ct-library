@@ -110,7 +110,7 @@ export function Library() {
         <p className="text-center text-stone text-base py-12">No books found.</p>
       ) : viewMode === 'grid' ? (
         <div className={selectedTheme
-          ? 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1'
+          ? 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2'
           : 'grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-1'
         }>
           {filteredBooks.map((book) => (
