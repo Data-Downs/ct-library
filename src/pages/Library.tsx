@@ -1,8 +1,9 @@
 import { useState, useMemo } from 'react'
-import { books } from '../data/books'
+import { books, themeDescriptions } from '../data/books'
 import { BookCard } from '../components/BookCard'
 import { BookModal } from '../components/BookModal'
 import { ThemeFilter } from '../components/ThemeFilter'
+import { RecommendationCard } from '../components/RecommendationCard'
 import { SortControl } from '../components/SortControl'
 import { ViewToggle } from '../components/ViewToggle'
 import type { Book, Theme, ViewMode, SortMode } from '../types'
@@ -65,6 +66,10 @@ export function Library() {
     }
     return sortBooks(result, sortMode)
   }, [activeBooks, selectedTheme, search, section, sortMode])
+
+  const selectedThemeData = selectedTheme
+    ? themeDescriptions.find((t) => t.name === selectedTheme)
+    : null
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-16">
@@ -149,6 +154,23 @@ export function Library() {
           <div>
             {filteredBooks.map((book) => (
               <BookCard key={book.id} book={book} viewMode="list" onSelect={setSelectedBook} activeTheme={selectedTheme} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Recommendations — inline below the grid when a theme is active */}
+      {selectedThemeData && selectedThemeData.recommendations.length > 0 && (
+        <div className="mt-12 pt-8 border-t border-gray-300">
+          <p className="text-sm text-gray-400 mb-6">
+            If you're drawn to this theme, you might also enjoy
+          </p>
+          <div className={selectedTheme
+            ? 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2'
+            : 'grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2'
+          }>
+            {selectedThemeData.recommendations.map((rec) => (
+              <RecommendationCard key={rec.title} rec={rec} />
             ))}
           </div>
         </div>
