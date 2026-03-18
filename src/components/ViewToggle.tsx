@@ -6,17 +6,14 @@ interface ViewToggleProps {
 }
 
 export function ViewToggle({ mode, onChange }: ViewToggleProps) {
+  const cls = (m: ViewMode) =>
+    `px-3.5 py-2.5 text-sm cursor-pointer transition-colors ${
+      mode === m ? 'bg-charcoal text-cream' : 'bg-transparent text-stone hover:text-charcoal'
+    }`
+
   return (
     <div className="flex border border-stone-light rounded-md overflow-hidden">
-      <button
-        onClick={() => onChange('grid')}
-        className={`px-3.5 py-2.5 text-sm cursor-pointer transition-colors ${
-          mode === 'grid'
-            ? 'bg-charcoal text-cream'
-            : 'bg-transparent text-stone hover:text-charcoal'
-        }`}
-        title="Grid view"
-      >
+      <button onClick={() => onChange('grid')} className={cls('grid')} title="Grid view">
         <svg width="16" height="16" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
           <rect x="1" y="1" width="5" height="5" rx="0.5" />
           <rect x="8" y="1" width="5" height="5" rx="0.5" />
@@ -24,15 +21,7 @@ export function ViewToggle({ mode, onChange }: ViewToggleProps) {
           <rect x="8" y="8" width="5" height="5" rx="0.5" />
         </svg>
       </button>
-      <button
-        onClick={() => onChange('list')}
-        className={`px-3.5 py-2.5 text-sm cursor-pointer transition-colors border-l border-stone-light ${
-          mode === 'list'
-            ? 'bg-charcoal text-cream'
-            : 'bg-transparent text-stone hover:text-charcoal'
-        }`}
-        title="List view"
-      >
+      <button onClick={() => onChange('list')} className={`${cls('list')} border-l border-stone-light`} title="List view">
         <svg width="16" height="16" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
           <line x1="1" y1="3" x2="13" y2="3" />
           <line x1="1" y1="7" x2="13" y2="7" />

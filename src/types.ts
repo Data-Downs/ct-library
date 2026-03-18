@@ -39,3 +39,5 @@ export interface HeroSelection {
 }
 
 export type ViewMode = 'grid' | 'list'
+
+export type SortMode = 'title' | 'author' | 'year-asc' | 'year-desc'
