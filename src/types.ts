@@ -9,19 +9,22 @@ export interface Book {
   coverColour: string
   amazonUrl: string
   themes: Theme[]
+  isCookbook?: boolean
 }
 
 export type Theme =
-  | 'Cookbooks & Food'
-  | 'Literature & Fiction'
-  | 'Art & Architecture'
-  | 'Philosophy & Ideas'
-  | 'Memoir & Life Writing'
-  | 'Travel & Places'
-  | 'History & Politics'
-  | 'Nature & Environment'
-  | 'Poetry'
-  | 'Design & Photography'
+  | 'The Politics of Otherness'
+  | 'Seeing and Power'
+  | 'What Lies Beneath'
+  | 'Ruins and Resilience'
+  | 'The Body as Battleground'
+  | 'Place and Belonging'
+
+export interface ThemeDescription {
+  name: Theme
+  tagline: string
+  description: string
+}
 
 export interface HeroPick {
   bookId: string

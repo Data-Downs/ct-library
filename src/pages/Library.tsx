@@ -6,25 +6,33 @@ import { ThemeFilter } from '../components/ThemeFilter'
 import { ViewToggle } from '../components/ViewToggle'
 import type { Book, Theme, ViewMode } from '../types'
 
+type Section = 'library' | 'cookbooks'
+
 export function Library() {
+  const [section, setSection] = useState<Section>('library')
   const [selectedTheme, setSelectedTheme] = useState<Theme | null>(null)
   const [viewMode, setViewMode] = useState<ViewMode>('grid')
   const [search, setSearch] = useState('')
   const [selectedBook, setSelectedBook] = useState<Book | null>(null)
 
+  const libraryBooks = useMemo(() => books.filter((b) => !b.isCookbook), [])
+  const cookbookBooks = useMemo(() => books.filter((b) => b.isCookbook), [])
+
   const bookCounts = useMemo(() => {
     const counts: Record<string, number> = {}
-    books.forEach((book) => {
+    libraryBooks.forEach((book) => {
       book.themes.forEach((theme) => {
         counts[theme] = (counts[theme] || 0) + 1
       })
     })
     return counts
-  }, [])
+  }, [libraryBooks])
+
+  const activeBooks = section === 'library' ? libraryBooks : cookbookBooks
 
   const filteredBooks = useMemo(() => {
-    let result = books
-    if (selectedTheme) {
+    let result = activeBooks
+    if (section === 'library' && selectedTheme) {
       result = result.filter((b) => b.themes.includes(selectedTheme))
     }
     if (search.trim()) {
@@ -36,7 +44,7 @@ export function Library() {
       )
     }
     return result.sort((a, b) => a.title.localeCompare(b.title))
-  }, [selectedTheme, search])
+  }, [activeBooks, selectedTheme, search, section])
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-10">
@@ -46,8 +54,33 @@ export function Library() {
           The Library
         </h2>
         <p className="text-stone text-sm">
-          {books.length} books across {Object.keys(bookCounts).length} themes
+          {libraryBooks.length} books across {Object.keys(bookCounts).length} themes
+          {cookbookBooks.length > 0 && ` · ${cookbookBooks.length} cookbooks`}
         </p>
+      </div>
+
+      {/* Section toggle */}
+      <div className="flex gap-4 mb-6 border-b border-stone-light/40">
+        <button
+          onClick={() => { setSection('library'); setSelectedTheme(null) }}
+          className={`pb-2 text-sm font-medium border-b-2 transition-colors cursor-pointer bg-transparent ${
+            section === 'library'
+              ? 'border-charcoal text-charcoal'
+              : 'border-transparent text-stone hover:text-charcoal'
+          }`}
+        >
+          Library
+        </button>
+        <button
+          onClick={() => { setSection('cookbooks'); setSelectedTheme(null) }}
+          className={`pb-2 text-sm font-medium border-b-2 transition-colors cursor-pointer bg-transparent ${
+            section === 'cookbooks'
+              ? 'border-charcoal text-charcoal'
+              : 'border-transparent text-stone hover:text-charcoal'
+          }`}
+        >
+          Cookbooks
+        </button>
       </div>
 
       {/* Controls */}
@@ -62,11 +95,14 @@ export function Library() {
           />
           <ViewToggle mode={viewMode} onChange={setViewMode} />
         </div>
-        <ThemeFilter
-          selected={selectedTheme}
-          onSelect={setSelectedTheme}
-          bookCounts={bookCounts}
-        />
+        {section === 'library' && (
+          <ThemeFilter
+            selected={selectedTheme}
+            onSelect={setSelectedTheme}
+            bookCounts={bookCounts}
+            totalBooks={libraryBooks.length}
+          />
+        )}
       </div>
 
       {/* Book grid/list */}

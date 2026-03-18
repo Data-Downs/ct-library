@@ -23,16 +23,18 @@ export function BookCard({ book, viewMode, onSelect }: BookCardProps) {
           <p className="text-xs text-stone-light leading-relaxed m-0 line-clamp-2">
             {book.description}
           </p>
-          <div className="flex flex-wrap gap-1.5 mt-2">
-            {book.themes.map((theme) => (
-              <span
-                key={theme}
-                className="text-[10px] px-2 py-0.5 rounded-full bg-sage-light text-sage-dark"
-              >
-                {theme}
-              </span>
-            ))}
-          </div>
+          {book.themes.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 mt-2">
+              {book.themes.map((theme) => (
+                <span
+                  key={theme}
+                  className="text-[10px] px-2 py-0.5 rounded-full bg-sage-light text-sage-dark"
+                >
+                  {theme}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       </button>
     )

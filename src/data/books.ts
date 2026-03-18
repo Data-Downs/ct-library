@@ -1,4 +1,37 @@
-import type { Book, HeroSelection } from '../types'
+import type { Book, HeroSelection, ThemeDescription } from '../types'
+
+export const themeDescriptions: ThemeDescription[] = [
+  {
+    name: 'The Politics of Otherness',
+    tagline: 'Who decides who belongs — and what it costs to be defined as "other"',
+    description: 'These books examine how power constructs categories of difference through colonialism, race, gender, and caste. Said shows how the West invented "the Orient." Beauvoir shows how woman became "the second sex." Achebe and Rhys write back against the stories empire told about them. Rankine documents what it feels like, moment by moment, to be othered in everyday life. This is the backbone of the collection.',
+  },
+  {
+    name: 'Seeing and Power',
+    tagline: 'Who controls the story — and whose reality gets erased',
+    description: 'How images, narratives, and institutions shape what we accept as truth. Berger asks who paintings were made for. Sontag asks what photographs do to the things they capture. Hobsbawm reveals that "ancient" traditions were invented yesterday. These books share a conviction that seeing clearly is a political act.',
+  },
+  {
+    name: 'What Lies Beneath',
+    tagline: 'The hidden violence and buried truths under the surface of ordinary life',
+    description: 'Macfarlane literally descends underground. Murakami finds wartime atrocities beneath a suburban marriage. Morrison shows how slavery haunts the present. Ishiguro\'s butler devotes his entire narration to not seeing what\'s in front of him. These books are all about what\'s underneath — and what happens when it breaks through.',
+  },
+  {
+    name: 'Ruins and Resilience',
+    tagline: 'How life continues after collapse — and what new forms emerge from the wreckage',
+    description: 'Tsing follows a mushroom through capitalism\'s ruined forests and finds unexpected life. Berlin has been destroyed and rebuilt so many times that reinvention is its identity. Didion maps grief with the precision of a war correspondent. These books share a belief that something survives — that survival itself is a form of creation.',
+  },
+  {
+    name: 'The Body as Battleground',
+    tagline: 'Motherhood, gender, and the physical experience of being in a body',
+    description: 'Cusk writes about early motherhood as an obliteration of the self. Beauvoir traces how the female body becomes a cage. Morrison shows what slavery does to a mother\'s choices. These books treat the body not as backdrop but as the place where identity is made, unmade, and fought over.',
+  },
+  {
+    name: 'Place and Belonging',
+    tagline: 'How cities, landscapes, and built environments shape who we are',
+    description: 'MacLean tells Berlin\'s story through five centuries of its inhabitants. Taylor builds London from two hundred voices. Chatwin invents a Patagonia that\'s half real, half myth. These books understand that we don\'t just live in places — places live in us.',
+  },
+]
 
 export const books: Book[] = [
   // ── Cookbooks & Food ──────────────────────────────────────────────
@@ -12,7 +45,8 @@ export const books: Book[] = [
     pages: 304,
     coverColour: '#e8c840',
     amazonUrl: 'https://www.amazon.co.uk/dp/0241387566',
-    themes: ['Cookbooks & Food'],
+    themes: [],
+    isCookbook: true,
   },
   {
     id: 'ottolenghi-flavour',
@@ -24,7 +58,8 @@ export const books: Book[] = [
     pages: 320,
     coverColour: '#d94f6b',
     amazonUrl: 'https://www.amazon.co.uk/dp/1785038931',
-    themes: ['Cookbooks & Food'],
+    themes: [],
+    isCookbook: true,
   },
   {
     id: 'dishoom',
@@ -36,7 +71,8 @@ export const books: Book[] = [
     pages: 400,
     coverColour: '#1a4a6e',
     amazonUrl: 'https://www.amazon.co.uk/dp/1408890674',
-    themes: ['Cookbooks & Food'],
+    themes: [],
+    isCookbook: true,
   },
   {
     id: 'jerusalem',
@@ -48,7 +84,8 @@ export const books: Book[] = [
     pages: 320,
     coverColour: '#c8a870',
     amazonUrl: 'https://www.amazon.co.uk/dp/0091943744',
-    themes: ['Cookbooks & Food'],
+    themes: [],
+    isCookbook: true,
   },
   {
     id: 'plenty',
@@ -60,7 +97,8 @@ export const books: Book[] = [
     pages: 288,
     coverColour: '#7ab648',
     amazonUrl: 'https://www.amazon.co.uk/dp/0091933684',
-    themes: ['Cookbooks & Food'],
+    themes: [],
+    isCookbook: true,
   },
   {
     id: 'cooking-viennas-empire',
@@ -72,7 +110,8 @@ export const books: Book[] = [
     pages: 208,
     coverColour: '#8b4513',
     amazonUrl: 'https://www.amazon.co.uk/dp/0809400499',
-    themes: ['Cookbooks & Food', 'History & Politics'],
+    themes: [],
+    isCookbook: true,
   },
   {
     id: 'kyoto-food',
@@ -84,7 +123,8 @@ export const books: Book[] = [
     pages: 240,
     coverColour: '#d4a574',
     amazonUrl: 'https://www.amazon.co.uk/dp/0804837775',
-    themes: ['Cookbooks & Food', 'Travel & Places'],
+    themes: [],
+    isCookbook: true,
   },
   {
     id: 'constance-spry',
@@ -96,7 +136,8 @@ export const books: Book[] = [
     pages: 1216,
     coverColour: '#c0392b',
     amazonUrl: 'https://www.amazon.co.uk/dp/1909166219',
-    themes: ['Cookbooks & Food'],
+    themes: [],
+    isCookbook: true,
   },
   {
     id: 'moosewood',
@@ -108,7 +149,8 @@ export const books: Book[] = [
     pages: 248,
     coverColour: '#e67e22',
     amazonUrl: 'https://www.amazon.co.uk/dp/1580081304',
-    themes: ['Cookbooks & Food'],
+    themes: [],
+    isCookbook: true,
   },
   {
     id: 'nigel-slater-kitchen-diaries',
@@ -120,10 +162,11 @@ export const books: Book[] = [
     pages: 384,
     coverColour: '#f0e4d0',
     amazonUrl: 'https://www.amazon.co.uk/dp/0007241704',
-    themes: ['Cookbooks & Food'],
+    themes: [],
+    isCookbook: true,
   },
 
-  // ── Literature & Fiction ──────────────────────────────────────────
+  // ── The Library ───────────────────────────────────────────────────
   {
     id: 'god-of-small-things',
     title: 'The God of Small Things',
@@ -134,7 +177,7 @@ export const books: Book[] = [
     pages: 340,
     coverColour: '#2e7d32',
     amazonUrl: 'https://www.amazon.co.uk/dp/0006551092',
-    themes: ['Literature & Fiction'],
+    themes: ['The Politics of Otherness', 'The Body as Battleground'],
   },
   {
     id: 'les-miserables',
@@ -146,7 +189,7 @@ export const books: Book[] = [
     pages: 1232,
     coverColour: '#1a237e',
     amazonUrl: 'https://www.amazon.co.uk/dp/0140444300',
-    themes: ['Literature & Fiction'],
+    themes: ['The Politics of Otherness', 'Ruins and Resilience'],
   },
   {
     id: 'things-fall-apart',
@@ -158,7 +201,7 @@ export const books: Book[] = [
     pages: 209,
     coverColour: '#bf360c',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141186887',
-    themes: ['Literature & Fiction', 'History & Politics'],
+    themes: ['The Politics of Otherness', 'Ruins and Resilience'],
   },
   {
     id: 'famished-road',
@@ -170,7 +213,7 @@ export const books: Book[] = [
     pages: 500,
     coverColour: '#ff6f00',
     amazonUrl: 'https://www.amazon.co.uk/dp/0099291711',
-    themes: ['Literature & Fiction'],
+    themes: ['What Lies Beneath', 'Ruins and Resilience'],
   },
   {
     id: 'shantaram',
@@ -182,7 +225,7 @@ export const books: Book[] = [
     pages: 936,
     coverColour: '#4a148c',
     amazonUrl: 'https://www.amazon.co.uk/dp/0349117543',
-    themes: ['Literature & Fiction', 'Travel & Places'],
+    themes: ['Place and Belonging'],
   },
   {
     id: 'white-teeth',
@@ -194,7 +237,7 @@ export const books: Book[] = [
     pages: 542,
     coverColour: '#ffd600',
     amazonUrl: 'https://www.amazon.co.uk/dp/0140276335',
-    themes: ['Literature & Fiction'],
+    themes: ['The Politics of Otherness', 'Place and Belonging'],
   },
   {
     id: 'londoners',
@@ -206,7 +249,7 @@ export const books: Book[] = [
     pages: 416,
     coverColour: '#37474f',
     amazonUrl: 'https://www.amazon.co.uk/dp/1847082734',
-    themes: ['Literature & Fiction', 'Travel & Places'],
+    themes: ['The Politics of Otherness', 'Place and Belonging'],
   },
   {
     id: 'wide-sargasso-sea',
@@ -218,7 +261,7 @@ export const books: Book[] = [
     pages: 171,
     coverColour: '#00695c',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141182857',
-    themes: ['Literature & Fiction'],
+    themes: ['The Politics of Otherness', 'Place and Belonging'],
   },
   {
     id: 'beloved',
@@ -230,7 +273,7 @@ export const books: Book[] = [
     pages: 324,
     coverColour: '#880e4f',
     amazonUrl: 'https://www.amazon.co.uk/dp/0099760118',
-    themes: ['Literature & Fiction'],
+    themes: ['The Politics of Otherness', 'What Lies Beneath', 'The Body as Battleground'],
   },
   {
     id: 'wind-up-bird',
@@ -242,7 +285,7 @@ export const books: Book[] = [
     pages: 607,
     coverColour: '#546e7a',
     amazonUrl: 'https://www.amazon.co.uk/dp/0099448793',
-    themes: ['Literature & Fiction'],
+    themes: ['What Lies Beneath'],
   },
   {
     id: 'remains-of-the-day',
@@ -254,10 +297,8 @@ export const books: Book[] = [
     pages: 258,
     coverColour: '#795548',
     amazonUrl: 'https://www.amazon.co.uk/dp/0571258247',
-    themes: ['Literature & Fiction'],
+    themes: ['What Lies Beneath'],
   },
-
-  // ── Art & Architecture ────────────────────────────────────────────
   {
     id: 'atlas-brutalist-architecture',
     title: 'Atlas of Brutalist Architecture',
@@ -268,7 +309,7 @@ export const books: Book[] = [
     pages: 560,
     coverColour: '#616161',
     amazonUrl: 'https://www.amazon.co.uk/dp/0714875481',
-    themes: ['Art & Architecture'],
+    themes: ['Ruins and Resilience', 'Place and Belonging'],
   },
   {
     id: 'goya',
@@ -280,7 +321,7 @@ export const books: Book[] = [
     pages: 448,
     coverColour: '#3e2723',
     amazonUrl: 'https://www.amazon.co.uk/dp/0099455110',
-    themes: ['Art & Architecture'],
+    themes: ['Seeing and Power', 'What Lies Beneath'],
   },
   {
     id: 'roman-gardens',
@@ -292,7 +333,7 @@ export const books: Book[] = [
     pages: 192,
     coverColour: '#558b2f',
     amazonUrl: 'https://www.amazon.co.uk/dp/0892367210',
-    themes: ['Art & Architecture', 'History & Politics'],
+    themes: ['Place and Belonging'],
   },
   {
     id: 'ways-of-seeing',
@@ -304,10 +345,8 @@ export const books: Book[] = [
     pages: 166,
     coverColour: '#e53935',
     amazonUrl: 'https://www.amazon.co.uk/dp/014103579X',
-    themes: ['Art & Architecture', 'Philosophy & Ideas'],
+    themes: ['Seeing and Power'],
   },
-
-  // ── Philosophy & Ideas ────────────────────────────────────────────
   {
     id: 'badiou-being-event',
     title: 'Being and Event',
@@ -318,7 +357,7 @@ export const books: Book[] = [
     pages: 526,
     coverColour: '#212121',
     amazonUrl: 'https://www.amazon.co.uk/dp/1441108106',
-    themes: ['Philosophy & Ideas'],
+    themes: ['What Lies Beneath'],
   },
   {
     id: '247',
@@ -330,7 +369,7 @@ export const books: Book[] = [
     pages: 133,
     coverColour: '#f57f17',
     amazonUrl: 'https://www.amazon.co.uk/dp/1781683107',
-    themes: ['Philosophy & Ideas'],
+    themes: ['What Lies Beneath', 'The Body as Battleground'],
   },
   {
     id: 'second-sex',
@@ -342,7 +381,7 @@ export const books: Book[] = [
     pages: 832,
     coverColour: '#ad1457',
     amazonUrl: 'https://www.amazon.co.uk/dp/0099744201',
-    themes: ['Philosophy & Ideas'],
+    themes: ['The Politics of Otherness', 'The Body as Battleground'],
   },
   {
     id: 'mushroom-end-of-world',
@@ -354,7 +393,7 @@ export const books: Book[] = [
     pages: 331,
     coverColour: '#4e342e',
     amazonUrl: 'https://www.amazon.co.uk/dp/0691178321',
-    themes: ['Philosophy & Ideas', 'Nature & Environment'],
+    themes: ['Ruins and Resilience'],
   },
   {
     id: 'undercommons',
@@ -366,10 +405,8 @@ export const books: Book[] = [
     pages: 170,
     coverColour: '#311b92',
     amazonUrl: 'https://www.amazon.co.uk/dp/1570272670',
-    themes: ['Philosophy & Ideas'],
+    themes: ['Seeing and Power', 'Ruins and Resilience'],
   },
-
-  // ── Memoir & Life Writing ─────────────────────────────────────────
   {
     id: 'lifes-work',
     title: "A Life's Work: On Becoming a Mother",
@@ -380,7 +417,7 @@ export const books: Book[] = [
     pages: 213,
     coverColour: '#ff8a65',
     amazonUrl: 'https://www.amazon.co.uk/dp/0571228526',
-    themes: ['Memoir & Life Writing'],
+    themes: ['The Body as Battleground'],
   },
   {
     id: 'outline',
@@ -392,7 +429,7 @@ export const books: Book[] = [
     pages: 249,
     coverColour: '#90a4ae',
     amazonUrl: 'https://www.amazon.co.uk/dp/0571279739',
-    themes: ['Literature & Fiction', 'Memoir & Life Writing'],
+    themes: ['The Body as Battleground'],
   },
   {
     id: 'nothing-to-envy',
@@ -404,7 +441,7 @@ export const books: Book[] = [
     pages: 336,
     coverColour: '#b71c1c',
     amazonUrl: 'https://www.amazon.co.uk/dp/1847081413',
-    themes: ['Memoir & Life Writing', 'History & Politics'],
+    themes: ['The Politics of Otherness', 'Ruins and Resilience'],
   },
   {
     id: 'year-of-magical-thinking',
@@ -416,10 +453,8 @@ export const books: Book[] = [
     pages: 227,
     coverColour: '#263238',
     amazonUrl: 'https://www.amazon.co.uk/dp/0007216858',
-    themes: ['Memoir & Life Writing'],
+    themes: ['Ruins and Resilience'],
   },
-
-  // ── Travel & Places ───────────────────────────────────────────────
   {
     id: 'berlin',
     title: 'Berlin',
@@ -430,7 +465,7 @@ export const books: Book[] = [
     pages: 432,
     coverColour: '#78909c',
     amazonUrl: 'https://www.amazon.co.uk/dp/0297608495',
-    themes: ['Travel & Places', 'History & Politics'],
+    themes: ['Ruins and Resilience', 'Place and Belonging'],
   },
   {
     id: 'world-atlas',
@@ -442,7 +477,7 @@ export const books: Book[] = [
     pages: 448,
     coverColour: '#0d47a1',
     amazonUrl: 'https://www.amazon.co.uk/dp/0241364116',
-    themes: ['Travel & Places'],
+    themes: ['Place and Belonging'],
   },
   {
     id: 'in-patagonia',
@@ -454,10 +489,8 @@ export const books: Book[] = [
     pages: 204,
     coverColour: '#b0bec5',
     amazonUrl: 'https://www.amazon.co.uk/dp/0099769514',
-    themes: ['Travel & Places', 'Literature & Fiction'],
+    themes: ['Ruins and Resilience', 'Place and Belonging'],
   },
-
-  // ── History & Politics ────────────────────────────────────────────
   {
     id: 'empire',
     title: 'Empire: How Britain Made the Modern World',
@@ -468,7 +501,7 @@ export const books: Book[] = [
     pages: 422,
     coverColour: '#d32f2f',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141007540',
-    themes: ['History & Politics'],
+    themes: ['Seeing and Power'],
   },
   {
     id: 'orientalism',
@@ -480,7 +513,7 @@ export const books: Book[] = [
     pages: 396,
     coverColour: '#5d4037',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141187425',
-    themes: ['History & Politics', 'Philosophy & Ideas'],
+    themes: ['The Politics of Otherness', 'Seeing and Power'],
   },
   {
     id: 'invention-of-tradition',
@@ -492,10 +525,8 @@ export const books: Book[] = [
     pages: 320,
     coverColour: '#827717',
     amazonUrl: 'https://www.amazon.co.uk/dp/1107604672',
-    themes: ['History & Politics'],
+    themes: ['Seeing and Power'],
   },
-
-  // ── Nature & Environment ──────────────────────────────────────────
   {
     id: 'underland',
     title: 'Underland: A Deep Time Journey',
@@ -506,7 +537,7 @@ export const books: Book[] = [
     pages: 488,
     coverColour: '#1b5e20',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141030577',
-    themes: ['Nature & Environment', 'Travel & Places'],
+    themes: ['What Lies Beneath', 'Place and Belonging'],
   },
   {
     id: 'braiding-sweetgrass',
@@ -518,10 +549,8 @@ export const books: Book[] = [
     pages: 390,
     coverColour: '#33691e',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141991950',
-    themes: ['Nature & Environment', 'Philosophy & Ideas'],
+    themes: ['Ruins and Resilience'],
   },
-
-  // ── Poetry ────────────────────────────────────────────────────────
   {
     id: 'ariel',
     title: 'Ariel',
@@ -532,7 +561,7 @@ export const books: Book[] = [
     pages: 86,
     coverColour: '#c62828',
     amazonUrl: 'https://www.amazon.co.uk/dp/0571086268',
-    themes: ['Poetry'],
+    themes: ['What Lies Beneath', 'The Body as Battleground'],
   },
   {
     id: 'citizen',
@@ -544,7 +573,7 @@ export const books: Book[] = [
     pages: 169,
     coverColour: '#f5f5f5',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141981776',
-    themes: ['Poetry', 'Philosophy & Ideas'],
+    themes: ['The Politics of Otherness', 'Seeing and Power', 'The Body as Battleground'],
   },
   {
     id: 'dont-let-me-be-lonely',
@@ -556,10 +585,8 @@ export const books: Book[] = [
     pages: 131,
     coverColour: '#424242',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141044411',
-    themes: ['Poetry'],
+    themes: ['The Politics of Otherness'],
   },
-
-  // ── Design & Photography / Philosophy ─────────────────────────────
   {
     id: 'room-of-ones-own',
     title: "A Room of One's Own",
@@ -570,7 +597,7 @@ export const books: Book[] = [
     pages: 112,
     coverColour: '#7986cb',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141183535',
-    themes: ['Philosophy & Ideas', 'Literature & Fiction'],
+    themes: ['Seeing and Power', 'The Body as Battleground'],
   },
   {
     id: 'on-photography',
@@ -582,7 +609,7 @@ export const books: Book[] = [
     pages: 207,
     coverColour: '#424242',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141187166',
-    themes: ['Design & Photography', 'Philosophy & Ideas'],
+    themes: ['Seeing and Power'],
   },
 ]
 

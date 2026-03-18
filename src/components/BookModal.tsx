@@ -73,16 +73,18 @@ export function BookModal({ book, onClose }: BookModalProps) {
               </div>
 
               {/* Themes */}
-              <div className="flex flex-wrap gap-1.5 mb-4">
-                {book.themes.map((theme) => (
-                  <span
-                    key={theme}
-                    className="text-[11px] px-2.5 py-1 rounded-full bg-sage-light text-sage-dark"
-                  >
-                    {theme}
-                  </span>
-                ))}
-              </div>
+              {book.themes.length > 0 && (
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {book.themes.map((theme) => (
+                    <span
+                      key={theme}
+                      className="text-[11px] px-2.5 py-1 rounded-full bg-sage-light text-sage-dark"
+                    >
+                      {theme}
+                    </span>
+                  ))}
+                </div>
+              )}
 
               {/* Short description */}
               <p className="text-sm text-charcoal/70 leading-relaxed italic">
