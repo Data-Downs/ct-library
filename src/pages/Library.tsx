@@ -50,20 +50,20 @@ export function Library() {
     <div className="max-w-6xl mx-auto px-6 py-10">
       {/* Header area */}
       <div className="mb-8">
-        <h2 className="font-serif text-3xl font-medium text-charcoal mb-1">
+        <h2 className="font-serif text-4xl font-medium text-charcoal mb-2">
           The Library
         </h2>
-        <p className="text-stone text-sm">
+        <p className="text-stone text-base">
           {libraryBooks.length} books across {Object.keys(bookCounts).length} themes
           {cookbookBooks.length > 0 && ` · ${cookbookBooks.length} cookbooks`}
         </p>
       </div>
 
       {/* Section toggle */}
-      <div className="flex gap-4 mb-6 border-b border-stone-light/40">
+      <div className="flex gap-6 mb-6 border-b border-stone-light/40">
         <button
           onClick={() => { setSection('library'); setSelectedTheme(null) }}
-          className={`pb-2 text-sm font-medium border-b-2 transition-colors cursor-pointer bg-transparent ${
+          className={`pb-2.5 text-base font-medium border-b-2 transition-colors cursor-pointer bg-transparent ${
             section === 'library'
               ? 'border-charcoal text-charcoal'
               : 'border-transparent text-stone hover:text-charcoal'
@@ -73,7 +73,7 @@ export function Library() {
         </button>
         <button
           onClick={() => { setSection('cookbooks'); setSelectedTheme(null) }}
-          className={`pb-2 text-sm font-medium border-b-2 transition-colors cursor-pointer bg-transparent ${
+          className={`pb-2.5 text-base font-medium border-b-2 transition-colors cursor-pointer bg-transparent ${
             section === 'cookbooks'
               ? 'border-charcoal text-charcoal'
               : 'border-transparent text-stone hover:text-charcoal'
@@ -91,7 +91,7 @@ export function Library() {
             placeholder="Search by title or author..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="flex-1 min-w-[200px] text-sm px-4 py-2 border border-stone-light rounded-md bg-transparent placeholder:text-stone-light focus:outline-none focus:border-charcoal transition-colors"
+            className="flex-1 min-w-[200px] text-base px-4 py-2.5 border border-stone-light rounded-md bg-transparent placeholder:text-stone-light focus:outline-none focus:border-charcoal transition-colors"
           />
           <ViewToggle mode={viewMode} onChange={setViewMode} />
         </div>
@@ -107,7 +107,7 @@ export function Library() {
 
       {/* Book grid/list */}
       {filteredBooks.length === 0 ? (
-        <p className="text-center text-stone py-12">No books found.</p>
+        <p className="text-center text-stone text-base py-12">No books found.</p>
       ) : viewMode === 'grid' ? (
         <div className={selectedTheme
           ? 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1'

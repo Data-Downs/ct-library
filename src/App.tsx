@@ -12,7 +12,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/library" element={<Library />} />
         </Routes>
-        <footer className="text-center py-8 text-stone text-xs border-t border-stone-light/30">
+        <footer className="text-center py-8 text-stone text-sm border-t border-stone-light/30">
           Charlotte's Library
         </footer>
       </div>

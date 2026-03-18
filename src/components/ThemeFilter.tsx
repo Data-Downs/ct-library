@@ -18,7 +18,7 @@ export function ThemeFilter({ selected, onSelect, bookCounts, totalBooks }: Them
       <div className="flex flex-wrap gap-2">
         <button
           onClick={() => onSelect(null)}
-          className={`text-xs px-3 py-1.5 rounded-full border transition-colors cursor-pointer ${
+          className={`text-sm px-4 py-2 rounded-full border transition-colors cursor-pointer ${
             selected === null
               ? 'bg-charcoal text-cream border-charcoal'
               : 'bg-transparent text-stone border-stone-light hover:border-charcoal hover:text-charcoal'
@@ -31,7 +31,7 @@ export function ThemeFilter({ selected, onSelect, bookCounts, totalBooks }: Them
             <button
               key={name}
               onClick={() => onSelect(selected === name ? null : name)}
-              className={`text-xs px-3 py-1.5 rounded-full border transition-colors cursor-pointer ${
+              className={`text-sm px-4 py-2 rounded-full border transition-colors cursor-pointer ${
                 selected === name
                   ? 'bg-charcoal text-cream border-charcoal'
                   : 'bg-transparent text-stone border-stone-light hover:border-charcoal hover:text-charcoal'
@@ -47,7 +47,7 @@ export function ThemeFilter({ selected, onSelect, bookCounts, totalBooks }: Them
           <h3 className="font-serif text-2xl md:text-3xl font-medium text-charcoal leading-snug mb-3">
             {selectedDescription.tagline}
           </h3>
-          <p className="text-sm text-stone leading-relaxed max-w-3xl">
+          <p className="text-base text-stone leading-relaxed max-w-3xl">
             {selectedDescription.description}
           </p>
         </div>
