@@ -14,49 +14,49 @@ export function Home() {
   }))
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-12">
+    <div className="max-w-3xl mx-auto px-6 py-20">
       {/* Hero intro */}
-      <section className="mb-16 text-center">
-        <h2 className="font-serif text-5xl md:text-6xl font-medium text-charcoal mb-5 tracking-tight">
+      <section className="mb-20">
+        <h2 className="text-5xl md:text-7xl font-normal text-fg mb-6 leading-tight">
           {heroSelection.title}
         </h2>
-        <p className="text-stone text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+        <p className="text-gray-600 text-lg leading-relaxed">
           {heroSelection.description}
         </p>
       </section>
 
       {/* Hero book picks */}
-      <section className="space-y-14 mb-16">
-        {heroBooks.map(({ book, note }, i) => (
+      <section className="space-y-16 mb-20">
+        {heroBooks.map(({ book, note }) => (
           <article
             key={book.id}
-            className={`flex flex-col md:flex-row gap-8 items-start ${
-              i % 2 === 1 ? 'md:flex-row-reverse' : ''
-            }`}
+            className="border-t border-gray-400 pt-10"
           >
-            <button
-              onClick={() => setSelectedBook(book)}
-              className="flex-shrink-0 hover:scale-105 transition-transform cursor-pointer bg-transparent border-0 p-0"
-            >
-              <BookCover book={book} size="lg" />
-            </button>
-            <div className="flex-1">
+            <div className="flex flex-col md:flex-row gap-8 items-start">
               <button
                 onClick={() => setSelectedBook(book)}
-                className="bg-transparent border-0 p-0 cursor-pointer text-left"
+                className="flex-shrink-0 hover:opacity-80 transition-opacity cursor-pointer bg-transparent border-0 p-0"
               >
-                <h3 className="font-serif text-3xl font-semibold text-charcoal mb-1 hover:text-terracotta transition-colors">
-                  {book.title}
-                </h3>
+                <BookCover book={book} size="lg" />
               </button>
-              <p className="text-base text-stone mb-3">{book.author}</p>
-              <p className="text-base text-charcoal/80 leading-relaxed mb-4">
-                {book.description}
-              </p>
-              <div className="border-l-2 border-sage pl-4">
-                <p className="text-base text-charcoal/70 leading-relaxed italic font-serif">
-                  "{note}"
+              <div className="flex-1">
+                <button
+                  onClick={() => setSelectedBook(book)}
+                  className="bg-transparent border-0 p-0 cursor-pointer text-left"
+                >
+                  <h3 className="text-2xl font-normal text-fg mb-1 hover:text-gray-600 transition-colors">
+                    {book.title}
+                  </h3>
+                </button>
+                <p className="text-sm text-gray-500 uppercase tracking-wider mb-4">{book.author}</p>
+                <p className="text-base text-gray-600 leading-relaxed mb-5">
+                  {book.description}
                 </p>
+                <blockquote className="border-l-2 border-gray-300 pl-4">
+                  <p className="text-base text-gray-500 leading-relaxed italic">
+                    "{note}"
+                  </p>
+                </blockquote>
               </div>
             </div>
           </article>
@@ -64,17 +64,16 @@ export function Home() {
       </section>
 
       {/* Link to library */}
-      <section className="text-center py-8 border-t border-stone-light/50">
-        <p className="text-stone text-base mb-4">Want to see the full collection?</p>
+      <section className="text-center py-10 border-t border-gray-400">
+        <p className="text-gray-500 text-base mb-4">View the full collection</p>
         <Link
           to="/library"
-          className="inline-block text-base font-medium text-charcoal border border-charcoal px-7 py-3 rounded-full no-underline hover:bg-charcoal hover:text-cream transition-colors"
+          className="inline-block text-sm uppercase tracking-wider text-fg border-b-2 border-gray-900 pb-1 no-underline hover:text-gray-600 hover:border-gray-500 transition-colors"
         >
           Browse the Library
         </Link>
       </section>
 
-      {/* Book detail modal */}
       {selectedBook && (
         <BookModal book={selectedBook} onClose={() => setSelectedBook(null)} />
       )}

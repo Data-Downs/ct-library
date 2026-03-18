@@ -6,14 +6,16 @@ import { Library } from './pages/Library'
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-cream">
+      <div className="min-h-screen bg-bg">
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/library" element={<Library />} />
-        </Routes>
-        <footer className="text-center py-8 text-stone text-sm border-t border-stone-light/30">
-          Charlotte's Library
+        <div className="pt-16">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/library" element={<Library />} />
+          </Routes>
+        </div>
+        <footer className="max-w-7xl mx-auto px-6 pt-16 pb-6 text-xs text-gray-400">
+          Charlotte Troy — Library
         </footer>
       </div>
     </BrowserRouter>

@@ -15,15 +15,15 @@ export function ThemeFilter({ selected, onSelect, bookCounts }: ThemeFilterProps
   const pillCls = (active: boolean) =>
     `text-sm px-4 py-2 rounded-full border transition-colors cursor-pointer ${
       active
-        ? 'bg-charcoal text-cream border-charcoal'
-        : 'bg-transparent text-stone border-stone-light hover:border-charcoal hover:text-charcoal'
+        ? 'bg-fg text-bg border-fg'
+        : 'bg-transparent text-gray-500 border-gray-400 hover:border-fg hover:text-fg'
     }`
 
   return (
-    <div className="border-t border-stone-light/40 pt-5">
+    <div className="border-t border-gray-400 pt-5">
       <div className="flex items-center gap-2 mb-3">
-        <h4 className="font-serif text-base font-medium text-charcoal m-0">Charlotte's Themes</h4>
-        <span className="text-xs text-stone italic">— derived from the library</span>
+        <h4 className="text-sm font-normal text-fg uppercase tracking-wider m-0">Charlotte's Themes</h4>
+        <span className="text-xs text-gray-400 italic">— derived from the library</span>
       </div>
       <div className="flex flex-wrap gap-2">
         <button onClick={() => onSelect(null)} className={pillCls(selected === null)}>
@@ -42,11 +42,11 @@ export function ThemeFilter({ selected, onSelect, bookCounts }: ThemeFilterProps
         ))}
       </div>
       {selectedDescription && (
-        <div className="mt-5 py-5 border-t border-stone-light/30">
-          <h3 className="font-serif text-2xl md:text-3xl font-medium text-charcoal leading-snug mb-3">
+        <div className="mt-5 py-5 border-t border-gray-300">
+          <h3 className="text-2xl md:text-3xl font-normal text-fg leading-snug mb-3">
             {selectedDescription.tagline}
           </h3>
-          <p className="text-base text-stone leading-relaxed max-w-3xl">
+          <p className="text-base text-gray-500 leading-relaxed max-w-3xl">
             {selectedDescription.description}
           </p>
         </div>
