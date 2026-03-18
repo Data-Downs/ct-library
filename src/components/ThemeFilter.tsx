@@ -46,9 +46,37 @@ export function ThemeFilter({ selected, onSelect, bookCounts }: ThemeFilterProps
           <h3 className="text-2xl md:text-3xl font-normal text-fg leading-snug mb-3">
             {selectedDescription.tagline}
           </h3>
-          <p className="text-base text-gray-500 leading-relaxed max-w-3xl">
+          <p className="text-base text-gray-500 leading-relaxed max-w-3xl mb-8">
             {selectedDescription.description}
           </p>
+
+          {/* Recommendations */}
+          {selectedDescription.recommendations.length > 0 && (
+            <div className="border-t border-gray-300 pt-6">
+              <h4 className="text-sm text-gray-400 mb-4">
+                Charlotte might also consider
+              </h4>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {selectedDescription.recommendations.map((rec) => (
+                  <a
+                    key={rec.title}
+                    href={rec.amazonUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group no-underline block"
+                  >
+                    <h5 className="text-base font-medium text-fg m-0 mb-0.5 group-hover:text-gray-600 transition-colors">
+                      {rec.title}
+                    </h5>
+                    <p className="text-sm text-gray-400 m-0 mb-2">{rec.author}</p>
+                    <p className="text-sm text-gray-500 leading-relaxed m-0">
+                      {rec.reason}
+                    </p>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

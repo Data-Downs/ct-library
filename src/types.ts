@@ -21,10 +21,18 @@ export type Theme =
   | 'The Body as Battleground'
   | 'Place and Belonging'
 
+export interface ThemeRecommendation {
+  title: string
+  author: string
+  reason: string
+  amazonUrl: string
+}
+
 export interface ThemeDescription {
   name: Theme
   tagline: string
   description: string
+  recommendations: ThemeRecommendation[]
 }
 
 export interface HeroPick {

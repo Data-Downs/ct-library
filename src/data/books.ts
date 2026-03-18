@@ -5,31 +5,151 @@ export const themeDescriptions: ThemeDescription[] = [
     name: 'The Politics of Otherness',
     tagline: 'Who decides who belongs — and what it costs to be defined as "other"',
     description: 'These books examine how power constructs categories of difference through colonialism, race, gender, and caste. Said shows how the West invented "the Orient." Beauvoir shows how woman became "the second sex." Achebe and Rhys write back against the stories empire told about them. Rankine documents what it feels like, moment by moment, to be othered in everyday life. This is the backbone of the collection.',
+    recommendations: [
+      {
+        title: 'The Wretched of the Earth',
+        author: 'Frantz Fanon',
+        reason: 'The companion piece to Said and Achebe — Fanon writes from inside the colonial wound, mapping the psychological violence of occupation and arguing that liberation requires the colonised to remake themselves entirely. If Orientalism explains how otherness is constructed, Fanon shows what it does to the people it\'s constructed around.',
+        amazonUrl: 'https://www.amazon.co.uk/dp/0141186542',
+      },
+      {
+        title: 'There There',
+        author: 'Tommy Orange',
+        reason: 'A novel about urban Native Americans converging on the Big Oakland Powwow — twelve characters whose lives are shaped by displacement, addiction, and the erasure of indigenous identity in the modern city. It does for Native American otherness what White Teeth does for immigrant London: makes it vivid, specific, and inescapable.',
+        amazonUrl: 'https://www.amazon.co.uk/dp/1784707844',
+      },
+      {
+        title: 'In the Wake: On Blackness and Being',
+        author: 'Christina Sharpe',
+        reason: 'Sharpe uses the metaphor of the slave ship\'s wake — the turbulence that persists long after the ship has passed — to explore how the afterlife of slavery shapes Black life today. A slim, devastating book that sits perfectly alongside Rankine and Morrison.',
+        amazonUrl: 'https://www.amazon.co.uk/dp/0822368323',
+      },
+    ],
   },
   {
     name: 'Seeing and Power',
     tagline: 'Who controls the story — and whose reality gets erased',
     description: 'How images, narratives, and institutions shape what we accept as truth. Berger asks who paintings were made for. Sontag asks what photographs do to the things they capture. Hobsbawm reveals that "ancient" traditions were invented yesterday. These books share a conviction that seeing clearly is a political act.',
+    recommendations: [
+      {
+        title: 'Regarding the Pain of Others',
+        author: 'Susan Sontag',
+        reason: 'Sontag\'s follow-up to On Photography, focused on war photography and the ethics of looking at suffering. If Charlotte already has On Photography, this is the necessary second half — sharper, angrier, and more urgent about what happens when images of atrocity become wallpaper.',
+        amazonUrl: 'https://www.amazon.co.uk/dp/0141012374',
+      },
+      {
+        title: 'The Argonauts',
+        author: 'Maggie Nelson',
+        reason: 'A genre-breaking memoir about desire, gender, motherhood, and theory — Nelson writes about her relationship with a trans partner while pregnant, weaving in Barthes, Wittgenstein, and Judith Butler. It\'s a book about how language constructs and fails to construct identity, and it would sit beautifully alongside Berger and Woolf.',
+        amazonUrl: 'https://www.amazon.co.uk/dp/1783783044',
+      },
+      {
+        title: 'Discipline and Punish',
+        author: 'Michel Foucault',
+        reason: 'Foucault traces how modern institutions — prisons, schools, hospitals — produce obedient subjects through surveillance and normalisation. The panopticon chapter is one of the most influential arguments about seeing and power ever written. The natural companion to The Undercommons.',
+        amazonUrl: 'https://www.amazon.co.uk/dp/0140137220',
+      },
+    ],
   },
   {
     name: 'What Lies Beneath',
     tagline: 'The hidden violence and buried truths under the surface of ordinary life',
     description: 'Macfarlane literally descends underground. Murakami finds wartime atrocities beneath a suburban marriage. Morrison shows how slavery haunts the present. Ishiguro\'s butler devotes his entire narration to not seeing what\'s in front of him. These books are all about what\'s underneath — and what happens when it breaks through.',
+    recommendations: [
+      {
+        title: 'The Uncanny',
+        author: 'Sigmund Freud',
+        reason: 'Freud\'s essay on the uncanny — the strange feeling when something familiar becomes suddenly alien — is the theoretical key to this entire theme. The repressed returns; the buried surfaces; the heimlich becomes unheimlich. Short enough to read in an afternoon, and it reframes everything from Murakami to Ishiguro.',
+        amazonUrl: 'https://www.amazon.co.uk/dp/0142437476',
+      },
+      {
+        title: 'Dept. of Speculation',
+        author: 'Jenny Offill',
+        reason: 'A marriage unravels in fragments — tiny, precise observations that accumulate into something devastating. Offill writes about domestic life the way Murakami does: the surface is calm, the sentences are short, and the violence is all underneath. A book about what a marriage hides from itself.',
+        amazonUrl: 'https://www.amazon.co.uk/dp/1783780843',
+      },
+      {
+        title: 'Grief Is the Thing with Feathers',
+        author: 'Max Porter',
+        reason: 'After a mother\'s death, a father and two sons are visited by Crow — part Ted Hughes, part trickster spirit, part embodiment of grief itself. Porter creates a form where the mythic erupts into the domestic, the buried breaks through in language. It\'s what lies beneath rendered as poetry.',
+        amazonUrl: 'https://www.amazon.co.uk/dp/0571323774',
+      },
+    ],
   },
   {
     name: 'Ruins and Resilience',
     tagline: 'How life continues after collapse — and what new forms emerge from the wreckage',
     description: 'Tsing follows a mushroom through capitalism\'s ruined forests and finds unexpected life. Berlin has been destroyed and rebuilt so many times that reinvention is its identity. Didion maps grief with the precision of a war correspondent. These books share a belief that something survives — that survival itself is a form of creation.',
+    recommendations: [
+      {
+        title: 'Salvage the Bones',
+        author: 'Jesmyn Ward',
+        reason: 'A poor Black family in rural Mississippi prepares for Hurricane Katrina. Ward writes about poverty, teenage pregnancy, and dog fighting with the intensity of Greek tragedy, and the hurricane — when it comes — is both literal destruction and metaphorical reckoning. Resilience as survival at the very edge.',
+        amazonUrl: 'https://www.amazon.co.uk/dp/1408891085',
+      },
+      {
+        title: 'The Tiger\'s Wife',
+        author: 'Téa Obreht',
+        reason: 'A young doctor in a Balkan country still scarred by war pieces together her grandfather\'s life through stories and myths — a deathless man, a tiger\'s wife, a war that fragmented everything. Obreht writes about how storytelling itself is a form of resilience: the myths we build to survive the ruins of history.',
+        amazonUrl: 'https://www.amazon.co.uk/dp/0753828235',
+      },
+      {
+        title: 'Aftermath: On Marriage and Separation',
+        author: 'Rachel Cusk',
+        reason: 'Charlotte already has A Life\'s Work and Outline — this is the missing piece. Cusk writes about the collapse of her marriage with the same unflinching clarity, treating divorce as a form of ruin that must be survived and understood. The trilogy of Cusk\'s life writing is one of the most remarkable acts of literary resilience in contemporary letters.',
+        amazonUrl: 'https://www.amazon.co.uk/dp/0571276350',
+      },
+    ],
   },
   {
     name: 'The Body as Battleground',
     tagline: 'Motherhood, gender, and the physical experience of being in a body',
     description: 'Cusk writes about early motherhood as an obliteration of the self. Beauvoir traces how the female body becomes a cage. Morrison shows what slavery does to a mother\'s choices. These books treat the body not as backdrop but as the place where identity is made, unmade, and fought over.',
+    recommendations: [
+      {
+        title: 'The Emancipated Spectator',
+        author: 'Jacques Rancière',
+        reason: 'Rancière argues that the division between active bodies (performers, workers) and passive bodies (spectators, audiences) is itself a political structure. The body that watches is not less engaged than the body that acts. A provocative companion to Berger and Beauvoir — reframing what it means to be physically present.',
+        amazonUrl: 'https://www.amazon.co.uk/dp/1844677613',
+      },
+      {
+        title: 'The Chronology of Water',
+        author: 'Lidia Yuknavitch',
+        reason: 'A memoir told through the body — competitive swimming, childbirth, sexual violence, addiction, desire. Yuknavitch refuses the redemption arc; the body is not healed but lived in, with all its damage and appetite intact. If Cusk is the cool anatomist of embodied life, Yuknavitch is the expressionist.',
+        amazonUrl: 'https://www.amazon.co.uk/dp/1786894661',
+      },
+      {
+        title: 'Bluets',
+        author: 'Maggie Nelson',
+        reason: 'Two hundred and forty propositions about the colour blue, desire, heartbreak, and a friend\'s paralysis. Nelson writes about longing as a physical condition — something the body does, not just the mind. A slim, luminous book that treats colour, sex, and grief as phenomena of the body.',
+        amazonUrl: 'https://www.amazon.co.uk/dp/1911214527',
+      },
+    ],
   },
   {
     name: 'Place and Belonging',
     tagline: 'How cities, landscapes, and built environments shape who we are',
     description: 'MacLean tells Berlin\'s story through five centuries of its inhabitants. Taylor builds London from two hundred voices. Chatwin invents a Patagonia that\'s half real, half myth. These books understand that we don\'t just live in places — places live in us.',
+    recommendations: [
+      {
+        title: 'The Old Ways',
+        author: 'Robert Macfarlane',
+        reason: 'Charlotte already has Underland — this is Macfarlane above ground, walking ancient paths across Britain, Palestine, Spain, and the Himalayas. He argues that paths are a form of shared memory: every footstep layered on top of millions of others. Place as palimpsest.',
+        amazonUrl: 'https://www.amazon.co.uk/dp/0141030585',
+      },
+      {
+        title: 'Invisible Cities',
+        author: 'Italo Calvino',
+        reason: 'Marco Polo describes fifty-five impossible cities to Kublai Khan — cities of memory, cities of desire, cities of the dead. Calvino distils the idea of "place" to its philosophical essence: every city is imagined, every description is a projection, and belonging is always partly an act of invention. The perfect companion to Chatwin.',
+        amazonUrl: 'https://www.amazon.co.uk/dp/0099429837',
+      },
+      {
+        title: 'Sincerely,',
+        author: 'Tom Raworth',
+        reason: 'Raworth\'s collected poems are rooted in the textures of London — its speech rhythms, its politics, its visual clutter. He writes place not as landscape but as language: the city is in the syntax. A poet\'s answer to Craig Taylor\'s oral history, from inside the language itself.',
+        amazonUrl: 'https://www.amazon.co.uk/dp/1784102849',
+      },
+    ],
   },
 ]
 
