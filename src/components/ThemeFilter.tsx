@@ -23,7 +23,7 @@ export function ThemeFilter({ selected, onSelect, bookCounts }: ThemeFilterProps
     <div className="border-t border-gray-400 pt-5">
       <div className="flex items-center gap-2 mb-3">
         <h4 className="text-sm font-normal text-fg m-0">Charlotte's Themes</h4>
-        <span className="text-xs text-gray-400 italic">— derived from the library</span>
+        <span className="text-xs text-gray-500 italic">— derived from the library</span>
       </div>
       <div className="flex flex-wrap gap-2">
         <button onClick={() => onSelect(null)} className={pillCls(selected === null)}>

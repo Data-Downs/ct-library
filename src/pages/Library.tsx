@@ -115,7 +115,7 @@ export function Library() {
           placeholder="Search by title or author..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="flex-1 min-w-[200px] max-w-md text-base px-4 py-2.5 border border-gray-400 rounded-md bg-transparent placeholder:text-gray-400 text-fg focus:outline-none focus:border-fg transition-colors"
+          className="flex-1 min-w-[200px] max-w-md text-base px-4 py-2.5 border border-gray-400 rounded-md bg-transparent placeholder:text-gray-500 text-fg focus:outline-none focus:border-fg transition-colors"
         />
         <SortControl mode={sortMode} onChange={setSortMode} />
         <ViewToggle mode={viewMode} onChange={setViewMode} />
@@ -147,9 +147,9 @@ export function Library() {
       ) : (
         <div>
           <div className="grid grid-cols-[1fr_1fr_4rem] gap-x-4 px-2 pb-2 border-b border-gray-400">
-            <span className="text-xs text-gray-400">Title</span>
-            <span className="text-xs text-gray-400">Author</span>
-            <span className="text-xs text-gray-400 text-right">Year</span>
+            <span className="text-xs text-gray-500">Title</span>
+            <span className="text-xs text-gray-500">Author</span>
+            <span className="text-xs text-gray-500 text-right">Year</span>
           </div>
           <div>
             {filteredBooks.map((book) => (
@@ -164,7 +164,7 @@ export function Library() {
         <div className="mt-14">
           <div className="border-t border-gray-400 pt-6 mb-6">
             <h3 className="text-lg font-normal text-fg m-0">Recommendations</h3>
-            <p className="text-sm text-gray-400 mt-1">
+            <p className="text-sm text-gray-500 mt-1">
               Other books along the lines of this theme
             </p>
           </div>

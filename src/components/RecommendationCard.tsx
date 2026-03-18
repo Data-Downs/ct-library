@@ -68,7 +68,7 @@ export function RecommendationCard({ rec }: { rec: ThemeRecommendation }) {
       <h5 className="text-sm font-medium text-fg m-0 mb-0.5 leading-tight">
         {rec.title}
       </h5>
-      <p className="text-xs text-gray-400 m-0 mb-2">{rec.author}</p>
+      <p className="text-xs text-gray-500 m-0 mb-2">{rec.author}</p>
 
       {/* Reason */}
       <p className="text-xs text-gray-500 leading-relaxed m-0 mb-3">
