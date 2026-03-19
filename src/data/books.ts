@@ -177,6 +177,7 @@ const existingBooks: Book[] = [
     synopsis: 'Meera Sodha grew up in a vegetarian household in Lincolnshire, where her mother cooked extraordinary Indian food every day. In East, she draws on her family\'s roots and her travels across Asia to deliver over 120 vegetarian and vegan recipes — from quick weeknight dals and stir-fries to elaborate celebration dishes. The book moves through Japan, China, Vietnam, Thailand, Indonesia, and the Indian subcontinent, offering everything from miso aubergine and peanut chaat to coconut laksa and cardamom rice pudding. It\'s a book about flavour without borders, about how vegetable cooking can be as rich and satisfying as any meat-based tradition.',
     year: 2019, pages: 304, coverColour: '#e8c840',
     amazonUrl: 'https://www.amazon.co.uk/dp/0241387566',
+    isbn: '0241387566',
     themes: [], themeNotes: {},
     genre: 'Cookbook', subjects: [],
   },
@@ -210,6 +211,7 @@ const existingBooks: Book[] = [
     synopsis: 'Two chefs — one Israeli, one Palestinian — both born in Jerusalem in the same year, collaborate on a book about the food of their shared, divided city. Jerusalem explores the culinary traditions of the Arab, Jewish, Christian, and Armenian communities, from the hummus stalls of the Old City to the spice markets and home kitchens. The recipes — roasted aubergine with tahini and pomegranate, lamb shawarma, chopped salads, stuffed vegetables — are deeply rooted in the city\'s layered history. It\'s a book about what food can hold when politics cannot.',
     year: 2012, pages: 320, coverColour: '#c8a870',
     amazonUrl: 'https://www.amazon.co.uk/dp/0091943744',
+    isbn: '0091943744',
     themes: [], themeNotes: {},
     genre: 'Cookbook', subjects: [],
   },
@@ -254,6 +256,7 @@ const existingBooks: Book[] = [
     synopsis: 'First published in 1956, this mammoth volume was the bible of post-war British cooking. Constance Spry, the legendary flower arranger and domestic arts educator, teamed with Rosemary Hume of the Cordon Bleu school to produce a comprehensive guide covering everything from basic stocks to elaborate dinner party menus. The recipes are classical — soufflés, terrines, roasts, sauces — but the voice is surprisingly modern: opinionated, practical, and often very funny. Spry invented Coronation Chicken for the Queen\'s coronation in 1953, and the recipe is here alongside hundreds of others that defined an era of British entertaining.',
     year: 1956, pages: 1216, coverColour: '#c0392b',
     amazonUrl: 'https://www.amazon.co.uk/dp/1909166219',
+    isbn: '1909166219',
     themes: [], themeNotes: {},
     genre: 'Cookbook', subjects: [],
   },
@@ -265,6 +268,7 @@ const existingBooks: Book[] = [
     synopsis: 'Originally published in 1977 and hand-lettered by Katzen herself, The Moosewood Cookbook emerged from the collectively run Moosewood Restaurant in Ithaca, New York, and became one of the best-selling cookbooks of all time. The recipes — mushroom-barley soup, spanakopita, tahini dressing, baba ganoush — now feel like old friends, but at the time they were revolutionary: proof that meatless food could be hearty, satisfying, and full of flavour. The charming hand-drawn illustrations and handwritten recipes give it a warmth that no digital cookbook has matched.',
     year: 1977, pages: 248, coverColour: '#e67e22',
     amazonUrl: 'https://www.amazon.co.uk/dp/1580081304',
+    isbn: '1580081304',
     themes: [], themeNotes: {},
     genre: 'Cookbook', subjects: [],
   },
@@ -289,6 +293,7 @@ const existingBooks: Book[] = [
     synopsis: 'In the town of Ayemenem in Kerala, fraternal twins Rahel and Estha navigate the wreckage of their family — a divorce, a forbidden love affair, a death by drowning, and the rigid caste system that determines who can be loved and how. Roy\'s prose is extraordinary: lyrical, furious, and precise, moving between the children\'s perspective and the adults\' world with devastating effect. The novel unfolds backwards, revealing its central tragedy slowly, so that when it arrives, the reader understands not just what happened but how the "Love Laws" — "the laws that lay down who should be loved, and how. And how much" — made it inevitable. Winner of the 1997 Booker Prize.',
     year: 1997, pages: 340, coverColour: '#2e7d32',
     amazonUrl: 'https://www.amazon.co.uk/dp/0006551092',
+    isbn: '8126904097',
     themes: ['The Politics of Otherness', 'The Body as Battleground'],
     themeNotes: {
       'The Politics of Otherness': 'Roy\'s "Love Laws" — the unwritten rules of caste that determine who may be loved and how much — are the engine of this novel\'s tragedy. The Untouchable Velutha is destroyed not for what he does but for who he is.',
@@ -304,6 +309,7 @@ const existingBooks: Book[] = [
     synopsis: 'Jean Valjean, released after nineteen years in prison for stealing a loaf of bread, breaks his parole and remakes his life — as a factory owner, a mayor, and the guardian of the orphaned Cosette. Pursued relentlessly by the inspector Javert, who believes in the law above all else, Valjean\'s story becomes an epic meditation on justice, mercy, and what it means to be good in an unjust society. Hugo weaves in the Paris sewers, the Battle of Waterloo, street urchins, revolutionaries, and the 1832 June Rebellion. It\'s sprawling, digressive, and magnificent — a novel that contains an entire civilisation.',
     year: 1862, pages: 1232, coverColour: '#1a237e',
     amazonUrl: 'https://www.amazon.co.uk/dp/0140444300',
+    isbn: '0140444300',
     themes: ['The Politics of Otherness', 'Ruins and Resilience'],
     themeNotes: {
       'The Politics of Otherness': 'Valjean is branded an ex-convict and permanently excluded from society for stealing bread. Hugo shows how poverty itself is a form of othering — the poor are not citizens but threats to be managed.',
@@ -319,6 +325,7 @@ const existingBooks: Book[] = [
     synopsis: 'Okonkwo is a respected warrior and leader of the Igbo village of Umuofia, a man who has built his life in opposition to his gentle, unsuccessful father. When Christian missionaries arrive and the British colonial government begins to impose its authority, the world Okonkwo knows starts to unravel. Achebe writes with the calm clarity of a historian and the compassion of a novelist, showing both the strengths and tensions within Igbo society before the colonisers came, and the devastating speed with which everything changed. Published in 1958, it remains the most widely read African novel, translated into over fifty languages.',
     year: 1958, pages: 209, coverColour: '#bf360c',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141186887',
+    isbn: '0141186887',
     themes: ['The Politics of Otherness', 'Ruins and Resilience'],
     themeNotes: {
       'The Politics of Otherness': 'Achebe wrote this novel specifically to counter the colonial narrative that Africa had no culture before Europeans arrived. The Igbo world he depicts is complex, sophisticated, and self-governing — the "other" was never the blank slate colonisers needed it to be.',
@@ -334,6 +341,7 @@ const existingBooks: Book[] = [
     synopsis: 'Azaro is an abiku — a spirit child caught between the world of the living and the world of the unborn, constantly tempted to return to the spirit realm. He chooses to stay in the living world, in a chaotic, unnamed Nigerian city on the brink of independence, where poverty, corruption, and beauty coexist in hallucinatory intensity. Okri creates a narrative that moves fluidly between the everyday and the mythic — political rallies blur into spirit carnivals, a boxing match becomes a cosmic battle. The novel is dense, overwhelming, and extraordinary — a work of African magical realism that creates its own category. Winner of the 1991 Booker Prize.',
     year: 1991, pages: 500, coverColour: '#ff6f00',
     amazonUrl: 'https://www.amazon.co.uk/dp/0099291711',
+    isbn: '0099929309',
     themes: ['What Lies Beneath', 'Ruins and Resilience'],
     themeNotes: {
       'What Lies Beneath': 'Azaro sees the spirit world that exists beneath and alongside the physical one. Political corruption, poverty, and violence are shown to have a mythic dimension — the "famished road" of the title is a hunger that runs through reality itself.',
@@ -349,6 +357,7 @@ const existingBooks: Book[] = [
     synopsis: 'Lin, an Australian heroin addict and convicted armed robber, escapes from prison and flees to Bombay, where he disappears into the city\'s underworld. He lives in a slum, works as a counterfeiter, joins the Bombay mafia, fights in Afghanistan, and falls in love — all while trying to understand the nature of good and evil. Based loosely on Roberts\'s own life, Shantaram is a sprawling, addictive novel that reads like a mixture of Conrad, Kipling, and a crime thriller. It\'s messy, overwrought, and completely irresistible — the kind of book you stay up all night to finish.',
     year: 2003, pages: 936, coverColour: '#4a148c',
     amazonUrl: 'https://www.amazon.co.uk/dp/0349117543',
+    isbn: '0349117543',
     themes: ['Place and Belonging'],
     themeNotes: {
       'Place and Belonging': 'A fugitive with no right to be anywhere finds a home in a Bombay slum. Roberts shows how belonging can be earned through presence, generosity, and the willingness to be changed by a place — even when you have no legal claim to it.',
@@ -363,6 +372,7 @@ const existingBooks: Book[] = [
     synopsis: 'Archie Jones, a working-class Englishman, and Samad Iqbal, a Bengali Muslim, become unlikely best friends after serving together in World War II. Their families — the Joneses, the Iqbals, and the middle-class Chalfens — collide across three decades of London life, navigating race, religion, class, and the comedy of trying to belong. Smith\'s debut is bursting with energy, ideas, and characters, veering from slapstick to philosophy without missing a beat. It captured multicultural London at the turn of the millennium and announced one of the most significant literary voices of her generation.',
     year: 2000, pages: 542, coverColour: '#ffd600',
     amazonUrl: 'https://www.amazon.co.uk/dp/0140276335',
+    isbn: '0140276335',
     themes: ['The Politics of Otherness', 'Place and Belonging'],
     themeNotes: {
       'The Politics of Otherness': 'Every character in White Teeth is negotiating what it means to belong in a country that isn\'t sure it wants them. Samad\'s anguish about raising Muslim children in secular London is the novel\'s most poignant exploration of otherness as a daily, lived condition.',
@@ -378,6 +388,7 @@ const existingBooks: Book[] = [
     synopsis: 'Craig Taylor spent five years interviewing Londoners — over two hundred people from every corner of the city. The result is a polyphonic portrait assembled from the voices of black-cab drivers, hedge-fund managers, refugees, sex workers, lollipop ladies, and tube workers. They talk about arriving in London for the first time, about loneliness and belonging, about the smell of the city and the weight of its history. It\'s a book that captures the lived reality of one of the world\'s great cities — not the tourist London but the London of daily life, endlessly various and often profoundly moving.',
     year: 2011, pages: 416, coverColour: '#37474f',
     amazonUrl: 'https://www.amazon.co.uk/dp/1847082734',
+    isbn: '1847082734',
     themes: ['The Politics of Otherness', 'Place and Belonging'],
     themeNotes: {
       'The Politics of Otherness': 'The voices in this book include refugees, immigrants, and people who feel like strangers in their own city. Taylor lets them speak for themselves, revealing how belonging in London is never settled — it\'s always being questioned, claimed, and contested.',
@@ -393,6 +404,7 @@ const existingBooks: Book[] = [
     synopsis: 'Antoinette Cosway grows up in post-emancipation Jamaica, caught between the Black community that distrusts her family and the white colonial class that has rejected them. When she marries an unnamed Englishman — recognisable as Rochester from Jane Eyre — her identity is systematically dismantled. He renames her Bertha, dismisses her Creole heritage, and eventually locks her away. Rhys gives voice to the "madwoman in the attic," revealing the racism, patriarchy, and colonial violence that Brontë left unexamined. Written in prose of tropical intensity, it\'s one of the great novels of the twentieth century.',
     year: 1966, pages: 171, coverColour: '#00695c',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141182857',
+    isbn: '0141182857',
     themes: ['The Politics of Otherness', 'Place and Belonging'],
     themeNotes: {
       'The Politics of Otherness': 'Antoinette belongs nowhere — too white for the Black community, too Creole for her English husband. Rhys shows how colonial othering works not just between races but within them, stripping identity down to nothing.',
@@ -408,6 +420,7 @@ const existingBooks: Book[] = [
     synopsis: 'Sethe, a formerly enslaved woman living in Cincinnati after the Civil War, is haunted — literally — by the ghost of her dead daughter. When a young woman called Beloved appears on her doorstep, the past that Sethe has tried to bury begins to resurface: the horrors of Sweet Home plantation, her desperate escape, and the unthinkable act she committed to save her children from slavery. Morrison creates a narrative that moves like memory itself — fragmented, circling, and devastatingly precise. Beloved is not just a novel about slavery but about what slavery does to the inner life — to love, to motherhood, to the very possibility of selfhood.',
     year: 1987, pages: 324, coverColour: '#880e4f',
     amazonUrl: 'https://www.amazon.co.uk/dp/0099760118',
+    isbn: '0099760118',
     themes: ['The Politics of Otherness', 'What Lies Beneath', 'The Body as Battleground'],
     themeNotes: {
       'The Politics of Otherness': 'Slavery is the ultimate othering — the legal reduction of a person to property. Morrison shows how this dehumanisation persists long after emancipation, shaping how Sethe sees herself, her children, and her right to love.',
@@ -424,6 +437,7 @@ const existingBooks: Book[] = [
     synopsis: 'Toru Okada\'s cat has gone missing, and then his wife disappears too. What begins as a domestic mystery spirals into a surreal odyssey through abandoned wells, psychic prostitutes, wartime atrocities in Manchuria, and the dark corridors of the subconscious. Murakami weaves multiple timelines and narratives into a vast, dreamlike novel about the violence that lies beneath the surface of ordinary life. It\'s his masterpiece — a book where the mundane and the metaphysical coexist so naturally that you stop questioning the boundaries between them.',
     year: 1994, pages: 607, coverColour: '#546e7a',
     amazonUrl: 'https://www.amazon.co.uk/dp/0099448793',
+    isbn: '0099448793',
     themes: ['What Lies Beneath'],
     themeNotes: {
       'What Lies Beneath': 'Murakami\'s protagonist descends into a dry well and finds that beneath suburban Tokyo lies a labyrinth of wartime violence, suppressed memory, and metaphysical darkness. The novel argues that what we call "ordinary life" is a thin crust over something vast and terrifying.',
@@ -438,6 +452,7 @@ const existingBooks: Book[] = [
     synopsis: 'Stevens, the impeccable butler of Darlington Hall, takes a motoring trip through the English countryside in 1956, ostensibly to visit a former colleague, Miss Kenton. As he drives, he reflects on his decades of service to Lord Darlington — a man who, it gradually becomes clear, was a Nazi sympathiser. Stevens\'s narration is a masterclass in self-deception: every memory he shares reveals more than he intends about his complicity, his loneliness, and the love he never acknowledged. Ishiguro builds the novel like a piece of music, each revelation arriving with quiet, devastating precision. Winner of the 1989 Booker Prize.',
     year: 1989, pages: 258, coverColour: '#795548',
     amazonUrl: 'https://www.amazon.co.uk/dp/0571258247',
+    isbn: '0571258247',
     themes: ['What Lies Beneath'],
     themeNotes: {
       'What Lies Beneath': 'Everything important in this novel happens beneath what Stevens says. His dignity is a mask. His loyalty is complicity. His "professional" distance from Miss Kenton is suppressed love. Ishiguro creates a character whose entire life is a surface concealing what lies beneath.',
@@ -467,6 +482,7 @@ const existingBooks: Book[] = [
     synopsis: 'Robert Hughes traces Francisco Goya\'s extraordinary life from his early career as a court painter producing tapestries and royal portraits, through the illness that left him deaf, to the savage wartime etchings of The Disasters of War and the terrifying Black Paintings of his final years. Hughes — himself an art critic of fierce opinions — finds in Goya a kindred spirit: an artist who refused to look away from human cruelty and who used his art as a weapon against stupidity, violence, and superstition. This is art biography at its best — learned, passionate, and written with the clarity and force of great criticism.',
     year: 2003, pages: 448, coverColour: '#3e2723',
     amazonUrl: 'https://www.amazon.co.uk/dp/0099455110',
+    isbn: '0099455110',
     themes: ['Seeing and Power', 'What Lies Beneath'],
     themeNotes: {
       'Seeing and Power': 'Goya used his position as court painter to smuggle truth into images of power. His royal portraits are subtly unflattering; his war etchings are an act of witness against the state. Hughes shows an artist who understood that the act of seeing is never neutral.',
@@ -482,6 +498,7 @@ const existingBooks: Book[] = [
     synopsis: 'This illustrated volume reconstructs the gardens of ancient Rome — from the grand peristyle gardens of Pompeian villas to the rural estates described by Pliny the Younger. Drawing on archaeological evidence, literary sources, and surviving frescoes, it explores how Romans used gardens as spaces for contemplation, entertainment, and the display of wealth and taste. Topics include water features, topiary, kitchen gardens, sacred groves, and the philosophical traditions that shaped Roman attitudes to nature. A fascinating window into how one of history\'s great civilisations lived with and shaped its landscape.',
     year: 2004, pages: 192, coverColour: '#558b2f',
     amazonUrl: 'https://www.amazon.co.uk/dp/0892367210',
+    isbn: '0892367210',
     themes: ['Place and Belonging'],
     themeNotes: {
       'Place and Belonging': 'Roman gardens were designed landscapes — nature shaped by philosophy, politics, and aesthetics. They show how a civilisation expressed its relationship to the natural world, turning land into a mirror of its values and desires.',
@@ -496,6 +513,7 @@ const existingBooks: Book[] = [
     synopsis: 'Based on the BBC television series, Ways of Seeing is a series of seven essays — four using words, three using images alone — that fundamentally challenged how art is understood. Berger argues that mechanical reproduction has transformed the meaning of paintings, that the tradition of oil painting is inseparable from property and possession, and that the representation of women in Western art has been shaped by the male gaze. Written with razor clarity and illustrated with carefully chosen juxtapositions, it remains the most influential work of art criticism of the last fifty years. Every page is a provocation.',
     year: 1972, pages: 166, coverColour: '#e53935',
     amazonUrl: 'https://www.amazon.co.uk/dp/014103579X',
+    isbn: '014103579X',
     themes: ['Seeing and Power'],
     themeNotes: {
       'Seeing and Power': 'The foundational text for this entire theme. Berger demonstrates that the way we see art is shaped by assumptions about property, gender, and class — and that learning to see differently is the first step toward thinking differently about power.',
@@ -510,6 +528,7 @@ const existingBooks: Book[] = [
     synopsis: 'Badiou\'s central claim is extraordinary: that mathematics (specifically, Zermelo-Fraenkel set theory) is ontology — the science of being as such. From this foundation, he builds a philosophical system that accounts for how genuine novelty enters the world through what he calls "events" — unpredictable ruptures (a revolution, a scientific breakthrough, a love encounter, an artistic innovation) that cannot be explained by the existing order. The subject, for Badiou, is not a given but emerges through fidelity to such events. Dense, demanding, and exhilarating, Being and Event is one of the most ambitious works of philosophy since Heidegger.',
     year: 1988, pages: 526, coverColour: '#212121',
     amazonUrl: 'https://www.amazon.co.uk/dp/1441108106',
+    isbn: '1441108106',
     themes: ['What Lies Beneath'],
     themeNotes: {
       'What Lies Beneath': 'Badiou argues that the most important things — revolutions, love, art — erupt from beneath the surface of "what is." The event is precisely what the existing order cannot predict or contain. Truth is what lies beneath being.',
@@ -524,6 +543,7 @@ const existingBooks: Book[] = [
     synopsis: 'Crary argues that contemporary capitalism is waging a war on sleep — the last human activity that cannot be colonised by market forces. In a 24/7 world of perpetual connectivity, non-stop consumption, and round-the-clock labour, sleep represents a scandalous interruption: an interval of time that cannot be productised. The book traces how illumination, screens, and the erosion of day-night boundaries have reshaped human experience, drawing on art, neuroscience, and critical theory. It\'s a short, blazing polemic — less a policy argument than a philosophical defence of the irreducible human need for rest and withdrawal.',
     year: 2013, pages: 133, coverColour: '#f57f17',
     amazonUrl: 'https://www.amazon.co.uk/dp/1781683107',
+    isbn: '1781683107',
     themes: ['What Lies Beneath', 'The Body as Battleground'],
     themeNotes: {
       'What Lies Beneath': 'Crary reveals the hidden war that capitalism wages on human consciousness — colonising attention, eroding the boundary between day and night, and attacking sleep as an unproductive interruption. The violence is invisible precisely because it has become the texture of daily life.',
@@ -539,6 +559,7 @@ const existingBooks: Book[] = [
     synopsis: '"One is not born, but rather becomes, a woman." With that sentence, Beauvoir launched modern feminist philosophy. The Second Sex is a comprehensive examination of women\'s oppression, drawing on biology, psychoanalysis, historical materialism, literature, and lived experience to argue that femininity is not a natural fact but a social construction. Beauvoir traces how women have been defined as the "Other" throughout Western history and analyses how this otherness is reproduced in childhood, education, marriage, and motherhood. Published in 1949, it remains the single most important work of feminist theory — dense, encyclopaedic, and still capable of provoking argument.',
     year: 1949, pages: 832, coverColour: '#ad1457',
     amazonUrl: 'https://www.amazon.co.uk/dp/0099744201',
+    isbn: '009974421X',
     themes: ['The Politics of Otherness', 'The Body as Battleground'],
     themeNotes: {
       'The Politics of Otherness': 'Beauvoir\'s central argument: woman has been constructed as man\'s "Other" — not a subject in her own right but a mirror for male identity. The entire apparatus of femininity is a system for producing and maintaining this otherness.',
@@ -554,6 +575,7 @@ const existingBooks: Book[] = [
     synopsis: 'The matsutake mushroom is one of the most valuable fungi in the world, prized in Japan and found growing in the ruins of industrial forests. Tsing follows it from the devastated landscapes of Oregon to the auction houses of Tokyo, using it as a guide to understanding life in the ruins of capitalism. Along the way, she encounters Hmong and Lao refugees who pick the mushrooms, Japanese traders who evaluate them by smell and feel, and ecologists studying how forests regenerate after destruction. It\'s a radical work of anthropology that argues for a new way of thinking about survival, collaboration, and what comes after progress.',
     year: 2015, pages: 331, coverColour: '#4e342e',
     amazonUrl: 'https://www.amazon.co.uk/dp/0691178321',
+    isbn: '0691178321',
     themes: ['Ruins and Resilience'],
     themeNotes: {
       'Ruins and Resilience': 'Tsing\'s central insight: the matsutake mushroom thrives in devastated forests, creating value in landscapes that capitalism has used up and abandoned. Life doesn\'t need pristine conditions — it finds ways to flourish in the ruins.',
@@ -568,6 +590,7 @@ const existingBooks: Book[] = [
     synopsis: 'The Undercommons argues that the university, far from being a space of free inquiry, is a site of governance and regulation — and that genuine intellectual life happens in the "undercommons," the informal networks of study, friendship, and mutual aid that exist beneath and against institutional structures. Harney and Moten draw on Black radical thought, jazz, and critical theory to develop concepts of "fugitive planning" and "hapticality" — ways of being together that refuse the terms of neoliberal governance. It\'s a book that has become a touchstone for radical thinkers across disciplines, dense and poetic in equal measure.',
     year: 2013, pages: 170, coverColour: '#311b92',
     amazonUrl: 'https://www.amazon.co.uk/dp/1570272670',
+    isbn: '1570272670',
     themes: ['Seeing and Power', 'Ruins and Resilience'],
     themeNotes: {
       'Seeing and Power': 'Harney and Moten argue that the university — supposedly a place of free knowledge — is actually a machine for producing compliant subjects. Genuine study happens fugitively, in the margins, beyond the institution\'s gaze.',
@@ -583,6 +606,7 @@ const existingBooks: Book[] = [
     synopsis: 'Cusk writes about the experience of having her first child with the same unflinching honesty she brings to her fiction. She describes the physical shock of birth, the obliteration of the self that follows, the boredom and terror and unexpected tenderness of caring for a newborn. She\'s unsparing about the losses — of freedom, of identity, of the person she was before — and precise about the gains, which are harder to name. The book caused controversy when it was published, accused of being "anti-motherhood," but it\'s really the opposite: it takes motherhood seriously enough to tell the truth about it.',
     year: 2001, pages: 213, coverColour: '#ff8a65',
     amazonUrl: 'https://www.amazon.co.uk/dp/0571228526',
+    isbn: '3518425285',
     themes: ['The Body as Battleground'],
     themeNotes: {
       'The Body as Battleground': 'Motherhood as Cusk describes it is an overwhelmingly physical experience — the body split open by birth, colonised by a newborn\'s needs, reshaped beyond recognition. The self doesn\'t just change; it is obliterated and rebuilt around the body\'s new demands.',
@@ -611,6 +635,7 @@ const existingBooks: Book[] = [
     synopsis: 'Barbara Demick, the Los Angeles Times bureau chief in Seoul, spent six years interviewing North Korean defectors. From their testimonies she reconstructs the daily reality of life in Chongjin, North Korea\'s third-largest city, during the famine of the 1990s that killed perhaps a million people. We follow a doctor who watches her patients die of starvation, a couple who fall in love in a country where holding hands can mean imprisonment, a loyal party member whose faith slowly cracks, and a street orphan who survives by his wits. The title comes from a children\'s song: "We have nothing to envy in the world." The gap between the propaganda and the reality is the subject of this devastating book.',
     year: 2009, pages: 336, coverColour: '#b71c1c',
     amazonUrl: 'https://www.amazon.co.uk/dp/1847081413',
+    isbn: '0385523904',
     themes: ['The Politics of Otherness', 'Ruins and Resilience'],
     themeNotes: {
       'The Politics of Otherness': 'North Korea\'s songbun system assigns citizens a political classification at birth that determines their entire life. Demick shows othering as total state control — where even your loyalty is predetermined, and stepping outside your assigned identity means death.',
@@ -626,6 +651,7 @@ const existingBooks: Book[] = [
     synopsis: 'On the evening of 30 December 2003, Joan Didion and her husband John Gregory Dunne sat down to dinner. Dunne suffered a fatal cardiac arrest at the table. Their daughter Quintana was in a coma in a nearby hospital. Didion\'s account of the year that followed is written with her characteristic precision — she researches grief the way she researched politics, reading medical journals, analysing her own irrationality, and noting the "magical thinking" that made her believe she could somehow undo the death. The result is both universal and deeply personal: a book about what happens to the mind when the unthinkable happens, written by someone who has spent her life paying attention.',
     year: 2005, pages: 227, coverColour: '#263238',
     amazonUrl: 'https://www.amazon.co.uk/dp/0007216858',
+    isbn: '0007216858',
     themes: ['Ruins and Resilience'],
     themeNotes: {
       'Ruins and Resilience': 'Didion\'s grief is a personal apocalypse — the complete destruction of the life she knew. The "magical thinking" of the title is itself a form of resilience: the mind\'s refusal to accept ruin, even as the writer\'s discipline forces her to document it with absolute precision.',
@@ -640,6 +666,7 @@ const existingBooks: Book[] = [
     synopsis: 'MacLean tells the story of Berlin through the lives of its inhabitants across five hundred years — from the Great Elector to Marlene Dietrich, from Albert Speer to David Bowie. Each chapter focuses on a historical figure who embodied the city\'s restless capacity for reinvention: the Huguenot refugees who made it cosmopolitan, the artists who made it bohemian, the Nazis who tried to make it a world capital, and the ravers who reclaimed it after the Wall came down. It\'s a book about a city that has been destroyed and rebuilt so many times that transformation is its defining characteristic.',
     year: 2014, pages: 432, coverColour: '#78909c',
     amazonUrl: 'https://www.amazon.co.uk/dp/0297608495',
+    isbn: '0297868837',
     themes: ['Ruins and Resilience', 'Place and Belonging'],
     themeNotes: {
       'Ruins and Resilience': 'Berlin is the city of ruins and resilience — bombed flat, divided by a wall, reunified, gentrified. MacLean shows that Berlin\'s identity is not any single incarnation but the pattern of destruction and reinvention itself.',
@@ -669,6 +696,7 @@ const existingBooks: Book[] = [
     synopsis: 'Chatwin travelled to Patagonia in 1975, supposedly in search of a piece of brontosaurus skin that his grandmother had kept in a cabinet. What he found — or invented, or embroidered — became this strange, beautiful book: a collection of stories, encounters, and landscapes at the end of the world. He meets Welsh settlers, Anarchist outlaws, estancia owners, and wanderers. He visits the cave where the brontosaurus skin was found. He writes about Butch Cassidy, Charles Darwin, and the Patagonian giants. The book invented a genre — literary travel writing as a form of autobiography — and remains one of the most influential travel books ever written.',
     year: 1977, pages: 204, coverColour: '#b0bec5',
     amazonUrl: 'https://www.amazon.co.uk/dp/0099769514',
+    isbn: '0099769514',
     themes: ['Ruins and Resilience', 'Place and Belonging'],
     themeNotes: {
       'Ruins and Resilience': 'Patagonia as Chatwin finds it is a landscape of remnants — Welsh colonies that never quite took root, outlaw hideouts, extinct animals. The beauty of the book is in how life persists at the edge of the world, in the most inhospitable conditions.',
@@ -684,6 +712,7 @@ const existingBooks: Book[] = [
     synopsis: 'Ferguson argues that the British Empire, for all its brutality and exploitation, was a globalising force that spread free trade, the rule of law, parliamentary democracy, and the English language around the world. He traces the Empire from the pirates and sugar planters of the seventeenth century through the administrators and missionaries of the Victorian era to the soldiers of two world wars. The book is deliberately provocative — Ferguson acknowledges the Empire\'s crimes but insists on weighing them against its achievements. Whether you agree with his conclusions or not, the narrative is compulsively readable and the questions it raises about imperialism, globalisation, and responsibility remain urgent.',
     year: 2003, pages: 422, coverColour: '#d32f2f',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141007540',
+    isbn: '0141007540',
     themes: ['Seeing and Power'],
     themeNotes: {
       'Seeing and Power': 'Ferguson tells the story of Empire from the coloniser\'s perspective — and that framing is itself an exercise of narrative power. Reading it alongside Said and Achebe reveals how the same history looks completely different depending on who controls the telling.',
@@ -698,6 +727,7 @@ const existingBooks: Book[] = [
     synopsis: 'Said\'s thesis is that "the Orient" is not a natural fact but a European invention — a system of knowledge and representation that served colonial power by defining Eastern peoples as exotic, irrational, backward, and in need of Western governance. Drawing on literature, history, and political analysis, Said traces how this discourse was produced by scholars, novelists, and administrators from Napoleon\'s invasion of Egypt to the present day. Orientalism transformed the fields of literary criticism, history, and postcolonial studies, and its central insight — that knowledge and power are inseparable — remains one of the most important ideas in the humanities.',
     year: 1978, pages: 396, coverColour: '#5d4037',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141187425',
+    isbn: '0141187425',
     themes: ['The Politics of Otherness', 'Seeing and Power'],
     themeNotes: {
       'The Politics of Otherness': 'The book that gave us the vocabulary for understanding how otherness is manufactured. Said showed that "the Orient" was a European invention — a projection of everything the West needed its Other to be: exotic, irrational, available for conquest.',
@@ -713,6 +743,7 @@ const existingBooks: Book[] = [
     synopsis: 'This collection of essays demonstrates that many "traditions" we assume to be ancient were actually invented relatively recently — often in the nineteenth century — to serve political purposes. The Highland tradition of Scotland (including tartan and clan identity), the British monarchy\'s elaborate ceremonies, and colonial rituals in Africa are all shown to be deliberate constructions designed to establish continuity with a suitable past and to legitimate present authority. Hobsbawm\'s introduction provides the theoretical framework, and the case studies — by historians including Hugh Trevor-Roper and Terence Ranger — are consistently surprising and illuminating.',
     year: 1983, pages: 320, coverColour: '#827717',
     amazonUrl: 'https://www.amazon.co.uk/dp/1107604672',
+    isbn: '1107604672',
     themes: ['Seeing and Power'],
     themeNotes: {
       'Seeing and Power': 'Hobsbawm reveals that what appears to be timeless tradition is often recent fabrication designed to legitimate power. The kilt, the royal ceremony, the colonial ritual — all invented to create the illusion of ancient authority. Seeing through the invention is an act of intellectual liberation.',
@@ -727,6 +758,7 @@ const existingBooks: Book[] = [
     synopsis: 'Macfarlane goes underground — into the caves beneath the Mendip Hills, the catacombs of Paris, the potash mines of Yorkshire, the ice cores of Greenland, and the nuclear waste repositories of Finland — to explore what lies beneath. Each descent becomes a meditation on deep time: the vast scales of geological history that dwarf human existence. He encounters mycorrhizal networks that connect forest trees, Bronze Age burial chambers, the "dark matter" laboratories beneath the Italian Alps, and the artists who have painted on cave walls for forty thousand years. It\'s nature writing at its most ambitious — a book about what the underworld can teach us about time, loss, and the future of the planet.',
     year: 2019, pages: 488, coverColour: '#1b5e20',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141030577',
+    isbn: '0241146429',
     themes: ['What Lies Beneath', 'Place and Belonging'],
     themeNotes: {
       'What Lies Beneath': 'The most literal expression of this theme in the collection. Macfarlane descends into caves, mines, catacombs, and nuclear waste stores to discover what the underground world reveals about memory, time, and what we choose to bury.',
@@ -742,6 +774,7 @@ const existingBooks: Book[] = [
     synopsis: 'Kimmerer, a professor of ecology and a member of the Citizen Potawatomi Nation, weaves together indigenous knowledge and Western science to argue for a new relationship with the natural world — one based on gratitude, reciprocity, and responsibility rather than extraction. She writes about sweetgrass and wild strawberries, about the gift economy of indigenous cultures, about teaching her students to see plants as teachers rather than objects. Each essay is a meditation on what it means to live in a world where everything — plants, animals, water, soil — is alive and deserving of respect. It\'s a book that has quietly become one of the most important environmental texts of the century.',
     year: 2013, pages: 390, coverColour: '#33691e',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141991950',
+    isbn: '1571313567',
     themes: ['Ruins and Resilience'],
     themeNotes: {
       'Ruins and Resilience': 'Kimmerer writes from the ruins of colonisation — the near-destruction of indigenous languages, knowledge systems, and land. Yet Braiding Sweetgrass is not a book about loss but about what survives: the sweetgrass still grows, the stories are still told, and reciprocity with the land remains possible.',
@@ -756,6 +789,7 @@ const existingBooks: Book[] = [
     synopsis: 'Written in the final months of Plath\'s life, these poems blaze with a ferocity and control that stunned the literary world when they were published posthumously in 1965. "Lady Lazarus," "Daddy," "Ariel," "Edge" — each poem is an act of transformation, turning personal suffering into art of terrifying beauty. Plath\'s voice in these poems is unlike anything that came before: precise, furious, darkly comic, and absolutely without self-pity. The collection has been endlessly debated — is it confessional? feminist? mythic? — but its power is beyond argument. These are poems that change the temperature of the room they\'re read in.',
     year: 1965, pages: 86, coverColour: '#c62828',
     amazonUrl: 'https://www.amazon.co.uk/dp/0571086268',
+    isbn: '0571086268',
     themes: ['What Lies Beneath', 'The Body as Battleground'],
     themeNotes: {
       'What Lies Beneath': '"Lady Lazarus" rises from the dead; "Daddy" excavates the buried father. Plath\'s poems are eruptions — the controlled surface of language splitting open to reveal fury, pain, and a terrifying clarity that was always there, underneath.',
@@ -771,6 +805,7 @@ const existingBooks: Book[] = [
     synopsis: 'Citizen defies classification. It\'s a book of poetry that reads like an essay, structured around a series of "microaggressions" — moments of casual racism experienced by the speaker and other Black Americans in everyday life. A friend calls you by the wrong name. A therapist opens the door and says, "I was expecting someone else." A tennis player is penalised for an outburst that would go unremarked in a white player. Rankine uses the second person throughout — "you" — implicating the reader in every encounter. Interspersed are visual artworks, meditations on Serena Williams and Trayvon Martin, and longer prose pieces. It sold over a million copies and changed what contemporary poetry could do.',
     year: 2014, pages: 169, coverColour: '#f5f5f5',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141981776',
+    isbn: '0141981776',
     themes: ['The Politics of Otherness', 'Seeing and Power', 'The Body as Battleground'],
     themeNotes: {
       'The Politics of Otherness': 'Rankine documents othering as it actually happens — in real time, in small moments, in the gap between what was said and what was meant. The "you" of the text makes the reader inhabit the experience of being other, if only for 169 pages.',
@@ -787,6 +822,7 @@ const existingBooks: Book[] = [
     synopsis: 'Subtitled "An American Lyric" — the same designation Rankine would later give to Citizen — this earlier work is a fragmented meditation on loneliness, death, and the numbing effect of mass media. Rankine watches CNN coverage of September 11, considers the pharmaceutical industry\'s colonisation of sadness, visits a dying friend, and reflects on what it means to live in a country that is both her home and a source of constant alienation. The book alternates between prose poetry and reproductions of television static, creating a work that feels like channel-surfing through a culture in crisis. Less widely known than Citizen but equally essential.',
     year: 2004, pages: 131, coverColour: '#424242',
     amazonUrl: 'https://www.amazon.co.uk/dp/0141044411',
+    isbn: '0141187166',
     themes: ['The Politics of Otherness'],
     themeNotes: {
       'The Politics of Otherness': 'Rankine describes the loneliness of belonging to a country that does not fully recognise you. The alienation here is quieter than in Citizen but no less devastating — a slow erosion of selfhood by a culture that renders you invisible.',

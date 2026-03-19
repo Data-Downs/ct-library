@@ -1,11 +1,41 @@
+import { useState, useCallback } from 'react'
 import type { Book, Theme, ViewMode } from '../types'
 import { BookCover } from './BookCover'
+import { getCoverImageUrl } from '../utils/coverImage'
 
 interface BookCardProps {
   book: Book
   viewMode: ViewMode
   onSelect: (book: Book) => void
   activeTheme?: Theme | null
+}
+
+function SmartCover({ book }: { book: Book }) {
+  const [failed, setFailed] = useState(false)
+  const imageUrl = book.isbn ? getCoverImageUrl(book) : ''
+
+  const handleLoad = useCallback((e: React.SyntheticEvent<HTMLImageElement>) => {
+    const img = e.currentTarget
+    if (img.naturalWidth <= 1 || img.naturalHeight <= 1) {
+      setFailed(true)
+    }
+  }, [])
+
+  // Only attempt image if we have a verified ISBN
+  if (failed || !imageUrl) {
+    return <BookCover book={book} size="md" />
+  }
+
+  return (
+    <img
+      src={imageUrl}
+      alt={book.title}
+      onError={() => setFailed(true)}
+      onLoad={handleLoad}
+      className="w-28 h-auto rounded-sm shadow-md object-cover"
+      loading="lazy"
+    />
+  )
 }
 
 export function BookCard({ book, viewMode, onSelect, activeTheme }: BookCardProps) {
@@ -30,13 +60,13 @@ export function BookCard({ book, viewMode, onSelect, activeTheme }: BookCardProp
     )
   }
 
-  // Grid view — HTML covers (always accurate)
+  // Grid view — smart cover (real image if ISBN verified, HTML fallback otherwise)
   return (
     <button
       onClick={() => onSelect(book)}
       className="flex flex-col items-center text-center p-3 rounded-lg hover:bg-gray-300/30 transition-colors cursor-pointer bg-transparent border-0 group"
     >
-      <BookCover book={book} size="md" />
+      <SmartCover book={book} />
       <h3 className="text-sm font-medium text-fg mt-2.5 mb-0.5 group-hover:text-gray-600 transition-colors leading-tight">
         {book.title}
       </h3>

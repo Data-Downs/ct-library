@@ -1,0 +1,1621 @@
+{
+  "verified": [
+    {
+      "id": "east",
+      "title": "East",
+      "isbn": "0241387566",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "jerusalem",
+      "title": "Jerusalem",
+      "isbn": "0091943744",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "constance-spry",
+      "title": "The Constance Spry Cookery Book",
+      "isbn": "1909166219",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "moosewood",
+      "title": "The Moosewood Cookbook",
+      "isbn": "1580081304",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "god-of-small-things",
+      "title": "The God of Small Things",
+      "isbn": "8126904097",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "les-miserables",
+      "title": "Les Misérables",
+      "isbn": "0140444300",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "things-fall-apart",
+      "title": "Things Fall Apart",
+      "isbn": "0141186887",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "famished-road",
+      "title": "The Famished Road",
+      "isbn": "0099929309",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "shantaram",
+      "title": "Shantaram",
+      "isbn": "0349117543",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "white-teeth",
+      "title": "White Teeth",
+      "isbn": "0140276335",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "londoners",
+      "title": "Londoners: The Days and Nights of London Now",
+      "isbn": "1847082734",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "wide-sargasso-sea",
+      "title": "Wide Sargasso Sea",
+      "isbn": "0141182857",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "beloved",
+      "title": "Beloved",
+      "isbn": "0099760118",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "wind-up-bird",
+      "title": "The Wind-Up Bird Chronicle",
+      "isbn": "0099448793",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "remains-of-the-day",
+      "title": "The Remains of the Day",
+      "isbn": "0571258247",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "goya",
+      "title": "Goya",
+      "isbn": "0099455110",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "roman-gardens",
+      "title": "Roman Gardens: Villas of the Countryside",
+      "isbn": "0892367210",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "ways-of-seeing",
+      "title": "Ways of Seeing",
+      "isbn": "014103579X",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "badiou-being-event",
+      "title": "Being and Event",
+      "isbn": "1441108106",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "247",
+      "title": "24/7: Late Capitalism and the Ends of Sleep",
+      "isbn": "1781683107",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "second-sex",
+      "title": "The Second Sex",
+      "isbn": "009974421X",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "mushroom-end-of-world",
+      "title": "The Mushroom at the End of the World",
+      "isbn": "0691178321",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "undercommons",
+      "title": "The Undercommons",
+      "isbn": "1570272670",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "lifes-work",
+      "title": "Outline",
+      "isbn": "3518425285",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "nothing-to-envy",
+      "title": "Nothing to Envy: Real Lives in North Korea",
+      "isbn": "0385523904",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "year-of-magical-thinking",
+      "title": "The Year of Magical Thinking",
+      "isbn": "0007216858",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "berlin",
+      "title": "Berlin",
+      "isbn": "0297868837",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "in-patagonia",
+      "title": "In Patagonia",
+      "isbn": "0099769514",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "empire",
+      "title": "Empire: How Britain Made the Modern World",
+      "isbn": "0141007540",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "orientalism",
+      "title": "Orientalism",
+      "isbn": "0141187425",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "invention-of-tradition",
+      "title": "The Invention of Tradition",
+      "isbn": "1107604672",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "underland",
+      "title": "Underland: A Deep Time Journey",
+      "isbn": "0241146429",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "braiding-sweetgrass",
+      "title": "Braiding Sweetgrass",
+      "isbn": "1571313567",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "ariel",
+      "title": "Ariel",
+      "isbn": "0571086268",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "citizen",
+      "title": "Citizen: An American Lyric",
+      "isbn": "0141981776",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "dont-let-me-be-lonely",
+      "title": "On Photography",
+      "isbn": "0141187166",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "thousand-plateaus",
+      "title": "A Thousand Plateaus",
+      "isbn": "0816614024",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "being-and-time",
+      "title": "Being and Time",
+      "isbn": "0631197702",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "three-ecologies",
+      "title": "The Three Ecologies",
+      "isbn": "1847063055",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "primacy-of-perception",
+      "title": "The Primacy of Perception",
+      "isbn": "0810101645",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "critique-of-judgement",
+      "title": "Critique of Judgement",
+      "isbn": "0199552460",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "inner-experience",
+      "title": "Inner Experience",
+      "isbn": "0791422496",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "pedagogy-of-oppressed",
+      "title": "Pedagogy of the Oppressed",
+      "isbn": "0826412769",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "aesthetic-theory",
+      "title": "Aesthetic Theory",
+      "isbn": "0826467547",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "culture-industry",
+      "title": "The Culture Industry",
+      "isbn": "0415253802",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "illuminations",
+      "title": "Illuminations",
+      "isbn": "0712666354",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "mythologies",
+      "title": "Mythologies",
+      "isbn": "0099529750",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "pleasure-of-text",
+      "title": "The Pleasure of the Text",
+      "isbn": "0374521603",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "capital-vol-1",
+      "title": "Capital (Volume 1)",
+      "isbn": "0140445684",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "system-of-objects",
+      "title": "The System of Objects",
+      "isbn": "1844670538",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "hermeneutics-subject",
+      "title": "The Hermeneutics of the Subject",
+      "isbn": "0312425708",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "fear-of-freedom",
+      "title": "The Fear of Freedom",
+      "isbn": "0415253888",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "outsider-camus",
+      "title": "The Outsider",
+      "isbn": "0141198060",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "labyrinths",
+      "title": "Labyrinths",
+      "isbn": "0141184841",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "letters-young-poet",
+      "title": "Letters to a Young Poet",
+      "isbn": "0141192844",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "either-or",
+      "title": "Either/Or",
+      "isbn": "0140445773",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "against-nature",
+      "title": "Against Nature",
+      "isbn": "0140447636",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "gay-science",
+      "title": "The Gay Science",
+      "isbn": "0394719859",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "interaction-of-color",
+      "title": "Interaction of Color",
+      "isbn": "0300179359",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "film-subversive-art",
+      "title": "Film as a Subversive Art",
+      "isbn": "1904764878",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "penguin-by-design",
+      "title": "Penguin by Design",
+      "isbn": "0141024232",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "understanding-media",
+      "title": "Understanding Media",
+      "isbn": "0262631598",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "weird-and-eerie",
+      "title": "The Weird and the Eerie",
+      "isbn": "1910924385",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "staying-with-trouble",
+      "title": "Staying with the Trouble",
+      "isbn": "0822362244",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "meeting-universe-halfway",
+      "title": "Meeting the Universe Halfway",
+      "isbn": "0822339153",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "mans-place",
+      "title": "H is for Hawk",
+      "isbn": "0099575450",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "covenant-of-water",
+      "title": "The Covenant of Water",
+      "isbn": "0802162177",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "melancholy-fosse",
+      "title": "Melancholy I–II",
+      "isbn": "1564789047",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "mothers-rose",
+      "title": "Mothers: An Essay on Love and Cruelty",
+      "isbn": "0905223276",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "king-kong-theory",
+      "title": "King Kong Theory",
+      "isbn": "1846687632",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "bhagavad-gita",
+      "title": "Bhagavad Gita",
+      "isbn": "8170520118",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "upanishads",
+      "title": "The Upanishads",
+      "isbn": "0140441638",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "tao-te-ching",
+      "title": "Tao Te Ching",
+      "isbn": "0140441131",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "interior-castle",
+      "title": "The Interior Castle",
+      "isbn": "0486461459",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "dark-nights-soul",
+      "title": "Dark Nights of the Soul",
+      "isbn": "0749925469",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "falling-upward",
+      "title": "Falling Upward",
+      "isbn": "1118428560",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "becoming-animal",
+      "title": "Becoming Animal",
+      "isbn": "0375713697",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "finding-mother-tree",
+      "title": "Finding the Mother Tree",
+      "isbn": "0241389364",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "end-of-everything",
+      "title": "The End of Everything",
+      "isbn": "0241372348",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "tao-of-physics",
+      "title": "The Tao of Physics",
+      "isbn": "0006544894",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "hero-thousand-faces",
+      "title": "The Hero with a Thousand Faces",
+      "isbn": "1577315936",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "artists-way",
+      "title": "No Bad Parts",
+      "isbn": "1683646681",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "emergent-strategy",
+      "title": "Emergent Strategy",
+      "isbn": "1849352607",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "pleasure-activism",
+      "title": "Pleasure Activism",
+      "isbn": "1849353263",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "book-you-wish",
+      "title": "The Book You Wish Your Parents Had Read",
+      "isbn": "0241251028",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "beautiful-risk-education",
+      "title": "The Beautiful Risk of Education",
+      "isbn": "1612050271",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "together-temelkuran",
+      "title": "Together",
+      "isbn": "0008393842",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "not-working",
+      "title": "Not Working: Why We Have to Stop",
+      "isbn": "1783781939",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "antifragile",
+      "title": "Antifragile",
+      "isbn": "059324365X",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "from-dawn-to-decadence",
+      "title": "From Dawn to Decadence",
+      "isbn": "0060928832",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "cook-eat-repeat",
+      "title": "Cook, Eat, Repeat",
+      "isbn": "1784743186",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "healing-cookbook",
+      "title": "The Doctor\\",
+      "isbn": "0008239339",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "new-vegan",
+      "title": "The New Vegan",
+      "isbn": "0857832697",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "breathing-under-water",
+      "title": "Breathing Under Water",
+      "isbn": "1616361573",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "twelve-steps",
+      "title": "Twelve Steps and Twelve Traditions",
+      "isbn": "0916856011",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "as-bill-sees-it",
+      "title": "As Bill Sees It",
+      "isbn": "0916856038",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "song-of-songs",
+      "title": "The Song of Songs",
+      "isbn": "1596389486",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "seven-spiritual-laws",
+      "title": "The Seven Spiritual Laws of Success",
+      "isbn": "0369304292",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "tantric-way",
+      "title": "The Tantric Way",
+      "isbn": "0500272107",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "buddhist-path",
+      "title": "A Guide to the Buddhist Path",
+      "isbn": "1899579044",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "islamic-thought",
+      "title": "A Short History of Islamic Thought",
+      "isbn": "0197522017",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "becoming-supernatural",
+      "title": "Becoming Supernatural",
+      "isbn": "1401953093",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "letting-go",
+      "title": "Letting Go",
+      "isbn": "1401945015",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "book-of-life",
+      "title": "The Book of Life",
+      "isbn": "0060648791",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "touching-peace",
+      "title": "Touching Peace",
+      "isbn": "0938077678",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "perfect-health",
+      "title": "Perfect Health",
+      "isbn": "0609806947",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "women-praise-sacred",
+      "title": "Women in Praise of the Sacred",
+      "isbn": "0060925760",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "plague-rose",
+      "title": "The Plague",
+      "isbn": "0571370268",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "postmodernism-jameson",
+      "title": "Postmodernism, or, The Cultural Logic of Late Capitalism",
+      "isbn": "0822510901",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "cultural-turn",
+      "title": "The Cultural Turn",
+      "isbn": "1859841082",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "cinema-1",
+      "title": "Cinema 1: The Movement-Image",
+      "isbn": "0826477054",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "two-regimes-madness",
+      "title": "Two Regimes of Madness",
+      "isbn": "1584350326",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "chaosmosis",
+      "title": "Chaosmosis",
+      "isbn": "0253210046",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "lost-spirit-capitalism",
+      "title": "The Lost Spirit of Capitalism",
+      "isbn": "0745648142",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "lacan-formations",
+      "title": "The Seminar: The Formations of the Unconscious",
+      "isbn": "0745660371",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "lacanian-subject",
+      "title": "The Lacanian Subject",
+      "isbn": "0691015899",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "clinical-intro-lacan",
+      "title": "A Clinical Introduction to Lacanian Psychoanalysis",
+      "isbn": "0674135369",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "human-condition",
+      "title": "The Human Condition",
+      "isbn": "0226025985",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "one-dimensional-man",
+      "title": "One-Dimensional Man",
+      "isbn": "0415289777",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "speed-and-politics",
+      "title": "Speed and Politics",
+      "isbn": "1584350407",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "information-bomb",
+      "title": "The Information Bomb",
+      "isbn": "1859843468",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "art-far-eye-can-see",
+      "title": "Art as Far as the Eye Can See",
+      "isbn": "1845204867",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "parables-virtual",
+      "title": "Parables for the Virtual",
+      "isbn": "0822328976",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "thought-in-act",
+      "title": "Thought in the Act",
+      "isbn": "0816679665",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "visions-of-excess",
+      "title": "Visions of Excess",
+      "isbn": "0816612838",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "nihil-unbound",
+      "title": "Nihil Unbound",
+      "isbn": "0230522041",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "interrogating-real",
+      "title": "Interrogating the Real",
+      "isbn": "0826489532",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "new-philosophy-society",
+      "title": "A New Philosophy of Society",
+      "isbn": "0826491707",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "interface-effect",
+      "title": "The Interface Effect",
+      "isbn": "0745662528",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "prince-of-networks",
+      "title": "Prince of Networks",
+      "isbn": "0980544068",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "quadruple-object",
+      "title": "The Quadruple Object",
+      "isbn": "1846947006",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "badiou-subject-truth",
+      "title": "Badiou: A Subject to Truth",
+      "isbn": "0816643008",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "nervous-states",
+      "title": "Nervous States",
+      "isbn": "0393635384",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "meaning-of-things",
+      "title": "The Meaning of Things",
+      "isbn": "0753813599",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "timaeus-critias",
+      "title": "Timaeus and Critias",
+      "isbn": "0140442618",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "socialism-vsi",
+      "title": "Socialism: A Very Short Introduction",
+      "isbn": "0192804316",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "philosophical-devices",
+      "title": "Philosophical Devices",
+      "isbn": "0199651728",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "continental-aesthetics",
+      "title": "The Continental Aesthetics Reader",
+      "isbn": "0415208696",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "non-places",
+      "title": "Non-Places: An Introduction to Supermodernity",
+      "isbn": "1844673111",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "russian-linesman",
+      "title": "The Russian Linesman",
+      "isbn": "1853322784",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "alice-neel",
+      "title": "Alice Neel",
+      "isbn": "3791356305",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "photograph-contemporary-art",
+      "title": "The Photograph as Contemporary Art",
+      "isbn": "0500204187",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "fischli-weiss",
+      "title": "Fischli Weiss: Flowers & Questions",
+      "isbn": "1854376470",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "bill-viola-writings",
+      "title": "Bill Viola: Writings 1973–1994",
+      "isbn": "0262720256",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "richter-writings",
+      "title": "Gerhard Richter: Writings 1962–1993",
+      "isbn": "0500275181",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "art-beyond-representation",
+      "title": "Art Beyond Representation",
+      "isbn": "1860649726",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "romanticism-and-art",
+      "title": "Romanticism and Art",
+      "isbn": "0500202753",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "concise-modern-painting",
+      "title": "A Concise History of Modern Painting",
+      "isbn": "0500201412",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "five-centuries-british",
+      "title": "Five Centuries of British Painting",
+      "isbn": "0500203490",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "understanding-photograph",
+      "title": "Understanding a Photograph",
+      "isbn": "0141392029",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "harmony-korine",
+      "title": "Harmony Korine",
+      "isbn": "0847844765",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "radical-pedagogies",
+      "title": "Radical Pedagogies",
+      "isbn": "0262543303",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "permanent-food",
+      "title": "Permanent Food",
+      "isbn": "8881583550",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "language-of-things",
+      "title": "The Language of Things",
+      "isbn": "0141031174",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "design-social-innovation",
+      "title": "Design for Social Innovation",
+      "isbn": "0262028700",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "story-of-o",
+      "title": "Story of O",
+      "isbn": "1561630020",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "averno",
+      "title": "Averno",
+      "isbn": "0141023708",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "goethe-poetry",
+      "title": "Selected Poetry",
+      "isbn": "081011643X",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "byron-poetry",
+      "title": "Selected Poetry",
+      "isbn": "0140424504",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "la-bas",
+      "title": "Là-Bas",
+      "isbn": "0946626634",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "black-mountain-poems",
+      "title": "Black Mountain Poems",
+      "isbn": "0241566991",
+      "confidence": 7,
+      "coverAvailable": true,
+      "source": "search"
+    },
+    {
+      "id": "pensees",
+      "title": "Pensées",
+      "isbn": "0140446451",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "conscious-parent",
+      "title": "The Conscious Parent",
+      "isbn": "1897238452",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "free-to-learn",
+      "title": "Free to Learn",
+      "isbn": "0465084990",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "democracy-education",
+      "title": "Democracy and Education",
+      "isbn": "0486430340",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "dyes-from-plants",
+      "title": "Dyes from Plants",
+      "isbn": "0713526319",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "world-in-2050",
+      "title": "The World in 2050",
+      "isbn": "1526600056",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "tao-of-pooh",
+      "title": "The Tao of Pooh & The Te of Piglet",
+      "isbn": "0416199259",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "locality-regeneration",
+      "title": "Locality, Regeneration & Diversities",
+      "isbn": "1841503061",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "freud-vol-2",
+      "title": "Freud (Volume 2)",
+      "isbn": "0099426560",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    },
+    {
+      "id": "freud-vol-8",
+      "title": "Sigmund Freud (Volume VIII)",
+      "isbn": "0099426684",
+      "confidence": 10,
+      "coverAvailable": true,
+      "source": "existing-asin"
+    }
+  ],
+  "noCover": [
+    {
+      "id": "ottolenghi-flavour",
+      "title": "Ottolenghi Flavour",
+      "bestIsbn": "1473558727"
+    },
+    {
+      "id": "dishoom",
+      "title": "Dishoom: From Bombay with Love",
+      "bestIsbn": "1526635666"
+    },
+    {
+      "id": "plenty",
+      "title": "Plenty",
+      "bestIsbn": "1452109702"
+    },
+    {
+      "id": "nigel-slater-kitchen-diaries",
+      "title": "The Kitchen Diaries",
+      "bestIsbn": "0007511442"
+    },
+    {
+      "id": "atlas-brutalist-architecture",
+      "title": "Atlas of Brutalist Architecture",
+      "bestIsbn": "0714849685"
+    },
+    {
+      "id": "matter-and-memory",
+      "title": "Matter and Memory",
+      "bestIsbn": "1105062422"
+    },
+    {
+      "id": "minima-moralia",
+      "title": "Minima Moralia",
+      "bestIsbn": "1788738535"
+    },
+    {
+      "id": "living-end-times",
+      "title": "Living in the End Times",
+      "bestIsbn": "1844677028"
+    },
+    {
+      "id": "violence-zizek",
+      "title": "Violence",
+      "bestIsbn": "1847653235"
+    },
+    {
+      "id": "blue-nights",
+      "title": "Blue Nights",
+      "bestIsbn": "0007432917"
+    },
+    {
+      "id": "simple-passion",
+      "title": "Simple Passion",
+      "bestIsbn": "1609800915"
+    },
+    {
+      "id": "flesh-szalay",
+      "title": "Flesh",
+      "bestIsbn": "198212279X"
+    },
+    {
+      "id": "argonauts",
+      "title": "The Argonauts",
+      "bestIsbn": "155597340X"
+    },
+    {
+      "id": "animal-joy",
+      "title": "Animal Joy",
+      "bestIsbn": "1644450933"
+    },
+    {
+      "id": "tibetan-book-dead",
+      "title": "The Tibetan Book of the Dead",
+      "bestIsbn": "0929385489"
+    },
+    {
+      "id": "on-mysticism",
+      "title": "On Mysticism: The Experience of Ecstasy",
+      "bestIsbn": "1800816952"
+    },
+    {
+      "id": "surrender-experiment",
+      "title": "The Surrender Experiment",
+      "bestIsbn": "0804141118"
+    },
+    {
+      "id": "nothing-to-fear-mcfadden",
+      "title": "Nothing to Fear: Demystifying Death",
+      "bestIsbn": "1529935903"
+    },
+    {
+      "id": "what-is-madness",
+      "title": "What is Madness?",
+      "bestIsbn": "0141955783"
+    },
+    {
+      "id": "52-veggie-vegan",
+      "title": "5:2 Veggie & Vegan",
+      "bestIsbn": "1409171272"
+    },
+    {
+      "id": "vedic-gods",
+      "title": "Avatars, Gods and Goddesses of Vedic Culture",
+      "bestIsbn": "1453613765"
+    },
+    {
+      "id": "vedic-astrology",
+      "title": "The Essentials of Vedic Astrology",
+      "bestIsbn": "191053160X"
+    },
+    {
+      "id": "symbolic-misery",
+      "title": "Symbolic Misery (Volume 2)",
+      "bestIsbn": "0745652662"
+    },
+    {
+      "id": "bells-and-whistles",
+      "title": "Bells and Whistles",
+      "bestIsbn": "1782790373"
+    },
+    {
+      "id": "form-and-object",
+      "title": "Form and Object",
+      "bestIsbn": "0748681523"
+    },
+    {
+      "id": "baudrillard-art-artefice",
+      "title": "Jean Baudrillard: Art and Artefice",
+      "bestIsbn": "1446230570"
+    },
+    {
+      "id": "picasso-1932",
+      "title": "The EY Exhibition: Picasso 1932",
+      "bestIsbn": "1849762503"
+    },
+    {
+      "id": "ill-feelings",
+      "title": "Ill Feelings",
+      "bestIsbn": "1922586145"
+    },
+    {
+      "id": "golden-mole",
+      "title": "The Golden Mole",
+      "bestIsbn": "0571362516"
+    },
+    {
+      "id": "renegade-smith",
+      "title": "Renegade: The Lives and Tales of Mark E. Smith",
+      "bestIsbn": "0241972434"
+    },
+    {
+      "id": "morpho-skeleton",
+      "title": "Morpho: Skeleton and Bone Reference Points",
+      "bestIsbn": "1681984547"
+    },
+    {
+      "id": "wild-dyer",
+      "title": "The Wild Dyer",
+      "bestIsbn": "0857836005"
+    },
+    {
+      "id": "superagency",
+      "title": "Superagency",
+      "bestIsbn": "3689320216"
+    },
+    {
+      "id": "malicious-damage",
+      "title": "Malicious Damage",
+      "bestIsbn": "0957609507"
+    },
+    {
+      "id": "experimental-politics",
+      "title": "Experimental Politics",
+      "bestIsbn": "0262335301"
+    }
+  ],
+  "failed": [
+    {
+      "id": "cooking-viennas-empire",
+      "title": "Kyoto: A Cultural and Culinary Guide",
+      "reason": "No ISBNs found"
+    },
+    {
+      "id": "world-atlas",
+      "title": "The World Atlas",
+      "reason": "No ISBNs found"
+    },
+    {
+      "id": "hilma-af-klint",
+      "title": "Hilma af Klint: Painting the Universe",
+      "reason": "No ISBNs found"
+    },
+    {
+      "id": "brief-history-curating",
+      "title": "A Brief History of Curating",
+      "reason": "No ISBNs found"
+    },
+    {
+      "id": "adventures-of-ideas",
+      "title": "Adventures of Ideas",
+      "reason": "No ISBNs found"
+    },
+    {
+      "id": "hymns-goddess-kali",
+      "title": "Hymns to the Goddess and Hymns to Kali",
+      "reason": "No ISBNs found"
+    },
+    {
+      "id": "speculative-aesthetics",
+      "title": "Speculative Aesthetics",
+      "reason": "No ISBNs found"
+    },
+    {
+      "id": "accelerate",
+      "title": "#Accelerate",
+      "reason": "No ISBNs found"
+    },
+    {
+      "id": "yoko-ono-music-mind",
+      "title": "Yoko Ono: Music of the Mind",
+      "reason": "No ISBNs found"
+    },
+    {
+      "id": "art-of-participation",
+      "title": "The Art of Participation: 1950 to Now",
+      "reason": "No ISBNs found"
+    },
+    {
+      "id": "onsen-ryokan",
+      "title": "Onsen and Ryokan of Japan",
+      "reason": "No ISBNs found"
+    },
+    {
+      "id": "dreamers-dictionary",
+      "title": "Practicing Dying",
+      "reason": "No ISBNs found"
+    },
+    {
+      "id": "blake-slavery",
+      "title": "Mind-Forg\\",
+      "reason": "No ISBNs found"
+    },
+    {
+      "id": "depression-vsi",
+      "title": "Depression: A Very Short Introduction",
+      "reason": "No ISBNs found"
+    }
+  ]
+}
