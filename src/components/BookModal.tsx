@@ -100,21 +100,6 @@ export function BookModal({ book, onClose }: BookModalProps) {
             </p>
           </div>
 
-          <div className="flex justify-center">
-            <a
-              href={book.links.amazon}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-fg border-b-2 border-gray-900 pb-1 no-underline hover:text-gray-600 hover:border-gray-500 transition-colors"
-            >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M6 3H3v10h10v-3" />
-                <path d="M9 2h5v5" />
-                <path d="M14 2L7 9" />
-              </svg>
-              View on Amazon
-            </a>
-          </div>
         </div>
       </div>
     </div>

@@ -47,7 +47,6 @@ export interface Book {
   themes: Theme[]
   themeNotes: Record<string, string>
   links: {
-    amazon?: string
     cover?: string
   }
   dateAdded: string
