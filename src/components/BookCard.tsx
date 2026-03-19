@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { Book, Theme, ViewMode } from '../types'
 import { BookCover } from './BookCover'
 
@@ -6,6 +7,24 @@ interface BookCardProps {
   viewMode: ViewMode
   onSelect: (book: Book) => void
   activeTheme?: Theme | null
+}
+
+function SmartCover({ book }: { book: Book }) {
+  const [failed, setFailed] = useState(false)
+
+  if (!book.coverUrl || failed) {
+    return <BookCover book={book} size="md" />
+  }
+
+  return (
+    <img
+      src={book.coverUrl}
+      alt={book.title}
+      onError={() => setFailed(true)}
+      className="w-28 h-auto rounded-sm shadow-md object-cover"
+      loading="lazy"
+    />
+  )
 }
 
 export function BookCard({ book, viewMode, onSelect, activeTheme }: BookCardProps) {
@@ -35,7 +54,7 @@ export function BookCard({ book, viewMode, onSelect, activeTheme }: BookCardProp
       onClick={() => onSelect(book)}
       className="flex flex-col items-center text-center p-3 rounded-lg hover:bg-gray-300/30 transition-colors cursor-pointer bg-transparent border-0 group"
     >
-      <BookCover book={book} size="md" />
+      <SmartCover book={book} />
       <h3 className="text-sm font-medium text-fg mt-2.5 mb-0.5 group-hover:text-gray-600 transition-colors leading-tight">
         {book.title}
       </h3>

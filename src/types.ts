@@ -42,6 +42,7 @@ export interface Book {
   coverColour: string
   amazonUrl: string
   isbn?: string
+  coverUrl?: string
   genre: Genre
   subjects: Subject[]
   themes: Theme[]
