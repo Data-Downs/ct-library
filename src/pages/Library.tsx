@@ -194,18 +194,38 @@ export function Library() {
       </div>
 
       {/* Compact filter bar */}
-      <div className="space-y-3 mb-6">
-        {/* Search — full width on mobile */}
-        <input
-          type="text"
-          placeholder="Search by title or author..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="w-full md:hidden text-sm px-4 py-2.5 border border-gray-400 rounded-md bg-transparent placeholder:text-gray-500 text-fg focus:outline-none focus:border-fg transition-colors"
-        />
-        {/* Controls row */}
-        <div className="flex items-center gap-2 md:gap-3 flex-wrap">
-          {/* Search — inline on desktop */}
+      <div className="space-y-2.5 mb-6">
+        {/* Row 1 mobile: Search + view toggle */}
+        <div className="flex items-center gap-2 md:hidden">
+          <input
+            type="text"
+            placeholder="Search by title or author..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="flex-1 text-sm px-4 py-2.5 border border-gray-400 rounded-md bg-transparent placeholder:text-gray-500 text-fg focus:outline-none focus:border-fg transition-colors"
+          />
+          <div className="flex border border-gray-400 rounded-md overflow-hidden flex-shrink-0">
+            <button onClick={() => setViewMode('grid')} className={viewCls('grid')} title="Grid view">
+              <svg width="16" height="16" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <rect x="1" y="1" width="5" height="5" rx="0.5" />
+                <rect x="8" y="1" width="5" height="5" rx="0.5" />
+                <rect x="1" y="8" width="5" height="5" rx="0.5" />
+                <rect x="8" y="8" width="5" height="5" rx="0.5" />
+              </svg>
+            </button>
+            <button onClick={() => setViewMode('list')} className={`${viewCls('list')} border-l border-gray-400`} title="List view">
+              <svg width="16" height="16" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <line x1="1" y1="3" x2="13" y2="3" />
+                <line x1="1" y1="7" x2="13" y2="7" />
+                <line x1="1" y1="11" x2="13" y2="11" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Row 2 mobile: Type + Subject + Sort aligned | Desktop: full controls row */}
+        <div className="flex items-center gap-2 md:gap-3">
+          {/* Search — desktop only, inline */}
           <input
             type="text"
             placeholder="Search by title or author..."
@@ -242,36 +262,33 @@ export function Library() {
             </Dropdown>
           )}
 
-          <div className="flex items-center gap-2 ml-auto">
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-gray-500 hidden sm:inline">Sort</span>
-              <select
-                value={sortMode}
-                onChange={(e) => setSortMode(e.target.value as SortMode)}
-                className="text-sm px-2.5 md:px-3 py-1.5 border border-gray-400 rounded-md bg-transparent text-fg cursor-pointer focus:outline-none focus:border-fg transition-colors"
-              >
-                {sortOptions.map((opt) => (
-                  <option key={opt.value} value={opt.value}>{opt.label}</option>
-                ))}
-              </select>
-            </div>
-            <div className="flex border border-gray-400 rounded-md overflow-hidden">
-              <button onClick={() => setViewMode('grid')} className={viewCls('grid')} title="Grid view">
-                <svg width="16" height="16" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <rect x="1" y="1" width="5" height="5" rx="0.5" />
-                  <rect x="8" y="1" width="5" height="5" rx="0.5" />
-                  <rect x="1" y="8" width="5" height="5" rx="0.5" />
-                  <rect x="8" y="8" width="5" height="5" rx="0.5" />
-                </svg>
-              </button>
-              <button onClick={() => setViewMode('list')} className={`${viewCls('list')} border-l border-gray-400`} title="List view">
-                <svg width="16" height="16" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <line x1="1" y1="3" x2="13" y2="3" />
-                  <line x1="1" y1="7" x2="13" y2="7" />
-                  <line x1="1" y1="11" x2="13" y2="11" />
-                </svg>
-              </button>
-            </div>
+          <select
+            value={sortMode}
+            onChange={(e) => setSortMode(e.target.value as SortMode)}
+            className="text-sm px-4 py-2.5 border border-gray-400 rounded-md bg-transparent text-gray-500 cursor-pointer focus:outline-none focus:border-fg transition-colors"
+          >
+            {sortOptions.map((opt) => (
+              <option key={opt.value} value={opt.value}>{opt.label}</option>
+            ))}
+          </select>
+
+          {/* View toggle — desktop only */}
+          <div className="hidden md:flex border border-gray-400 rounded-md overflow-hidden ml-auto">
+            <button onClick={() => setViewMode('grid')} className={viewCls('grid')} title="Grid view">
+              <svg width="16" height="16" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <rect x="1" y="1" width="5" height="5" rx="0.5" />
+                <rect x="8" y="1" width="5" height="5" rx="0.5" />
+                <rect x="1" y="8" width="5" height="5" rx="0.5" />
+                <rect x="8" y="8" width="5" height="5" rx="0.5" />
+              </svg>
+            </button>
+            <button onClick={() => setViewMode('list')} className={`${viewCls('list')} border-l border-gray-400`} title="List view">
+              <svg width="16" height="16" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <line x1="1" y1="3" x2="13" y2="3" />
+                <line x1="1" y1="7" x2="13" y2="7" />
+                <line x1="1" y1="11" x2="13" y2="11" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
