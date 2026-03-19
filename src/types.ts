@@ -65,6 +65,7 @@ export interface ThemeDescription {
   name: Theme
   tagline: string
   description: string
+  descriptionExpanded?: string
   recommendations: ThemeRecommendation[]
 }
 

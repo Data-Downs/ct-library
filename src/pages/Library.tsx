@@ -103,6 +103,7 @@ export function Library() {
   const [search, setSearch] = useState('')
   const [selectedBook, setSelectedBook] = useState<Book | null>(null)
   const [themesOpen, setThemesOpen] = useState(false)
+  const [descriptionOpen, setDescriptionOpen] = useState(false)
 
   const activeBooks = useMemo(() => books.filter((b) => b.genre !== 'Cookbook'), [])
 
@@ -169,6 +170,7 @@ export function Library() {
     setSelectedTheme(selectedTheme === theme ? null : theme)
     setSelectedGenre(null)
     setSelectedSubject(null)
+    setDescriptionOpen(false)
   }
 
   const activeFilters: { label: string; onClear: () => void }[] = []
@@ -383,24 +385,58 @@ export function Library() {
 
       {/* Active theme: description + exit */}
       {selectedThemeData && (
-        <div className="mb-6 py-4 md:py-5 border-t border-b border-gray-300">
-          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4">
-            <div className="min-w-0">
-              <span className="text-xs font-medium tracking-wide uppercase text-[#c45a2d]">Charlotte's Theme</span>
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-normal text-fg leading-snug mt-2 mb-2 md:mb-3">
-                {selectedThemeData.tagline}
-              </h3>
-              <p className="text-sm md:text-base text-gray-500 leading-relaxed max-w-3xl">
-                {selectedThemeData.description}
-              </p>
-            </div>
+        <div className="mb-6 py-4 md:py-6 border-t border-b border-gray-300">
+          <div className="flex items-start justify-between gap-4 mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal text-fg leading-tight m-0">
+              {selectedThemeData.name}
+            </h2>
             <button
-              onClick={() => setSelectedTheme(null)}
-              className="self-start flex-shrink-0 text-xs text-gray-500 hover:text-fg cursor-pointer bg-transparent border border-gray-400 rounded-full px-4 py-2 hover:border-fg transition-colors whitespace-nowrap"
+              onClick={() => { setSelectedTheme(null); setDescriptionOpen(false) }}
+              className="flex-shrink-0 text-xs text-gray-500 hover:text-fg cursor-pointer bg-transparent border border-gray-400 rounded-full px-4 py-2 hover:border-fg transition-colors whitespace-nowrap mt-2"
             >
               All themes
             </button>
           </div>
+          <p className="text-lg sm:text-xl text-gray-600 leading-snug mb-3 max-w-3xl font-normal">
+            {selectedThemeData.tagline}
+          </p>
+          <p className="text-sm md:text-base text-gray-500 leading-relaxed max-w-3xl">
+            {selectedThemeData.description}
+          </p>
+
+          {/* Expandable extended description */}
+          {selectedThemeData.descriptionExpanded && (
+            <>
+              <div
+                className={`grid transition-all duration-300 ease-out ${
+                  descriptionOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0 mt-0'
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <div className="max-w-3xl space-y-4">
+                    {selectedThemeData.descriptionExpanded.split('\n\n').map((para, i) => (
+                      <p key={i} className="text-sm md:text-base text-gray-500 leading-relaxed">
+                        {para}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <button
+                onClick={() => setDescriptionOpen(!descriptionOpen)}
+                className="mt-4 flex items-center gap-2 text-xs text-gray-400 hover:text-fg cursor-pointer bg-transparent border-0 transition-colors group"
+              >
+                <span className="border-t border-gray-300 w-8 group-hover:border-fg transition-colors" />
+                <span>{descriptionOpen ? 'Read less' : 'Read more'}</span>
+                <svg
+                  width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"
+                  className={`transition-transform duration-200 ${descriptionOpen ? 'rotate-180' : ''}`}
+                >
+                  <path d="M2 4L5 7L8 4" />
+                </svg>
+              </button>
+            </>
+          )}
         </div>
       )}
 
