@@ -35,18 +35,23 @@ export interface Book {
   id: string
   title: string
   author: string
+  tagline: string
   description: string
-  synopsis: string
   year: number
   pages?: number
+  isbn13?: string
+  publisher?: string
   coverColour: string
-  amazonUrl: string
-  isbn?: string
-  coverUrl?: string
   genre: Genre
   subjects: Subject[]
   themes: Theme[]
-  themeNotes: Partial<Record<Theme, string>>
+  themeNotes: Record<string, string>
+  links: {
+    amazon?: string
+    cover?: string
+  }
+  dateAdded: string
+  source?: string
 }
 
 export interface ThemeRecommendation {

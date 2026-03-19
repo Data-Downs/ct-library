@@ -1,0 +1,18 @@
+{
+  "title": "Ruins and Resilience",
+  "description": "How life continues after collapse — and what new forms emerge from the wreckage. This month I've picked three books about survival: a city that keeps rebuilding itself, a mushroom that thrives in devastated forests, and a writer who maps grief with the precision of a war correspondent. They're all about what remains when everything falls apart.",
+  "picks": [
+    {
+      "bookId": "berlin",
+      "note": "Berlin has been bombed flat, divided by a wall, reunified, and gentrified — and each time it becomes something new. MacLean tells the story through its people: the refugees, the artists, the spies, the ravers. What I love is that he doesn't treat resilience as heroic. It's just what cities do. They absorb, they transform, they carry on. Berlin's identity isn't any single version of itself — it's the pattern of destruction and reinvention."
+    },
+    {
+      "bookId": "mushroom-end-of-world",
+      "note": "This is the book that changed how I think about ruins. Tsing follows the matsutake mushroom — a fungus that only grows in forests that have been damaged — and uses it to ask: what if capitalism's ruins aren't the end of the story? What if life finds ways to flourish in the wreckage? It's anthropology, ecology, and philosophy braided together, and it's the most hopeful book about the end of the world I've ever read."
+    },
+    {
+      "bookId": "year-of-magical-thinking",
+      "note": "Didion's husband dies at the dinner table and she spends a year trying to think her way through it. What makes this book extraordinary isn't the grief — it's the precision. She researches death the way she researched politics: reading medical journals, analysing her own irrationality, refusing to let pain be an excuse for sloppy thinking. It's a book about the mind's refusal to accept ruin, written by someone whose whole life has been an exercise in paying attention."
+    }
+  ]
+}

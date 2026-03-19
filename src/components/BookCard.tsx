@@ -12,13 +12,13 @@ interface BookCardProps {
 function SmartCover({ book }: { book: Book }) {
   const [failed, setFailed] = useState(false)
 
-  if (!book.coverUrl || failed) {
+  if (!book.links.cover || failed) {
     return <BookCover book={book} size="md" />
   }
 
   return (
     <img
-      src={book.coverUrl}
+      src={book.links.cover}
       alt={book.title}
       onError={() => setFailed(true)}
       className="w-28 h-auto rounded-sm shadow-md object-cover"
@@ -28,7 +28,7 @@ function SmartCover({ book }: { book: Book }) {
 }
 
 export function BookCard({ book, viewMode, onSelect, activeTheme }: BookCardProps) {
-  const themeNote = activeTheme ? book.themeNotes[activeTheme] : undefined
+  const themeNote = activeTheme ? book.themeNotes[activeTheme as string] : undefined
 
   if (viewMode === 'list') {
     return (

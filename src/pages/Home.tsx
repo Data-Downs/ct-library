@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { books, heroSelection } from '../data/books'
+import { books, heroSelection } from '../data'
 import { BookCover } from '../components/BookCover'
 import { BookModal } from '../components/BookModal'
 import { Link } from 'react-router-dom'
@@ -50,7 +50,7 @@ export function Home() {
                 </button>
                 <p className="text-sm text-gray-500 mb-4">{book.author}</p>
                 <p className="text-base text-gray-600 leading-relaxed mb-5">
-                  {book.description}
+                  {book.tagline}
                 </p>
                 <blockquote className="border-l-2 border-gray-300 pl-4">
                   <p className="text-base text-gray-500 leading-relaxed italic">

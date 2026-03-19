@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react'
-import { books, themeDescriptions } from '../data/books'
+import { books, themeDescriptions } from '../data'
 import { BookCard } from '../components/BookCard'
 import { BookModal } from '../components/BookModal'
 import { RecommendationCard } from '../components/RecommendationCard'

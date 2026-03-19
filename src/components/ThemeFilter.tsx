@@ -1,5 +1,5 @@
 import type { Theme } from '../types'
-import { themeDescriptions } from '../data/books'
+import { themeDescriptions } from '../data'
 
 interface ThemeFilterProps {
   selected: Theme | null

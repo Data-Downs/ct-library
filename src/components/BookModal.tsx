@@ -88,21 +88,21 @@ export function BookModal({ book, onClose }: BookModalProps) {
               )}
 
               <p className="text-base text-gray-500 leading-relaxed italic">
-                {book.description}
+                {book.tagline}
               </p>
             </div>
           </div>
 
           <div className="border-t border-gray-300 pt-6 mb-6">
-            <h3 className="text-xl font-normal text-fg mb-3">Synopsis</h3>
+            <h3 className="text-xl font-normal text-fg mb-3">About this book</h3>
             <p className="text-base text-gray-600 leading-relaxed">
-              {book.synopsis}
+              {book.description}
             </p>
           </div>
 
           <div className="flex justify-center">
             <a
-              href={book.amazonUrl}
+              href={book.links.amazon}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm text-fg border-b-2 border-gray-900 pb-1 no-underline hover:text-gray-600 hover:border-gray-500 transition-colors"
