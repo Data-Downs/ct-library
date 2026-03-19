@@ -1,0 +1,3379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cover Image Review</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #D8D8D8; color: #1a1a1a; padding: 2rem; max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 2rem; font-weight: 400; margin-bottom: 0.5rem; }
+  .subtitle { color: #666; font-size: 0.95rem; margin-bottom: 2rem; }
+  .stats { display: flex; gap: 2rem; margin-bottom: 2rem; padding: 1rem; background: white; border-radius: 8px; }
+  .stat { text-align: center; }
+  .stat-num { font-size: 1.5rem; font-weight: 600; }
+  .stat-label { font-size: 0.75rem; color: #888; }
+  .card { background: white; border-radius: 8px; padding: 1.25rem; margin-bottom: 0.75rem; display: flex; gap: 1rem; align-items: start; border-left: 4px solid transparent; }
+  .card.approved { border-left-color: #4caf50; }
+  .card.rejected { border-left-color: #f44336; opacity: 0.4; }
+  .card img { width: 80px; height: auto; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.15); flex-shrink: 0; }
+  .card-info { flex: 1; }
+  .card-title { font-size: 1rem; font-weight: 500; margin-bottom: 0.15rem; }
+  .card-author { font-size: 0.85rem; color: #888; margin-bottom: 0.5rem; }
+  .card-match { font-size: 0.75rem; color: #666; margin-bottom: 0.5rem; }
+  .card-match .score { font-weight: 600; }
+  .card-match .high { color: #2e7d32; }
+  .card-match .medium { color: #e65100; }
+  .btns { display: flex; gap: 0.5rem; }
+  .btn { padding: 0.35rem 0.75rem; border: 1px solid #ccc; border-radius: 4px; background: transparent; cursor: pointer; font-size: 0.8rem; font-family: inherit; }
+  .btn.yes.active { background: #4caf50; color: white; border-color: #4caf50; }
+  .btn.no.active { background: #f44336; color: white; border-color: #f44336; }
+  .export-bar { position: sticky; bottom: 0; background: #1a1a1a; color: #D8D8D8; padding: 1rem 1.5rem; border-radius: 8px; margin-top: 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 -4px 20px rgba(0,0,0,0.15); }
+  .export-btn { padding: 0.6rem 1.5rem; background: white; color: #1a1a1a; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem; font-weight: 500; font-family: inherit; }
+</style>
+</head>
+<body>
+<h1>Cover Image Review</h1>
+<p class="subtitle">Review each cover image. Approve if the cover matches the book. Reject if it's wrong. Export the approved covers.</p>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num" id="total">192</div><div class="stat-label">Candidates</div></div>
+  <div class="stat"><div class="stat-num" id="approved">0</div><div class="stat-label">Approved</div></div>
+  <div class="stat"><div class="stat-num" id="rejected">0</div><div class="stat-label">Rejected</div></div>
+  <div class="stat"><div class="stat-num">36</div><div class="stat-label">No image found</div></div>
+</div>
+
+<div id="cards">
+
+  <div class="card" id="card-0" data-id="247" data-url="https://books.google.com/books/content?id=dLPU_AiSMgoC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=dLPU_AiSMgoC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="24/7: Late Capitalism and the Ends of Sleep" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">24/7: Late Capitalism and the Ends of Sleep</div>
+      <div class="card-author">Jonathan Crary</div>
+      <div class="card-match">
+        Matched: "24/7" by Jonathan Crary
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(0)">✓ Approve</button>
+        <button class="btn no" onclick="reject(0)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-1" data-id="52-veggie-vegan" data-url="https://books.google.com/books/content?id=OUI_DQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=OUI_DQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="5:2 Veggie & Vegan" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">5:2 Veggie & Vegan</div>
+      <div class="card-author">Kate Harrison</div>
+      <div class="card-match">
+        Matched: "5:2 Veggie and Vegan" by Kate Harrison
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(1)">✓ Approve</button>
+        <button class="btn no" onclick="reject(1)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-2" data-id="adventures-of-ideas" data-url="https://books.google.com/books/content?id=eruKM_Daz0MC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=eruKM_Daz0MC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Adventures of Ideas" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Adventures of Ideas</div>
+      <div class="card-author">Alfred North Whitehead</div>
+      <div class="card-match">
+        Matched: "Adventures of Ideas" by Alfred North Whitehead
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(2)">✓ Approve</button>
+        <button class="btn no" onclick="reject(2)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-3" data-id="aesthetic-theory" data-url="https://books.google.com/books/content?id=NGxSnig-u3wC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=NGxSnig-u3wC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Aesthetic Theory" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Aesthetic Theory</div>
+      <div class="card-author">Theodor W. Adorno</div>
+      <div class="card-match">
+        Matched: "Aesthetic Theory" by Theodor W. Adorno
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(3)">✓ Approve</button>
+        <button class="btn no" onclick="reject(3)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-4" data-id="against-nature" data-url="https://books.google.com/books/content?id=QB1GEQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=QB1GEQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Against Nature" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Against Nature</div>
+      <div class="card-author">J.K. Huysmans</div>
+      <div class="card-match">
+        Matched: "Against Nature - J.K Husmans" by J.K. Huysmans
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(4)">✓ Approve</button>
+        <button class="btn no" onclick="reject(4)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-5" data-id="animal-joy" data-url="https://books.google.com/books/content?id=yDh9EAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=yDh9EAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Animal Joy" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Animal Joy</div>
+      <div class="card-author">Nuar Alsadir</div>
+      <div class="card-match">
+        Matched: "Animal Joy" by Nuar Alsadir
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(5)">✓ Approve</button>
+        <button class="btn no" onclick="reject(5)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-6" data-id="antifragile" data-url="https://books.google.com/books/content?id=rkOUnAEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=rkOUnAEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Antifragile" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Antifragile</div>
+      <div class="card-author">Nassim Nicholas Taleb</div>
+      <div class="card-match">
+        Matched: "Antifragile" by Nassim Nicholas Taleb
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(6)">✓ Approve</button>
+        <button class="btn no" onclick="reject(6)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-7" data-id="argonauts" data-url="https://books.google.com/books/content?id=F4QkBQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=F4QkBQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Argonauts" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Argonauts</div>
+      <div class="card-author">Maggie Nelson</div>
+      <div class="card-match">
+        Matched: "The Argonauts" by Maggie Nelson
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(7)">✓ Approve</button>
+        <button class="btn no" onclick="reject(7)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-8" data-id="ariel" data-url="https://books.google.com/books/content?id=7BuiAAAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=7BuiAAAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Ariel" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Ariel</div>
+      <div class="card-author">Sylvia Plath</div>
+      <div class="card-match">
+        Matched: "Ariel" by Sylvia Plath
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(8)">✓ Approve</button>
+        <button class="btn no" onclick="reject(8)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-9" data-id="art-beyond-representation" data-url="https://books.google.com/books/content?id=S7WKDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=S7WKDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Art Beyond Representation" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Art Beyond Representation</div>
+      <div class="card-author">Barbara Bolt</div>
+      <div class="card-match">
+        Matched: "Art Beyond Representation" by Barbara Bolt
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(9)">✓ Approve</button>
+        <button class="btn no" onclick="reject(9)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-10" data-id="art-far-eye-can-see" data-url="https://books.google.com/books/content?id=eyvyAAAAMAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=eyvyAAAAMAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Art as Far as the Eye Can See" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Art as Far as the Eye Can See</div>
+      <div class="card-author">Paul Virilio</div>
+      <div class="card-match">
+        Matched: "Art as Far as the Eye Can See" by Paul Virilio
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(10)">✓ Approve</button>
+        <button class="btn no" onclick="reject(10)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-11" data-id="artists-way" data-url="https://books.google.com/books/content?id=3BnGX6LIp3oC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=3BnGX6LIp3oC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Artist's Way" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Artist's Way</div>
+      <div class="card-author">Julia Cameron</div>
+      <div class="card-match">
+        Matched: "The Artist's Way" by Julia Cameron
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(11)">✓ Approve</button>
+        <button class="btn no" onclick="reject(11)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-12" data-id="as-bill-sees-it" data-url="https://books.google.com/books/content?id=tvsTEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=tvsTEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="As Bill Sees It" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">As Bill Sees It</div>
+      <div class="card-author">Alcoholics Anonymous</div>
+      <div class="card-match">
+        Matched: "As Bill Sees It" by Alcoholics Anonymous World Services, Inc.
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(12)">✓ Approve</button>
+        <button class="btn no" onclick="reject(12)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-13" data-id="atlas-brutalist-architecture" data-url="https://books.google.com/books/content?id=k73GtgEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=k73GtgEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Atlas of Brutalist Architecture" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Atlas of Brutalist Architecture</div>
+      <div class="card-author">Phaidon</div>
+      <div class="card-match">
+        Matched: "Atlas of Brutalist Architecture" by Phaidon Editors
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(13)">✓ Approve</button>
+        <button class="btn no" onclick="reject(13)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-14" data-id="averno" data-url="https://books.google.com/books/content?id=iXcNEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=iXcNEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Averno" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Averno</div>
+      <div class="card-author">Louise Glück</div>
+      <div class="card-match">
+        Matched: "Averno" by Louise Glück
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(14)">✓ Approve</button>
+        <button class="btn no" onclick="reject(14)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-15" data-id="badiou-being-event" data-url="https://books.google.com/books/content?id=wo_UAwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=wo_UAwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Being and Event" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Being and Event</div>
+      <div class="card-author">Alain Badiou</div>
+      <div class="card-match">
+        Matched: "Being and Event" by Alain Badiou
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(15)">✓ Approve</button>
+        <button class="btn no" onclick="reject(15)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-16" data-id="badiou-subject-truth" data-url="https://books.google.com/books/content?id=9tTCEQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=9tTCEQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Badiou: A Subject to Truth" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Badiou: A Subject to Truth</div>
+      <div class="card-author">Peter Hallward</div>
+      <div class="card-match">
+        Matched: "Badiou" by Peter Hallward
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(16)">✓ Approve</button>
+        <button class="btn no" onclick="reject(16)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-17" data-id="baudrillard-art-artefice" data-url="https://books.google.com/books/content?id=Z2L8U9oPWzQC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=Z2L8U9oPWzQC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Jean Baudrillard: Art and Artefice" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Jean Baudrillard: Art and Artefice</div>
+      <div class="card-author">Nicholas Zurbrugg</div>
+      <div class="card-match">
+        Matched: "Jean Baudrillard, Art and Artefact" by Nicholas Zurbrugg, B.A, D.Phil, Nicholas Zurbrugg
+        — Title: <span class="score medium">80%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(17)">✓ Approve</button>
+        <button class="btn no" onclick="reject(17)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-18" data-id="beautiful-risk-education" data-url="https://books.google.com/books/content?id=dTHvCgAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=dTHvCgAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Beautiful Risk of Education" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Beautiful Risk of Education</div>
+      <div class="card-author">Gert Biesta</div>
+      <div class="card-match">
+        Matched: "Beautiful Risk of Education" by Gert J. J. Biesta
+        — Title: <span class="score medium">85%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(18)">✓ Approve</button>
+        <button class="btn no" onclick="reject(18)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-19" data-id="becoming-animal" data-url="https://books.google.com/books/content?id=9VD9wAEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=9VD9wAEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Becoming Animal" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Becoming Animal</div>
+      <div class="card-author">David Abram</div>
+      <div class="card-match">
+        Matched: "Becoming Animal" by David Abram
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(19)">✓ Approve</button>
+        <button class="btn no" onclick="reject(19)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-20" data-id="becoming-supernatural" data-url="https://books.google.com/books/content?id=NWL6DwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=NWL6DwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Becoming Supernatural" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Becoming Supernatural</div>
+      <div class="card-author">Dr. Joe Dispenza</div>
+      <div class="card-match">
+        Matched: "Becoming Supernatural" by Joe Dispenza
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(20)">✓ Approve</button>
+        <button class="btn no" onclick="reject(20)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-21" data-id="being-and-time" data-url="https://books.google.com/books/content?id=g5JDEQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=g5JDEQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Being and Time" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Being and Time</div>
+      <div class="card-author">Martin Heidegger</div>
+      <div class="card-match">
+        Matched: "Being and Time" by Martin Heidegger
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(21)">✓ Approve</button>
+        <button class="btn no" onclick="reject(21)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-22" data-id="bells-and-whistles" data-url="https://books.google.com/books/content?id=bXDvAQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=bXDvAQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Bells and Whistles" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Bells and Whistles</div>
+      <div class="card-author">Graham Harman</div>
+      <div class="card-match">
+        Matched: "Bells and Whistles" by Graham Harman
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(22)">✓ Approve</button>
+        <button class="btn no" onclick="reject(22)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-23" data-id="beloved" data-url="https://books.google.com/books/content?id=0GnjaVMYYAUC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=0GnjaVMYYAUC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Beloved" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Beloved</div>
+      <div class="card-author">Toni Morrison</div>
+      <div class="card-match">
+        Matched: "Beloved" by Toni Morrison
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(23)">✓ Approve</button>
+        <button class="btn no" onclick="reject(23)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-24" data-id="berlin" data-url="https://books.google.com/books/content?id=9dyXAAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=9dyXAAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Berlin" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Berlin</div>
+      <div class="card-author">Rory MacLean</div>
+      <div class="card-match">
+        Matched: "Berlin" by Rory MacLean
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(24)">✓ Approve</button>
+        <button class="btn no" onclick="reject(24)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-25" data-id="blue-nights" data-url="https://books.google.com/books/content?id=4CV4uwqnxwEC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=4CV4uwqnxwEC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Blue Nights" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Blue Nights</div>
+      <div class="card-author">Joan Didion</div>
+      <div class="card-match">
+        Matched: "Blue Nights" by Joan Didion
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(25)">✓ Approve</button>
+        <button class="btn no" onclick="reject(25)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-26" data-id="book-of-life" data-url="https://books.google.com/books/content?id=lLMa6isBtk8C&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=lLMa6isBtk8C&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Book of Life" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Book of Life</div>
+      <div class="card-author">Jiddu Krishnamurti</div>
+      <div class="card-match">
+        Matched: "The Book of Life" by J Krishnamurti
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(26)">✓ Approve</button>
+        <button class="btn no" onclick="reject(26)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-27" data-id="book-you-wish" data-url="https://books.google.com/books/content?id=YHxqDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=YHxqDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Book You Wish Your Parents Had Read" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Book You Wish Your Parents Had Read</div>
+      <div class="card-author">Philippa Perry</div>
+      <div class="card-match">
+        Matched: "The Book You Wish Your Parents Had Read (and Your Children Will Be Glad That You Did)" by Philippa Perry
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(27)">✓ Approve</button>
+        <button class="btn no" onclick="reject(27)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-28" data-id="braiding-sweetgrass" data-url="https://books.google.com/books/content?id=PT22DwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=PT22DwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Braiding Sweetgrass" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Braiding Sweetgrass</div>
+      <div class="card-author">Robin Wall Kimmerer</div>
+      <div class="card-match">
+        Matched: "Braiding Sweetgrass" by Robin Wall Kimmerer
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(28)">✓ Approve</button>
+        <button class="btn no" onclick="reject(28)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-29" data-id="breathing-under-water" data-url="https://books.google.com/books/content?id=puqzCwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=puqzCwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Breathing Under Water" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Breathing Under Water</div>
+      <div class="card-author">Richard Rohr</div>
+      <div class="card-match">
+        Matched: "Breathing Under Water" by Richard Rohr
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(29)">✓ Approve</button>
+        <button class="btn no" onclick="reject(29)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-30" data-id="brief-history-curating" data-url="https://books.google.com/books/content?id=WJTrAAAAMAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=WJTrAAAAMAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="A Brief History of Curating" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">A Brief History of Curating</div>
+      <div class="card-author">Hans Ulrich Obrist</div>
+      <div class="card-match">
+        Matched: "A Brief History of Curating" by Hans Ulrich Obrist
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(30)">✓ Approve</button>
+        <button class="btn no" onclick="reject(30)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-31" data-id="buddhist-path" data-url="https://books.google.com/books/content?id=uItQDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=uItQDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="A Guide to the Buddhist Path" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">A Guide to the Buddhist Path</div>
+      <div class="card-author">Sangharakshita</div>
+      <div class="card-match">
+        Matched: "Guide to the Buddhist Path" by Sangharakshita
+        — Title: <span class="score medium">85%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(31)">✓ Approve</button>
+        <button class="btn no" onclick="reject(31)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-32" data-id="byron-poetry" data-url="https://books.google.com/books/content?id=sa_BivNGxWgC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=sa_BivNGxWgC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Selected Poetry" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Selected Poetry</div>
+      <div class="card-author">Lord Byron</div>
+      <div class="card-match">
+        Matched: "Selected Poetry of Lord Byron" by Lord George G. Byron
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(32)">✓ Approve</button>
+        <button class="btn no" onclick="reject(32)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-33" data-id="capital-vol-1" data-url="https://books.google.com/books/content?id=nwm3AAAAIAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=nwm3AAAAIAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Capital (Volume 1)" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Capital (Volume 1)</div>
+      <div class="card-author">Karl Marx</div>
+      <div class="card-match">
+        Matched: "Capital" by Karl Marx
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(33)">✓ Approve</button>
+        <button class="btn no" onclick="reject(33)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-34" data-id="chaosmosis" data-url="https://books.google.com/books/content?id=M2zoqaZe2SUC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=M2zoqaZe2SUC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Chaosmosis" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Chaosmosis</div>
+      <div class="card-author">Félix Guattari</div>
+      <div class="card-match">
+        Matched: "Chaosmosis" by Félix Guattari
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(34)">✓ Approve</button>
+        <button class="btn no" onclick="reject(34)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-35" data-id="cinema-1" data-url="https://books.google.com/books/content?id=haVqAQAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=haVqAQAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Cinema 1: The Movement-Image" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Cinema 1: The Movement-Image</div>
+      <div class="card-author">Gilles Deleuze</div>
+      <div class="card-match">
+        Matched: "Cinema: The movement-image" by Gilles Deleuze
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(35)">✓ Approve</button>
+        <button class="btn no" onclick="reject(35)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-36" data-id="citizen" data-url="https://books.google.com/books/content?id=z1lABAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=z1lABAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Citizen: An American Lyric" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Citizen: An American Lyric</div>
+      <div class="card-author">Claudia Rankine</div>
+      <div class="card-match">
+        Matched: "Citizen" by Claudia Rankine
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(36)">✓ Approve</button>
+        <button class="btn no" onclick="reject(36)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-37" data-id="clinical-intro-lacan" data-url="https://books.google.com/books/content?id=cekZDgAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=cekZDgAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="A Clinical Introduction to Lacanian Psychoanalysis" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">A Clinical Introduction to Lacanian Psychoanalysis</div>
+      <div class="card-author">Bruce Fink</div>
+      <div class="card-match">
+        Matched: "A Clinical Introduction to Lacanian Psychoanalysis" by Bruce Fink
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(37)">✓ Approve</button>
+        <button class="btn no" onclick="reject(37)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-38" data-id="concise-modern-painting" data-url="https://books.google.com/books/content?id=UHDcngEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=UHDcngEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="A Concise History of Modern Painting" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">A Concise History of Modern Painting</div>
+      <div class="card-author">Herbert Read</div>
+      <div class="card-match">
+        Matched: "A Concise History of Modern Painting" by Herbert Read
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(38)">✓ Approve</button>
+        <button class="btn no" onclick="reject(38)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-39" data-id="conscious-parent" data-url="https://books.google.com/books/content?id=OLgWBAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=OLgWBAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Conscious Parent" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Conscious Parent</div>
+      <div class="card-author">Shefali Tsabary</div>
+      <div class="card-match">
+        Matched: "The Conscious Parent" by Shefali Tsabary
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(39)">✓ Approve</button>
+        <button class="btn no" onclick="reject(39)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-40" data-id="constance-spry" data-url="https://books.google.com/books/content?id=z8SIDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=z8SIDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Constance Spry Cookery Book" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Constance Spry Cookery Book</div>
+      <div class="card-author">Constance Spry & Rosemary Hume</div>
+      <div class="card-match">
+        Matched: "The Constance Spry Cookery Book" by Constance Spry, Rosemary Hume
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(40)">✓ Approve</button>
+        <button class="btn no" onclick="reject(40)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-41" data-id="cook-eat-repeat" data-url="https://books.google.com/books/content?id=c-vSDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=c-vSDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Cook, Eat, Repeat" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Cook, Eat, Repeat</div>
+      <div class="card-author">Nigella Lawson</div>
+      <div class="card-match">
+        Matched: "Cook, Eat, Repeat" by Nigella Lawson
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(41)">✓ Approve</button>
+        <button class="btn no" onclick="reject(41)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-42" data-id="covenant-of-water" data-url="https://books.google.com/books/content?id=8kidEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=8kidEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Covenant of Water" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Covenant of Water</div>
+      <div class="card-author">Abraham Verghese</div>
+      <div class="card-match">
+        Matched: "The Covenant of Water" by Abraham Verghese
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(42)">✓ Approve</button>
+        <button class="btn no" onclick="reject(42)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-43" data-id="critique-of-judgement" data-url="https://books.google.com/books/content?id=KP7CDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=KP7CDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Critique of Judgement" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Critique of Judgement</div>
+      <div class="card-author">Immanuel Kant</div>
+      <div class="card-match">
+        Matched: "Kant's Critique of Judgement" by Immanuel Kant
+        — Title: <span class="score medium">85%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(43)">✓ Approve</button>
+        <button class="btn no" onclick="reject(43)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-44" data-id="cultural-turn" data-url="https://books.google.com/books/content?id=8Bug4-ImpzAC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=8Bug4-ImpzAC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Cultural Turn" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Cultural Turn</div>
+      <div class="card-author">Fredric Jameson</div>
+      <div class="card-match">
+        Matched: "The Cultural Turn" by Fredric Jameson
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(44)">✓ Approve</button>
+        <button class="btn no" onclick="reject(44)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-45" data-id="culture-industry" data-url="https://books.google.com/books/content?id=BWHwDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=BWHwDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Culture Industry" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Culture Industry</div>
+      <div class="card-author">Theodor W. Adorno</div>
+      <div class="card-match">
+        Matched: "The Culture Industry" by Theodor W Adorno
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(45)">✓ Approve</button>
+        <button class="btn no" onclick="reject(45)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-46" data-id="dark-nights-soul" data-url="https://books.google.com/books/content?id=P3m0RVlIqjkC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=P3m0RVlIqjkC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Dark Nights of the Soul" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Dark Nights of the Soul</div>
+      <div class="card-author">Thomas Moore</div>
+      <div class="card-match">
+        Matched: "Dark Nights Of The Soul" by Thomas Moore
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(46)">✓ Approve</button>
+        <button class="btn no" onclick="reject(46)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-47" data-id="democracy-education" data-url="https://books.google.com/books/content?id=wDroEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=wDroEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Democracy and Education" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Democracy and Education</div>
+      <div class="card-author">John Dewey</div>
+      <div class="card-match">
+        Matched: "Democracy and Education" by John Dewey
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(47)">✓ Approve</button>
+        <button class="btn no" onclick="reject(47)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-48" data-id="dishoom" data-url="https://books.google.com/books/content?id=kOgbEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=kOgbEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Dishoom: From Bombay with Love" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Dishoom: From Bombay with Love</div>
+      <div class="card-author">Shamil Thakrar, Kavi Thakrar & Naved Nasir</div>
+      <div class="card-match">
+        Matched: "Dishoom" by Shamil Thakrar, Kavi Thakrar, Naved Nasir
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(48)">✓ Approve</button>
+        <button class="btn no" onclick="reject(48)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-49" data-id="dont-let-me-be-lonely" data-url="https://books.google.com/books/content?id=ZfUPDQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=ZfUPDQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Don't Let Me Be Lonely" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Don't Let Me Be Lonely</div>
+      <div class="card-author">Claudia Rankine</div>
+      <div class="card-match">
+        Matched: "Don't Let Me Be Lonely" by Claudia Rankine
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(49)">✓ Approve</button>
+        <button class="btn no" onclick="reject(49)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-50" data-id="east" data-url="https://books.google.com/books/content?id=rB2KDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=rB2KDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="East" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">East</div>
+      <div class="card-author">Meera Sodha</div>
+      <div class="card-match">
+        Matched: "East" by Meera Sodha
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(50)">✓ Approve</button>
+        <button class="btn no" onclick="reject(50)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-51" data-id="either-or" data-url="https://books.google.com/books/content?id=S9AbG5L12WAC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=S9AbG5L12WAC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Either/Or" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Either/Or</div>
+      <div class="card-author">Søren Kierkegaard</div>
+      <div class="card-match">
+        Matched: "Either/Or" by Søren Kierkegaard
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(51)">✓ Approve</button>
+        <button class="btn no" onclick="reject(51)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-52" data-id="emergent-strategy" data-url="https://books.google.com/books/content?id=JOJcjwEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=JOJcjwEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Emergent Strategy" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Emergent Strategy</div>
+      <div class="card-author">adrienne maree brown</div>
+      <div class="card-match">
+        Matched: "Emergent Strategy" by Adrienne M. Brown
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(52)">✓ Approve</button>
+        <button class="btn no" onclick="reject(52)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-53" data-id="empire" data-url="https://books.google.com/books/content?id=JBZBWQo3whQC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=JBZBWQo3whQC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Empire: How Britain Made the Modern World" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Empire: How Britain Made the Modern World</div>
+      <div class="card-author">Niall Ferguson</div>
+      <div class="card-match">
+        Matched: "Empire" by Niall Ferguson
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(53)">✓ Approve</button>
+        <button class="btn no" onclick="reject(53)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-54" data-id="end-of-everything" data-url="https://books.google.com/books/content?id=nj-2DwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=nj-2DwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The End of Everything" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The End of Everything</div>
+      <div class="card-author">Katie Mack</div>
+      <div class="card-match">
+        Matched: "The End of Everything" by Katie Mack
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(54)">✓ Approve</button>
+        <button class="btn no" onclick="reject(54)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-55" data-id="experimental-politics" data-url="https://books.google.com/books/content?id=z8lDDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=z8lDDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Experimental Politics" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Experimental Politics</div>
+      <div class="card-author">Maurizio Lazzarato</div>
+      <div class="card-match">
+        Matched: "Experimental Politics" by Maurizio Lazzarato
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(55)">✓ Approve</button>
+        <button class="btn no" onclick="reject(55)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-56" data-id="falling-upward" data-url="https://books.google.com/books/content?id=eidTDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=eidTDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Falling Upward" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Falling Upward</div>
+      <div class="card-author">Richard Rohr</div>
+      <div class="card-match">
+        Matched: "Falling Upward" by Richard Rohr
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(56)">✓ Approve</button>
+        <button class="btn no" onclick="reject(56)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-57" data-id="famished-road" data-url="https://books.google.com/books/content?id=hbC7xBSOlFYC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=hbC7xBSOlFYC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Famished Road" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Famished Road</div>
+      <div class="card-author">Ben Okri</div>
+      <div class="card-match">
+        Matched: "The Famished Road" by Ben Okri
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(57)">✓ Approve</button>
+        <button class="btn no" onclick="reject(57)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-58" data-id="fear-of-freedom" data-url="https://books.google.com/books/content?id=MIsbEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=MIsbEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Fear of Freedom" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Fear of Freedom</div>
+      <div class="card-author">Erich Fromm</div>
+      <div class="card-match">
+        Matched: "The Fear of Freedom" by Erich Fromm
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(58)">✓ Approve</button>
+        <button class="btn no" onclick="reject(58)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-59" data-id="film-subversive-art" data-url="https://books.google.com/books/content?id=o3i_rXakMR8C&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=o3i_rXakMR8C&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Film as a Subversive Art" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Film as a Subversive Art</div>
+      <div class="card-author">Amos Vogel</div>
+      <div class="card-match">
+        Matched: "Film as a Subversive Art" by Amos Vogel
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(59)">✓ Approve</button>
+        <button class="btn no" onclick="reject(59)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-60" data-id="finding-mother-tree" data-url="https://books.google.com/books/content?id=el-TEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=el-TEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Finding the Mother Tree" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Finding the Mother Tree</div>
+      <div class="card-author">Suzanne Simard</div>
+      <div class="card-match">
+        Matched: "Finding the Mother Tree" by Suzanne Simard
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(60)">✓ Approve</button>
+        <button class="btn no" onclick="reject(60)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-61" data-id="flesh-szalay" data-url="https://books.google.com/books/content?id=MGdMEQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=MGdMEQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Flesh" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Flesh</div>
+      <div class="card-author">David Szalay</div>
+      <div class="card-match">
+        Matched: "Flesh" by David Szalay
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(61)">✓ Approve</button>
+        <button class="btn no" onclick="reject(61)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-62" data-id="form-and-object" data-url="https://books.google.com/books/content?id=K-MkDQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=K-MkDQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Form and Object" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Form and Object</div>
+      <div class="card-author">Tristan Garcia</div>
+      <div class="card-match">
+        Matched: "Form and Object" by Tristan Garcia
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(62)">✓ Approve</button>
+        <button class="btn no" onclick="reject(62)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-63" data-id="free-to-learn" data-url="https://books.google.com/books/content?id=u5pVDgAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=u5pVDgAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Free to Learn" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Free to Learn</div>
+      <div class="card-author">Peter Gray</div>
+      <div class="card-match">
+        Matched: "Free to Learn" by Peter Gray
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(63)">✓ Approve</button>
+        <button class="btn no" onclick="reject(63)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-64" data-id="from-dawn-to-decadence" data-url="https://books.google.com/books/content?id=UHFTPgAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=UHFTPgAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="From Dawn to Decadence" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">From Dawn to Decadence</div>
+      <div class="card-author">Jacques Barzun</div>
+      <div class="card-match">
+        Matched: "From Dawn to Decadence" by Jacques Barzun
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(64)">✓ Approve</button>
+        <button class="btn no" onclick="reject(64)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-65" data-id="gay-science" data-url="https://books.google.com/books/content?id=xj41AwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=xj41AwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Gay Science" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Gay Science</div>
+      <div class="card-author">Friedrich Nietzsche</div>
+      <div class="card-match">
+        Matched: "The Gay Science" by Friedrich Nietzsche, Thomas Common
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(65)">✓ Approve</button>
+        <button class="btn no" onclick="reject(65)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-66" data-id="god-of-small-things" data-url="https://books.google.com/books/content?id=IUf0AgAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=IUf0AgAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The God of Small Things" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The God of Small Things</div>
+      <div class="card-author">Arundhati Roy</div>
+      <div class="card-match">
+        Matched: "The God of Small Things" by Arundhati Roy
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(66)">✓ Approve</button>
+        <button class="btn no" onclick="reject(66)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-67" data-id="goethe-poetry" data-url="https://books.google.com/books/content?id=LVfJrHXKLHkC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=LVfJrHXKLHkC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Selected Poetry" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Selected Poetry</div>
+      <div class="card-author">Johann Wolfgang von Goethe</div>
+      <div class="card-match">
+        Matched: "Selected Poetry" by Goethe
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(67)">✓ Approve</button>
+        <button class="btn no" onclick="reject(67)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-68" data-id="golden-mole" data-url="https://books.google.com/books/content?id=i5hZEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=i5hZEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Golden Mole" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Golden Mole</div>
+      <div class="card-author">Catherine Rundell</div>
+      <div class="card-match">
+        Matched: "The Golden Mole" by Katherine Rundell
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(68)">✓ Approve</button>
+        <button class="btn no" onclick="reject(68)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-69" data-id="goya" data-url="https://books.google.com/books/content?id=Urv7xloRJLMC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=Urv7xloRJLMC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Goya" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Goya</div>
+      <div class="card-author">Robert Hughes</div>
+      <div class="card-match">
+        Matched: "Goya" by Robert Hughes
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(69)">✓ Approve</button>
+        <button class="btn no" onclick="reject(69)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-70" data-id="h-is-for-hawk" data-url="https://books.google.com/books/content?id=HZ-SBgAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=HZ-SBgAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="H is for Hawk" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">H is for Hawk</div>
+      <div class="card-author">Helen Macdonald</div>
+      <div class="card-match">
+        Matched: "H is for Hawk" by Helen Macdonald
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(70)">✓ Approve</button>
+        <button class="btn no" onclick="reject(70)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-71" data-id="healing-cookbook" data-url="https://books.google.com/books/content?id=lpgqDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=lpgqDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Doctor's Kitchen" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Doctor's Kitchen</div>
+      <div class="card-author">Dr. Rupy Aujla</div>
+      <div class="card-match">
+        Matched: "The Doctor’s Kitchen: Supercharge your health with 100 delicious everyday recipes" by Dr Rupy Aujla
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(71)">✓ Approve</button>
+        <button class="btn no" onclick="reject(71)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-72" data-id="hermeneutics-subject" data-url="https://books.google.com/books/content?id=1fa3QgAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=1fa3QgAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Hermeneutics of the Subject" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Hermeneutics of the Subject</div>
+      <div class="card-author">Michel Foucault</div>
+      <div class="card-match">
+        Matched: "The Hermeneutics of the Subject" by Michel Foucault
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(72)">✓ Approve</button>
+        <button class="btn no" onclick="reject(72)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-73" data-id="hero-thousand-faces" data-url="https://books.google.com/books/content?id=nogIAQAAIAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=nogIAQAAIAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Hero with a Thousand Faces" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Hero with a Thousand Faces</div>
+      <div class="card-author">Joseph Campbell</div>
+      <div class="card-match">
+        Matched: "The Hero with a Thousand Faces" by Joseph Campbell
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(73)">✓ Approve</button>
+        <button class="btn no" onclick="reject(73)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-74" data-id="human-condition" data-url="https://books.google.com/books/content?id=bGlwDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=bGlwDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Human Condition" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Human Condition</div>
+      <div class="card-author">Hannah Arendt</div>
+      <div class="card-match">
+        Matched: "The Human Condition" by Hannah Arendt
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(74)">✓ Approve</button>
+        <button class="btn no" onclick="reject(74)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-75" data-id="hymns-goddess-kali" data-url="https://books.google.com/books/content?id=SFs6EQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=SFs6EQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Hymns to the Goddess and Hymns to Kali" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Hymns to the Goddess and Hymns to Kali</div>
+      <div class="card-author">Arthur Avalon</div>
+      <div class="card-match">
+        Matched: "Hymns To The Goddess" by Arthur Avalon (John Woodroffe)
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(75)">✓ Approve</button>
+        <button class="btn no" onclick="reject(75)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-76" data-id="ill-feelings" data-url="https://books.google.com/books/content?id=QJQnEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=QJQnEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Ill Feelings" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Ill Feelings</div>
+      <div class="card-author">Alice Hattrick</div>
+      <div class="card-match">
+        Matched: "Ill Feelings" by Alice Hattrick
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(76)">✓ Approve</button>
+        <button class="btn no" onclick="reject(76)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-77" data-id="illuminations" data-url="https://books.google.com/books/content?id=mV06rdTclagC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=mV06rdTclagC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Illuminations" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Illuminations</div>
+      <div class="card-author">Walter Benjamin</div>
+      <div class="card-match">
+        Matched: "Illuminations" by Walter Benjamin
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(77)">✓ Approve</button>
+        <button class="btn no" onclick="reject(77)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-78" data-id="in-patagonia" data-url="https://books.google.com/books/content?id=8MWJoVJ10JAC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=8MWJoVJ10JAC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="In Patagonia" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">In Patagonia</div>
+      <div class="card-author">Bruce Chatwin</div>
+      <div class="card-match">
+        Matched: "In Patagonia" by Bruce Chatwin
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(78)">✓ Approve</button>
+        <button class="btn no" onclick="reject(78)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-79" data-id="information-bomb" data-url="https://books.google.com/books/content?id=D6jLeNAvFZkC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=D6jLeNAvFZkC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Information Bomb" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Information Bomb</div>
+      <div class="card-author">Paul Virilio</div>
+      <div class="card-match">
+        Matched: "The Information Bomb" by Paul Virilio
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(79)">✓ Approve</button>
+        <button class="btn no" onclick="reject(79)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-80" data-id="inner-experience" data-url="https://books.google.com/books/content?id=FpvQJ5FomwgC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=FpvQJ5FomwgC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Inner Experience" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Inner Experience</div>
+      <div class="card-author">Georges Bataille</div>
+      <div class="card-match">
+        Matched: "Inner Experience" by Georges Bataille
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(80)">✓ Approve</button>
+        <button class="btn no" onclick="reject(80)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-81" data-id="interaction-of-color" data-url="https://books.google.com/books/content?id=A_MYU_XDXfcC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=A_MYU_XDXfcC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Interaction of Color" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Interaction of Color</div>
+      <div class="card-author">Josef Albers</div>
+      <div class="card-match">
+        Matched: "Interaction of Color" by Josef Albers
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(81)">✓ Approve</button>
+        <button class="btn no" onclick="reject(81)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-82" data-id="interface-effect" data-url="https://books.google.com/books/content?id=lCd-zMDjKiYC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=lCd-zMDjKiYC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Interface Effect" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Interface Effect</div>
+      <div class="card-author">Alexander Galloway</div>
+      <div class="card-match">
+        Matched: "The Interface Effect" by Alexander R. Galloway
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(82)">✓ Approve</button>
+        <button class="btn no" onclick="reject(82)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-83" data-id="interior-castle" data-url="https://books.google.com/books/content?id=ENCSDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=ENCSDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Interior Castle" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Interior Castle</div>
+      <div class="card-author">St. Teresa of Ávila</div>
+      <div class="card-match">
+        Matched: "The Interior Castle" by St. Teresa of Ávila
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(83)">✓ Approve</button>
+        <button class="btn no" onclick="reject(83)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-84" data-id="interrogating-real" data-url="https://books.google.com/books/content?id=HZ5OAQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=HZ5OAQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Interrogating the Real" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Interrogating the Real</div>
+      <div class="card-author">Slavoj Žižek</div>
+      <div class="card-match">
+        Matched: "Interrogating the Real" by Slavoj Žižek
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(84)">✓ Approve</button>
+        <button class="btn no" onclick="reject(84)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-85" data-id="islamic-thought" data-url="https://books.google.com/books/content?id=UNrbEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=UNrbEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="A Short History of Islamic Thought" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">A Short History of Islamic Thought</div>
+      <div class="card-author">Fitzroy Morrissey</div>
+      <div class="card-match">
+        Matched: "A ^AShort History of Islamic Thought" by Fitzroy Morrissey
+        — Title: <span class="score medium">75%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(85)">✓ Approve</button>
+        <button class="btn no" onclick="reject(85)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-86" data-id="jerusalem" data-url="https://books.google.com/books/content?id=czCb6vRIrZEC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=czCb6vRIrZEC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Jerusalem" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Jerusalem</div>
+      <div class="card-author">Yotam Ottolenghi & Sami Tamimi</div>
+      <div class="card-match">
+        Matched: "Jerusalem" by Yotam Ottolenghi, Sami Tamimi
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(86)">✓ Approve</button>
+        <button class="btn no" onclick="reject(86)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-87" data-id="king-kong-theory" data-url="https://books.google.com/books/content?id=yC_aAAAAMAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=yC_aAAAAMAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="King Kong Theory" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">King Kong Theory</div>
+      <div class="card-author">Virginie Despentes</div>
+      <div class="card-match">
+        Matched: "King Kong Theory" by Virginie Despentes
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(87)">✓ Approve</button>
+        <button class="btn no" onclick="reject(87)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-88" data-id="la-bas" data-url="https://books.google.com/books/content?id=PF1s0QEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=PF1s0QEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Là-Bas" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Là-Bas</div>
+      <div class="card-author">J.K. Huysmans</div>
+      <div class="card-match">
+        Matched: "Là-Bas" by Joris-Karl Huysmans
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(88)">✓ Approve</button>
+        <button class="btn no" onclick="reject(88)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-89" data-id="labyrinths" data-url="https://books.google.com/books/content?id=zucSAAAAYAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=zucSAAAAYAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Labyrinths" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Labyrinths</div>
+      <div class="card-author">Jorge Luis Borges</div>
+      <div class="card-match">
+        Matched: "Labyrinths" by Jorge Luis Borges
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(89)">✓ Approve</button>
+        <button class="btn no" onclick="reject(89)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-90" data-id="lacanian-subject" data-url="https://books.google.com/books/content?id=wLmkDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=wLmkDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Lacanian Subject" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Lacanian Subject</div>
+      <div class="card-author">Bruce Fink</div>
+      <div class="card-match">
+        Matched: "The Lacanian Subject" by Bruce Fink
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(90)">✓ Approve</button>
+        <button class="btn no" onclick="reject(90)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-91" data-id="language-of-things" data-url="https://books.google.com/books/content?id=g2CAJkZ1Gd0C&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=g2CAJkZ1Gd0C&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Language of Things" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Language of Things</div>
+      <div class="card-author">Deyan Sudjic</div>
+      <div class="card-match">
+        Matched: "The Language of Things" by Deyan Sudjic
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(91)">✓ Approve</button>
+        <button class="btn no" onclick="reject(91)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-92" data-id="les-miserables" data-url="https://books.google.com/books/content?id=4TomAQAAMAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=4TomAQAAMAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Les Misérables" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Les Misérables</div>
+      <div class="card-author">Victor Hugo</div>
+      <div class="card-match">
+        Matched: "The Novels, Complete and Unabridged of Victor Hugo: Les misérables" by Victor Hugo
+        — Title: <span class="score medium">85%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(92)">✓ Approve</button>
+        <button class="btn no" onclick="reject(92)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-93" data-id="letters-young-poet" data-url="https://books.google.com/books/content?id=CjEuAgAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=CjEuAgAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Letters to a Young Poet" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Letters to a Young Poet</div>
+      <div class="card-author">Rainer Maria Rilke</div>
+      <div class="card-match">
+        Matched: "Letters to a Young Poet" by Rainer Maria Rilke
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(93)">✓ Approve</button>
+        <button class="btn no" onclick="reject(93)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-94" data-id="letting-go" data-url="https://books.google.com/books/content?id=n1_6DwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=n1_6DwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Letting Go" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Letting Go</div>
+      <div class="card-author">David R. Hawkins</div>
+      <div class="card-match">
+        Matched: "Letting Go" by David R. Hawkins, MD/PHD
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(94)">✓ Approve</button>
+        <button class="btn no" onclick="reject(94)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-95" data-id="lifes-work" data-url="https://books.google.com/books/content?id=6fljQgAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=6fljQgAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="A Life's Work: On Becoming a Mother" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">A Life's Work: On Becoming a Mother</div>
+      <div class="card-author">Rachel Cusk</div>
+      <div class="card-match">
+        Matched: "A Life's Work" by Rachel Cusk
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(95)">✓ Approve</button>
+        <button class="btn no" onclick="reject(95)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-96" data-id="living-end-times" data-url="https://books.google.com/books/content?id=MIz6BPT23Q4C&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=MIz6BPT23Q4C&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Living in the End Times" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Living in the End Times</div>
+      <div class="card-author">Slavoj Žižek</div>
+      <div class="card-match">
+        Matched: "Living in the End Times" by Slavoj Žižek
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(96)">✓ Approve</button>
+        <button class="btn no" onclick="reject(96)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-97" data-id="londoners" data-url="https://books.google.com/books/content?id=NqcNoAljD8AC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=NqcNoAljD8AC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Londoners: The Days and Nights of London Now" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Londoners: The Days and Nights of London Now</div>
+      <div class="card-author">Craig Taylor</div>
+      <div class="card-match">
+        Matched: "Londoners" by Craig Taylor
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(97)">✓ Approve</button>
+        <button class="btn no" onclick="reject(97)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-98" data-id="lost-spirit-capitalism" data-url="https://books.google.com/books/content?id=bEoUMQAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=bEoUMQAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Lost Spirit of Capitalism" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Lost Spirit of Capitalism</div>
+      <div class="card-author">Bernard Stiegler</div>
+      <div class="card-match">
+        Matched: "The Lost Spirit of Capitalism" by Bernard Stiegler
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(98)">✓ Approve</button>
+        <button class="btn no" onclick="reject(98)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-99" data-id="mans-place" data-url="https://books.google.com/books/content?id=SIhZzQEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=SIhZzQEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="A Man's Place" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">A Man's Place</div>
+      <div class="card-author">Annie Ernaux</div>
+      <div class="card-match">
+        Matched: "A Man's Place" by Annie Ernaux
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(99)">✓ Approve</button>
+        <button class="btn no" onclick="reject(99)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-100" data-id="matter-and-memory" data-url="https://books.google.com/books/content?id=eR-aAwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=eR-aAwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Matter and Memory" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Matter and Memory</div>
+      <div class="card-author">Henri Bergson</div>
+      <div class="card-match">
+        Matched: "Matter And Memory" by Henri Bergson
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(100)">✓ Approve</button>
+        <button class="btn no" onclick="reject(100)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-101" data-id="meaning-of-things" data-url="https://books.google.com/books/content?id=iBA6AgAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=iBA6AgAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Meaning of Things" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Meaning of Things</div>
+      <div class="card-author">A.C. Grayling</div>
+      <div class="card-match">
+        Matched: "The Meaning of Things" by A.C. Grayling
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(101)">✓ Approve</button>
+        <button class="btn no" onclick="reject(101)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-102" data-id="meeting-universe-halfway" data-url="https://books.google.com/books/content?id=H41WUfTU2CMC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=H41WUfTU2CMC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Meeting the Universe Halfway" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Meeting the Universe Halfway</div>
+      <div class="card-author">Karen Barad</div>
+      <div class="card-match">
+        Matched: "Meeting the Universe Halfway" by Karen Barad
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(102)">✓ Approve</button>
+        <button class="btn no" onclick="reject(102)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-103" data-id="melancholy-fosse" data-url="https://books.google.com/books/content?id=7a460AEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=7a460AEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Melancholy I–II" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Melancholy I–II</div>
+      <div class="card-author">Jon Fosse</div>
+      <div class="card-match">
+        Matched: "Melancholy I-II" by Jon Fosse
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(103)">✓ Approve</button>
+        <button class="btn no" onclick="reject(103)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-104" data-id="minima-moralia" data-url="https://books.google.com/books/content?id=ROhOEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=ROhOEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Minima Moralia" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Minima Moralia</div>
+      <div class="card-author">Theodor W. Adorno</div>
+      <div class="card-match">
+        Matched: "Minima Moralia" by Theodor Adorno
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(104)">✓ Approve</button>
+        <button class="btn no" onclick="reject(104)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-105" data-id="moosewood" data-url="https://books.google.com/books/content?id=81eQEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=81eQEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Moosewood Cookbook" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Moosewood Cookbook</div>
+      <div class="card-author">Mollie Katzen</div>
+      <div class="card-match">
+        Matched: "The Moosewood Cookbook" by Mollie Katzen
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(105)">✓ Approve</button>
+        <button class="btn no" onclick="reject(105)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-106" data-id="morpho-skeleton" data-url="https://books.google.com/books/content?id=2QW6EAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=2QW6EAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Morpho: Skeleton and Bone Reference Points" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Morpho: Skeleton and Bone Reference Points</div>
+      <div class="card-author">Michel Lauricella</div>
+      <div class="card-match">
+        Matched: "Morpho: Skeleton and Bone Reference Points" by Michel Lauricella
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(106)">✓ Approve</button>
+        <button class="btn no" onclick="reject(106)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-107" data-id="mothers-rose" data-url="https://books.google.com/books/content?id=x81DDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=x81DDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Mothers: An Essay on Love and Cruelty" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Mothers: An Essay on Love and Cruelty</div>
+      <div class="card-author">Jacqueline Rose</div>
+      <div class="card-match">
+        Matched: "Mothers" by Jacqueline Rose
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(107)">✓ Approve</button>
+        <button class="btn no" onclick="reject(107)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-108" data-id="mushroom-end-of-world" data-url="https://books.google.com/books/content?id=MR4OEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=MR4OEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Mushroom at the End of the World" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Mushroom at the End of the World</div>
+      <div class="card-author">Anna Lowenhaupt Tsing</div>
+      <div class="card-match">
+        Matched: "The Mushroom at the End of the World" by Anna Lowenhaupt Tsing
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(108)">✓ Approve</button>
+        <button class="btn no" onclick="reject(108)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-109" data-id="mythologies" data-url="https://books.google.com/books/content?id=wsGDVdYoRA4C&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=wsGDVdYoRA4C&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Mythologies" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Mythologies</div>
+      <div class="card-author">Roland Barthes</div>
+      <div class="card-match">
+        Matched: "Mythologies" by Roland Barthes
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(109)">✓ Approve</button>
+        <button class="btn no" onclick="reject(109)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-110" data-id="nervous-states" data-url="https://books.google.com/books/content?id=kCZDDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=kCZDDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Nervous States" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Nervous States</div>
+      <div class="card-author">William Davies</div>
+      <div class="card-match">
+        Matched: "Nervous States" by William Davies
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(110)">✓ Approve</button>
+        <button class="btn no" onclick="reject(110)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-111" data-id="new-philosophy-society" data-url="https://books.google.com/books/content?id=JhL_qZUxw60C&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=JhL_qZUxw60C&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="A New Philosophy of Society" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">A New Philosophy of Society</div>
+      <div class="card-author">Manuel DeLanda</div>
+      <div class="card-match">
+        Matched: "A New Philosophy of Society" by Manuel DeLanda
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(111)">✓ Approve</button>
+        <button class="btn no" onclick="reject(111)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-112" data-id="new-vegan" data-url="https://books.google.com/books/content?id=GQYyjgEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=GQYyjgEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The New Vegan" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The New Vegan</div>
+      <div class="card-author">Áine Carlin</div>
+      <div class="card-match">
+        Matched: "The New Vegan" by Aine Carlin
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(112)">✓ Approve</button>
+        <button class="btn no" onclick="reject(112)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-113" data-id="nigel-slater-kitchen-diaries" data-url="https://books.google.com/books/content?id=6A9HAAAAYAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=6A9HAAAAYAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Kitchen Diaries" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Kitchen Diaries</div>
+      <div class="card-author">Nigel Slater</div>
+      <div class="card-match">
+        Matched: "The Kitchen Diaries" by Nigel Slater
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(113)">✓ Approve</button>
+        <button class="btn no" onclick="reject(113)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-114" data-id="nihil-unbound" data-url="https://books.google.com/books/content?id=4DkWDAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=4DkWDAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Nihil Unbound" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Nihil Unbound</div>
+      <div class="card-author">Ray Brassier</div>
+      <div class="card-match">
+        Matched: "Nihil Unbound" by R. Brassier
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(114)">✓ Approve</button>
+        <button class="btn no" onclick="reject(114)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-115" data-id="no-bad-parts" data-url="https://books.google.com/books/content?id=qlOzEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=qlOzEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="No Bad Parts" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">No Bad Parts</div>
+      <div class="card-author">Richard C. Schwartz</div>
+      <div class="card-match">
+        Matched: "No Bad Parts" by Richard Schwartz, PhD
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(115)">✓ Approve</button>
+        <button class="btn no" onclick="reject(115)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-116" data-id="non-places" data-url="https://books.google.com/books/content?id=DVycEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=DVycEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Non-Places: An Introduction to Supermodernity" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Non-Places: An Introduction to Supermodernity</div>
+      <div class="card-author">Marc Augé</div>
+      <div class="card-match">
+        Matched: "Non-Places" by Marc Augé
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(116)">✓ Approve</button>
+        <button class="btn no" onclick="reject(116)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-117" data-id="not-working" data-url="https://books.google.com/books/content?id=K2Z0DwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=K2Z0DwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Not Working: Why We Have to Stop" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Not Working: Why We Have to Stop</div>
+      <div class="card-author">Josh Cohen</div>
+      <div class="card-match">
+        Matched: "Not Working" by Josh Cohen
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(117)">✓ Approve</button>
+        <button class="btn no" onclick="reject(117)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-118" data-id="nothing-to-envy" data-url="https://books.google.com/books/content?id=79CilaCxVisC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=79CilaCxVisC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Nothing to Envy: Real Lives in North Korea" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Nothing to Envy: Real Lives in North Korea</div>
+      <div class="card-author">Barbara Demick</div>
+      <div class="card-match">
+        Matched: "Nothing to Envy" by Barbara Demick
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(118)">✓ Approve</button>
+        <button class="btn no" onclick="reject(118)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-119" data-id="nothing-to-fear-mcfadden" data-url="https://books.google.com/books/content?id=R3LfEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=R3LfEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Nothing to Fear: Demystifying Death" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Nothing to Fear: Demystifying Death</div>
+      <div class="card-author">Julie McFadden</div>
+      <div class="card-match">
+        Matched: "Nothing to Fear" by Julie McFadden
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(119)">✓ Approve</button>
+        <button class="btn no" onclick="reject(119)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-120" data-id="on-mysticism" data-url="https://books.google.com/books/content?id=EkDPEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=EkDPEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="On Mysticism: The Experience of Ecstasy" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">On Mysticism: The Experience of Ecstasy</div>
+      <div class="card-author">Simon Critchley</div>
+      <div class="card-match">
+        Matched: "On Mysticism" by Simon Critchley
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(120)">✓ Approve</button>
+        <button class="btn no" onclick="reject(120)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-121" data-id="on-photography" data-url="https://books.google.com/books/content?id=IcElAQAAIAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=IcElAQAAIAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="On Photography" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">On Photography</div>
+      <div class="card-author">Susan Sontag</div>
+      <div class="card-match">
+        Matched: "On Photography" by Susan Sontag
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(121)">✓ Approve</button>
+        <button class="btn no" onclick="reject(121)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-122" data-id="one-dimensional-man" data-url="https://books.google.com/books/content?id=q1jbAAAAIAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=q1jbAAAAIAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="One-Dimensional Man" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">One-Dimensional Man</div>
+      <div class="card-author">Herbert Marcuse</div>
+      <div class="card-match">
+        Matched: "One-dimensional Man" by Herbert Marcuse
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(122)">✓ Approve</button>
+        <button class="btn no" onclick="reject(122)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-123" data-id="orientalism" data-url="https://books.google.com/books/content?id=npF5BAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=npF5BAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Orientalism" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Orientalism</div>
+      <div class="card-author">Edward Said</div>
+      <div class="card-match">
+        Matched: "Orientalism" by Edward W. Said
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(123)">✓ Approve</button>
+        <button class="btn no" onclick="reject(123)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-124" data-id="ottolenghi-flavour" data-url="https://books.google.com/books/content?id=5ULSDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=5ULSDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Ottolenghi Flavour" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Ottolenghi Flavour</div>
+      <div class="card-author">Yotam Ottolenghi & Ixta Belfrage</div>
+      <div class="card-match">
+        Matched: "Ottolenghi FLAVOUR" by Yotam Ottolenghi, Ixta Belfrage
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(124)">✓ Approve</button>
+        <button class="btn no" onclick="reject(124)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-125" data-id="outline" data-url="https://books.google.com/books/content?id=sD0dCAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=sD0dCAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Outline" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Outline</div>
+      <div class="card-author">Rachel Cusk</div>
+      <div class="card-match">
+        Matched: "Outline" by Rachel Cusk
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(125)">✓ Approve</button>
+        <button class="btn no" onclick="reject(125)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-126" data-id="outsider-camus" data-url="https://books.google.com/books/content?id=XWlcAQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=XWlcAQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Outsider" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Outsider</div>
+      <div class="card-author">Albert Camus</div>
+      <div class="card-match">
+        Matched: "The Outsider" by Albert Camus
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(126)">✓ Approve</button>
+        <button class="btn no" onclick="reject(126)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-127" data-id="parables-virtual" data-url="https://books.google.com/books/content?id=93S7aCK0AP8C&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=93S7aCK0AP8C&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Parables for the Virtual" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Parables for the Virtual</div>
+      <div class="card-author">Brian Massumi</div>
+      <div class="card-match">
+        Matched: "Parables for the Virtual" by Brian Massumi
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(127)">✓ Approve</button>
+        <button class="btn no" onclick="reject(127)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-128" data-id="pedagogy-of-oppressed" data-url="https://books.google.com/books/content?id=8pxQAAAAMAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=8pxQAAAAMAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Pedagogy of the Oppressed" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Pedagogy of the Oppressed</div>
+      <div class="card-author">Paulo Freire</div>
+      <div class="card-match">
+        Matched: "Pedagogy of the Oppressed" by Paulo Freire
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(128)">✓ Approve</button>
+        <button class="btn no" onclick="reject(128)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-129" data-id="penguin-by-design" data-url="https://books.google.com/books/content?id=IQFUAAAAMAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=IQFUAAAAMAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Penguin by Design" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Penguin by Design</div>
+      <div class="card-author">Phil Baines</div>
+      <div class="card-match">
+        Matched: "Penguin by Design" by Phil Baines
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(129)">✓ Approve</button>
+        <button class="btn no" onclick="reject(129)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-130" data-id="pensees" data-url="https://books.google.com/books/content?id=m-TzEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=m-TzEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Pensées" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Pensées</div>
+      <div class="card-author">Blaise Pascal</div>
+      <div class="card-match">
+        Matched: "Pascal's Pensées" by Blaise Pascal
+        — Title: <span class="score medium">85%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(130)">✓ Approve</button>
+        <button class="btn no" onclick="reject(130)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-131" data-id="perfect-health" data-url="https://books.google.com/books/content?id=2KHUb3iEkzEC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=2KHUb3iEkzEC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Perfect Health" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Perfect Health</div>
+      <div class="card-author">Deepak Chopra</div>
+      <div class="card-match">
+        Matched: "Perfect Health" by Deepak Chopra
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(131)">✓ Approve</button>
+        <button class="btn no" onclick="reject(131)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-132" data-id="permanent-food" data-url="https://books.google.com/books/content?id=byhlAQAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=byhlAQAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Permanent Food" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Permanent Food</div>
+      <div class="card-author">Maurizio Cattelan</div>
+      <div class="card-match">
+        Matched: "Permanent Food" by Maurizio Cattelan
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(132)">✓ Approve</button>
+        <button class="btn no" onclick="reject(132)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-133" data-id="philosophical-devices" data-url="https://books.google.com/books/content?id=zi0UDAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=zi0UDAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Philosophical Devices" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Philosophical Devices</div>
+      <div class="card-author">David Papineau</div>
+      <div class="card-match">
+        Matched: "Philosophical Devices" by David Papineau
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(133)">✓ Approve</button>
+        <button class="btn no" onclick="reject(133)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-134" data-id="photograph-contemporary-art" data-url="https://books.google.com/books/content?id=D32vQgAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=D32vQgAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Photograph as Contemporary Art" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Photograph as Contemporary Art</div>
+      <div class="card-author">Charlotte Cotton</div>
+      <div class="card-match">
+        Matched: "The Photograph as Contemporary Art" by Charlotte Cotton
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(134)">✓ Approve</button>
+        <button class="btn no" onclick="reject(134)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-135" data-id="picasso-1932" data-url="https://books.google.com/books/content?id=uWstMQAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=uWstMQAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The EY Exhibition: Picasso 1932" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The EY Exhibition: Picasso 1932</div>
+      <div class="card-author">Tate</div>
+      <div class="card-match">
+        Matched: "The EY Exhibition" by Tate Britain (Gallery)
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(135)">✓ Approve</button>
+        <button class="btn no" onclick="reject(135)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-136" data-id="plague-rose" data-url="https://books.google.com/books/content?id=ZGeaEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=ZGeaEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Plague" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Plague</div>
+      <div class="card-author">Jacqueline Rose</div>
+      <div class="card-match">
+        Matched: "The Plague" by Jacqueline Rose
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(136)">✓ Approve</button>
+        <button class="btn no" onclick="reject(136)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-137" data-id="pleasure-activism" data-url="https://books.google.com/books/content?id=EJaftAEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=EJaftAEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Pleasure Activism" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Pleasure Activism</div>
+      <div class="card-author">adrienne maree brown</div>
+      <div class="card-match">
+        Matched: "Pleasure Activism" by Adrienne Maree Brown
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(137)">✓ Approve</button>
+        <button class="btn no" onclick="reject(137)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-138" data-id="pleasure-of-text" data-url="https://books.google.com/books/content?id=fXC3AQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=fXC3AQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Pleasure of the Text" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Pleasure of the Text</div>
+      <div class="card-author">Roland Barthes</div>
+      <div class="card-match">
+        Matched: "The Pleasure of the Text" by Roland Barthes
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(138)">✓ Approve</button>
+        <button class="btn no" onclick="reject(138)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-139" data-id="plenty" data-url="https://books.google.com/books/content?id=Q1LWPna5DKYC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=Q1LWPna5DKYC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Plenty" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Plenty</div>
+      <div class="card-author">Yotam Ottolenghi</div>
+      <div class="card-match">
+        Matched: "Plenty" by Yotam Ottolenghi
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(139)">✓ Approve</button>
+        <button class="btn no" onclick="reject(139)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-140" data-id="postmodernism-jameson" data-url="https://books.google.com/books/content?id=qRWbDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=qRWbDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Postmodernism, or, The Cultural Logic of Late Capitalism" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Postmodernism, or, The Cultural Logic of Late Capitalism</div>
+      <div class="card-author">Fredric Jameson</div>
+      <div class="card-match">
+        Matched: "Postmodernism, or, The Cultural Logic of Late Capitalism" by Fredric Jameson
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(140)">✓ Approve</button>
+        <button class="btn no" onclick="reject(140)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-141" data-id="primacy-of-perception" data-url="https://books.google.com/books/content?id=CMk4mUpjdosC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=CMk4mUpjdosC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Primacy of Perception" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Primacy of Perception</div>
+      <div class="card-author">Maurice Merleau-Ponty</div>
+      <div class="card-match">
+        Matched: "The Primacy of Perception" by Maurice Merleau-Ponty
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(141)">✓ Approve</button>
+        <button class="btn no" onclick="reject(141)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-142" data-id="prince-of-networks" data-url="https://books.google.com/books/content?id=UfpLEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=UfpLEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Prince of Networks" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Prince of Networks</div>
+      <div class="card-author">Graham Harman</div>
+      <div class="card-match">
+        Matched: "Prince of Networks" by Graham Harman
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(142)">✓ Approve</button>
+        <button class="btn no" onclick="reject(142)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-143" data-id="quadruple-object" data-url="https://books.google.com/books/content?id=zc8emQEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=zc8emQEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Quadruple Object" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Quadruple Object</div>
+      <div class="card-author">Graham Harman</div>
+      <div class="card-match">
+        Matched: "The Quadruple Object" by Graham Harman
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(143)">✓ Approve</button>
+        <button class="btn no" onclick="reject(143)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-144" data-id="remains-of-the-day" data-url="https://books.google.com/books/content?id=MSurBex2xcUC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=MSurBex2xcUC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Remains of the Day" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Remains of the Day</div>
+      <div class="card-author">Kazuo Ishiguro</div>
+      <div class="card-match">
+        Matched: "The Remains of the Day" by Kazuo Ishiguro
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(144)">✓ Approve</button>
+        <button class="btn no" onclick="reject(144)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-145" data-id="renegade-smith" data-url="https://books.google.com/books/content?id=Zh4TBAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=Zh4TBAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Renegade: The Lives and Tales of Mark E. Smith" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Renegade: The Lives and Tales of Mark E. Smith</div>
+      <div class="card-author">Mark E. Smith</div>
+      <div class="card-match">
+        Matched: "Renegade" by Mark E. Smith
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(145)">✓ Approve</button>
+        <button class="btn no" onclick="reject(145)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-146" data-id="richter-writings" data-url="https://books.google.com/books/content?id=RY40AQAAIAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=RY40AQAAIAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Gerhard Richter: Writings 1962–1993" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Gerhard Richter: Writings 1962–1993</div>
+      <div class="card-author">Gerhard Richter</div>
+      <div class="card-match">
+        Matched: "Gerhard Richter: Writings" by Gerhard Richter
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(146)">✓ Approve</button>
+        <button class="btn no" onclick="reject(146)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-147" data-id="romanticism-and-art" data-url="https://books.google.com/books/content?id=G_VfQgAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=G_VfQgAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Romanticism and Art" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Romanticism and Art</div>
+      <div class="card-author">William Vaughan</div>
+      <div class="card-match">
+        Matched: "Romanticism and Art" by William Vaughan
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(147)">✓ Approve</button>
+        <button class="btn no" onclick="reject(147)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-148" data-id="room-of-ones-own" data-url="https://books.google.com/books/content?id=1VraAgAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=1VraAgAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="A Room of One's Own" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">A Room of One's Own</div>
+      <div class="card-author">Virginia Woolf</div>
+      <div class="card-match">
+        Matched: "A Room of One's Own" by Virginia Woolf
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(148)">✓ Approve</button>
+        <button class="btn no" onclick="reject(148)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-149" data-id="russian-linesman" data-url="https://books.google.com/books/content?id=7G9zwgEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=7G9zwgEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Russian Linesman" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Russian Linesman</div>
+      <div class="card-author">Mark Wallinger</div>
+      <div class="card-match">
+        Matched: "The Russian Linesman" by Mark Wallinger
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(149)">✓ Approve</button>
+        <button class="btn no" onclick="reject(149)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-150" data-id="second-sex" data-url="https://books.google.com/books/content?id=KuMtBQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=KuMtBQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Second Sex" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Second Sex</div>
+      <div class="card-author">Simone de Beauvoir</div>
+      <div class="card-match">
+        Matched: "The Second Sex (Vintage Feminism Short Edition)" by Simone de Beauvoir
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(150)">✓ Approve</button>
+        <button class="btn no" onclick="reject(150)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-151" data-id="seven-spiritual-laws" data-url="https://books.google.com/books/content?id=fU5FxU3XNAEC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=fU5FxU3XNAEC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Seven Spiritual Laws of Success" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Seven Spiritual Laws of Success</div>
+      <div class="card-author">Deepak Chopra</div>
+      <div class="card-match">
+        Matched: "The Seven Spiritual Laws of Success" by Deepak Chopra
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(151)">✓ Approve</button>
+        <button class="btn no" onclick="reject(151)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-152" data-id="shantaram" data-url="https://books.google.com/books/content?id=5JaxSJlpGmAC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=5JaxSJlpGmAC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Shantaram" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Shantaram</div>
+      <div class="card-author">Gregory David Roberts</div>
+      <div class="card-match">
+        Matched: "Shantaram" by Gregory David Roberts
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(152)">✓ Approve</button>
+        <button class="btn no" onclick="reject(152)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-153" data-id="simple-passion" data-url="https://books.google.com/books/content?id=u6oLI9tqXRUC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=u6oLI9tqXRUC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Simple Passion" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Simple Passion</div>
+      <div class="card-author">Annie Ernaux</div>
+      <div class="card-match">
+        Matched: "Simple Passion" by Annie Ernaux
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(153)">✓ Approve</button>
+        <button class="btn no" onclick="reject(153)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-154" data-id="socialism-vsi" data-url="https://books.google.com/books/content?id=OnoRDAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=OnoRDAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Socialism: A Very Short Introduction" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Socialism: A Very Short Introduction</div>
+      <div class="card-author">Michael Newman</div>
+      <div class="card-match">
+        Matched: "Socialism: A Very Short Introduction" by Michael Newman
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(154)">✓ Approve</button>
+        <button class="btn no" onclick="reject(154)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-155" data-id="song-of-songs" data-url="https://books.google.com/books/content?id=kbbiBwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=kbbiBwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Song of Songs" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Song of Songs</div>
+      <div class="card-author">Iain M. Duguid</div>
+      <div class="card-match">
+        Matched: "The Song of Songs" by Iain M. Duguid
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(155)">✓ Approve</button>
+        <button class="btn no" onclick="reject(155)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-156" data-id="speed-and-politics" data-url="https://books.google.com/books/content?id=EkDaAAAAIAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=EkDaAAAAIAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Speed and Politics" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Speed and Politics</div>
+      <div class="card-author">Paul Virilio</div>
+      <div class="card-match">
+        Matched: "Speed and Politics, new edition" by Paul Virilio
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(156)">✓ Approve</button>
+        <button class="btn no" onclick="reject(156)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-157" data-id="staying-with-trouble" data-url="https://books.google.com/books/content?id=ZvDgDAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=ZvDgDAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Staying with the Trouble" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Staying with the Trouble</div>
+      <div class="card-author">Donna Haraway</div>
+      <div class="card-match">
+        Matched: "Staying with the Trouble" by Donna J. Haraway
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(157)">✓ Approve</button>
+        <button class="btn no" onclick="reject(157)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-158" data-id="story-of-o" data-url="https://books.google.com/books/content?id=YtRcAAAAMAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=YtRcAAAAMAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Story of O" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Story of O</div>
+      <div class="card-author">Pauline Réage</div>
+      <div class="card-match">
+        Matched: "Story of O" by Pauline Réage, André Pieyre de Mandiargues
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(158)">✓ Approve</button>
+        <button class="btn no" onclick="reject(158)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-159" data-id="superagency" data-url="https://books.google.com/books/content?id=fIM7EQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=fIM7EQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Superagency" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Superagency</div>
+      <div class="card-author">Reid Hoffman & Greg Beato</div>
+      <div class="card-match">
+        Matched: "Superagency" by Reid Hoffman, Greg Beato
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(159)">✓ Approve</button>
+        <button class="btn no" onclick="reject(159)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-160" data-id="surrender-experiment" data-url="https://books.google.com/books/content?id=X4h5BAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=X4h5BAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Surrender Experiment" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Surrender Experiment</div>
+      <div class="card-author">Michael A. Singer</div>
+      <div class="card-match">
+        Matched: "The Surrender Experiment" by Michael A. Singer
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(160)">✓ Approve</button>
+        <button class="btn no" onclick="reject(160)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-161" data-id="symbolic-misery" data-url="https://books.google.com/books/content?id=vaC0rQEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=vaC0rQEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Symbolic Misery (Volume 2)" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Symbolic Misery (Volume 2)</div>
+      <div class="card-author">Bernard Stiegler</div>
+      <div class="card-match">
+        Matched: "Symbolic Misery, Volume 2" by Bernard Stiegler
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(161)">✓ Approve</button>
+        <button class="btn no" onclick="reject(161)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-162" data-id="system-of-objects" data-url="https://books.google.com/books/content?id=0T3-3Ce5VocC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=0T3-3Ce5VocC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The System of Objects" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The System of Objects</div>
+      <div class="card-author">Jean Baudrillard</div>
+      <div class="card-match">
+        Matched: "The System of Objects" by Jean Baudrillard
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(162)">✓ Approve</button>
+        <button class="btn no" onclick="reject(162)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-163" data-id="tantric-way" data-url="https://books.google.com/books/content?id=PtONEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=PtONEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Tantric Way" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Tantric Way</div>
+      <div class="card-author">Mookerjee & Khanna</div>
+      <div class="card-match">
+        Matched: "Tantric Way" by Ajit Mookerjee, Madhu Khanna
+        — Title: <span class="score medium">85%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(163)">✓ Approve</button>
+        <button class="btn no" onclick="reject(163)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-164" data-id="tao-of-physics" data-url="https://books.google.com/books/content?id=pzLVpqDXdXoC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=pzLVpqDXdXoC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Tao of Physics" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Tao of Physics</div>
+      <div class="card-author">Fritjof Capra</div>
+      <div class="card-match">
+        Matched: "The Tao of Physics" by Fritjof Capra
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(164)">✓ Approve</button>
+        <button class="btn no" onclick="reject(164)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-165" data-id="tao-of-pooh" data-url="https://books.google.com/books/content?id=kjLuAAAAMAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=kjLuAAAAMAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Tao of Pooh & The Te of Piglet" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Tao of Pooh & The Te of Piglet</div>
+      <div class="card-author">Benjamin Hoff</div>
+      <div class="card-match">
+        Matched: "The Tao of Pooh" by Benjamin Hoff
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(165)">✓ Approve</button>
+        <button class="btn no" onclick="reject(165)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-166" data-id="tao-te-ching" data-url="https://books.google.com/books/content?id=-BbBAQAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=-BbBAQAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Tao Te Ching" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Tao Te Ching</div>
+      <div class="card-author">Lao Tzu</div>
+      <div class="card-match">
+        Matched: "Tao Te Ching" by Lao Tzu
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(166)">✓ Approve</button>
+        <button class="btn no" onclick="reject(166)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-167" data-id="things-fall-apart" data-url="https://books.google.com/books/content?id=iJplAAAAMAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=iJplAAAAMAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Things Fall Apart" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Things Fall Apart</div>
+      <div class="card-author">Chinua Achebe</div>
+      <div class="card-match">
+        Matched: "Things Fall Apart" by Chinua Achebe
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(167)">✓ Approve</button>
+        <button class="btn no" onclick="reject(167)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-168" data-id="thought-in-act" data-url="https://books.google.com/books/content?id=fy90DwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=fy90DwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Thought in the Act" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Thought in the Act</div>
+      <div class="card-author">Brian Massumi & Erin Manning</div>
+      <div class="card-match">
+        Matched: "Thought in the Act" by Erin Manning, Brian Massumi
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(168)">✓ Approve</button>
+        <button class="btn no" onclick="reject(168)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-169" data-id="thousand-plateaus" data-url="https://books.google.com/books/content?id=s9oPAQAAIAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=s9oPAQAAIAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="A Thousand Plateaus" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">A Thousand Plateaus</div>
+      <div class="card-author">Gilles Deleuze & Félix Guattari</div>
+      <div class="card-match">
+        Matched: "A Thousand Plateaus" by Gilles Deleuze, Félix Guattari
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(169)">✓ Approve</button>
+        <button class="btn no" onclick="reject(169)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-170" data-id="three-ecologies" data-url="https://books.google.com/books/content?id=RGXUAwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=RGXUAwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Three Ecologies" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Three Ecologies</div>
+      <div class="card-author">Félix Guattari</div>
+      <div class="card-match">
+        Matched: "The Three Ecologies" by Felix Guattari
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(170)">✓ Approve</button>
+        <button class="btn no" onclick="reject(170)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-171" data-id="timaeus-critias" data-url="https://books.google.com/books/content?id=NgfXEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=NgfXEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Timaeus and Critias" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Timaeus and Critias</div>
+      <div class="card-author">Plato</div>
+      <div class="card-match">
+        Matched: "Timaeus" by Plato
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(171)">✓ Approve</button>
+        <button class="btn no" onclick="reject(171)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-172" data-id="together-temelkuran" data-url="https://books.google.com/books/content?id=54oGEQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=54oGEQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Together" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Together</div>
+      <div class="card-author">Ece Temelkuran</div>
+      <div class="card-match">
+        Matched: "Together" by Ece Temelkuran
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(172)">✓ Approve</button>
+        <button class="btn no" onclick="reject(172)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-173" data-id="touching-peace" data-url="https://books.google.com/books/content?id=OaCZnTTmQzkC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=OaCZnTTmQzkC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Touching Peace" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Touching Peace</div>
+      <div class="card-author">Thich Nhat Hanh</div>
+      <div class="card-match">
+        Matched: "Touching Peace" by Thich Nhat Hanh
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(173)">✓ Approve</button>
+        <button class="btn no" onclick="reject(173)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-174" data-id="twelve-steps" data-url="https://books.google.com/books/content?id=iPsTEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=iPsTEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Twelve Steps and Twelve Traditions" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Twelve Steps and Twelve Traditions</div>
+      <div class="card-author">Alcoholics Anonymous</div>
+      <div class="card-match">
+        Matched: "Twelve Steps and Twelve Traditions" by Alcoholics Anonymous World Services, Inc.
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(174)">✓ Approve</button>
+        <button class="btn no" onclick="reject(174)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-175" data-id="two-regimes-madness" data-url="https://books.google.com/books/content?id=1xUQAQAAIAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=1xUQAQAAIAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Two Regimes of Madness" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Two Regimes of Madness</div>
+      <div class="card-author">Gilles Deleuze</div>
+      <div class="card-match">
+        Matched: "Two Regimes of Madness" by Gilles Deleuze
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(175)">✓ Approve</button>
+        <button class="btn no" onclick="reject(175)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-176" data-id="underland" data-url="https://books.google.com/books/content?id=4E9bDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=4E9bDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Underland: A Deep Time Journey" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Underland: A Deep Time Journey</div>
+      <div class="card-author">Robert Macfarlane</div>
+      <div class="card-match">
+        Matched: "Underland" by Robert Macfarlane
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(176)">✓ Approve</button>
+        <button class="btn no" onclick="reject(176)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-177" data-id="understanding-media" data-url="https://books.google.com/books/content?id=Q7loAAAAIAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=Q7loAAAAIAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Understanding Media" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Understanding Media</div>
+      <div class="card-author">Marshall McLuhan</div>
+      <div class="card-match">
+        Matched: "Understanding Media" by Marshall McLuhan
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(177)">✓ Approve</button>
+        <button class="btn no" onclick="reject(177)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-178" data-id="understanding-photograph" data-url="https://books.google.com/books/content?id=LgQRiXDIRKYC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=LgQRiXDIRKYC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Understanding a Photograph" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Understanding a Photograph</div>
+      <div class="card-author">John Berger</div>
+      <div class="card-match">
+        Matched: "Understanding a Photograph" by John Berger
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(178)">✓ Approve</button>
+        <button class="btn no" onclick="reject(178)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-179" data-id="vedic-astrology" data-url="https://books.google.com/books/content?id=4M12zgEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=4M12zgEACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Essentials of Vedic Astrology" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Essentials of Vedic Astrology</div>
+      <div class="card-author">Komilla Sutton</div>
+      <div class="card-match">
+        Matched: "The Essentials of Vedic Astrology" by Komilla Sutton
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(179)">✓ Approve</button>
+        <button class="btn no" onclick="reject(179)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-180" data-id="vedic-gods" data-url="https://books.google.com/books/content?id=uoJKSwAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=uoJKSwAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Avatars, Gods and Goddesses of Vedic Culture" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Avatars, Gods and Goddesses of Vedic Culture</div>
+      <div class="card-author">Stephen Knapp</div>
+      <div class="card-match">
+        Matched: "Avatars, Gods and Goddesses of Vedic Culture" by Stephen Knapp
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(180)">✓ Approve</button>
+        <button class="btn no" onclick="reject(180)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-181" data-id="visions-of-excess" data-url="https://books.google.com/books/content?id=2Yj6s1sjelgC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=2Yj6s1sjelgC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Visions of Excess" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Visions of Excess</div>
+      <div class="card-author">Georges Bataille</div>
+      <div class="card-match">
+        Matched: "Visions of Excess" by Georges Bataille
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(181)">✓ Approve</button>
+        <button class="btn no" onclick="reject(181)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-182" data-id="ways-of-seeing" data-url="https://books.google.com/books/content?id=ilu4K-Xp0v4C&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=ilu4K-Xp0v4C&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Ways of Seeing" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Ways of Seeing</div>
+      <div class="card-author">John Berger</div>
+      <div class="card-match">
+        Matched: "Ways of Seeing" by John Berger
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(182)">✓ Approve</button>
+        <button class="btn no" onclick="reject(182)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-183" data-id="weird-and-eerie" data-url="https://books.google.com/books/content?id=XeNYDQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=XeNYDQAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Weird and the Eerie" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Weird and the Eerie</div>
+      <div class="card-author">Mark Fisher</div>
+      <div class="card-match">
+        Matched: "The Weird and the Eerie" by Mark Fisher
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(183)">✓ Approve</button>
+        <button class="btn no" onclick="reject(183)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-184" data-id="what-is-madness" data-url="https://books.google.com/books/content?id=QXUqT125SVkC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=QXUqT125SVkC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="What is Madness?" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">What is Madness?</div>
+      <div class="card-author">Darian Leader</div>
+      <div class="card-match">
+        Matched: "What is Madness?" by Darian Leader
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(184)">✓ Approve</button>
+        <button class="btn no" onclick="reject(184)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-185" data-id="white-teeth" data-url="https://books.google.com/books/content?id=FjZAAQAAIAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=FjZAAQAAIAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="White Teeth" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">White Teeth</div>
+      <div class="card-author">Zadie Smith</div>
+      <div class="card-match">
+        Matched: "White Teeth" by Zadie Smith
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(185)">✓ Approve</button>
+        <button class="btn no" onclick="reject(185)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-186" data-id="wide-sargasso-sea" data-url="https://books.google.com/books/content?id=0StiQgAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=0StiQgAACAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="Wide Sargasso Sea" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">Wide Sargasso Sea</div>
+      <div class="card-author">Jean Rhys</div>
+      <div class="card-match">
+        Matched: "Wide Sargasso Sea" by Jean Rhys
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(186)">✓ Approve</button>
+        <button class="btn no" onclick="reject(186)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-187" data-id="wild-dyer" data-url="https://books.google.com/books/content?id=88FdDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=88FdDwAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Wild Dyer" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Wild Dyer</div>
+      <div class="card-author">Abigail Booth</div>
+      <div class="card-match">
+        Matched: "The Wild Dyer: A guide to natural dyes & the art of patchwork & stitch" by Abigail Booth
+        — Title: <span class="score high">95%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(187)">✓ Approve</button>
+        <button class="btn no" onclick="reject(187)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-188" data-id="wind-up-bird" data-url="https://books.google.com/books/content?id=dDfT6hk3c_oC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=dDfT6hk3c_oC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Wind-Up Bird Chronicle" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Wind-Up Bird Chronicle</div>
+      <div class="card-author">Haruki Murakami</div>
+      <div class="card-match">
+        Matched: "The Wind-up Bird Chronicle" by Haruki Murakami
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(188)">✓ Approve</button>
+        <button class="btn no" onclick="reject(188)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-189" data-id="womans-dictionary-symbols" data-url="https://books.google.com/books/content?id=xnLg350dxLYC&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=xnLg350dxLYC&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Woman's Dictionary of Symbols and Sacred Objects" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Woman's Dictionary of Symbols and Sacred Objects</div>
+      <div class="card-author">Barbara G. Walker</div>
+      <div class="card-match">
+        Matched: "The Woman's Dictionary of Symbols and Sacred Objects" by Barbara G. Walker
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(189)">✓ Approve</button>
+        <button class="btn no" onclick="reject(189)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-190" data-id="world-in-2050" data-url="https://books.google.com/books/content?id=NwZqEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=NwZqEAAAQBAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The World in 2050" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The World in 2050</div>
+      <div class="card-author">Hamish McRae</div>
+      <div class="card-match">
+        Matched: "The World in 2050" by Hamish McRae
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(190)">✓ Approve</button>
+        <button class="btn no" onclick="reject(190)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="card-191" data-id="year-of-magical-thinking" data-url="https://books.google.com/books/content?id=79plAAAAMAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api">
+    <img src="https://books.google.com/books/content?id=79plAAAAMAAJ&printsec=frontcover&img=1&zoom=2&source=gbs_api" alt="The Year of Magical Thinking" onerror="this.style.display='none'">
+    <div class="card-info">
+      <div class="card-title">The Year of Magical Thinking</div>
+      <div class="card-author">Joan Didion</div>
+      <div class="card-match">
+        Matched: "The Year of Magical Thinking" by Joan Didion
+        — Title: <span class="score high">100%</span>
+        Author: <span class="score high">100%</span>
+      </div>
+      <div class="btns">
+        <button class="btn yes" onclick="approve(191)">✓ Approve</button>
+        <button class="btn no" onclick="reject(191)">✗ Reject</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="export-bar">
+  <span><span id="export-count">0</span> covers ready</span>
+  <button class="export-btn" onclick="exportCovers()">Export approved covers</button>
+</div>
+
+<script>
+const state = Array(192).fill('pending');
+
+function update() {
+  document.getElementById('approved').textContent = state.filter(s => s === 'approved').length;
+  document.getElementById('rejected').textContent = state.filter(s => s === 'rejected').length;
+  document.getElementById('export-count').textContent = state.filter(s => s === 'approved').length;
+}
+
+function approve(i) {
+  state[i] = state[i] === 'approved' ? 'pending' : 'approved';
+  const card = document.getElementById('card-' + i);
+  card.className = 'card' + (state[i] === 'approved' ? ' approved' : '');
+  card.querySelector('.btn.yes').className = 'btn yes' + (state[i] === 'approved' ? ' active' : '');
+  card.querySelector('.btn.no').className = 'btn no';
+  update();
+  save();
+}
+
+function reject(i) {
+  state[i] = state[i] === 'rejected' ? 'pending' : 'rejected';
+  const card = document.getElementById('card-' + i);
+  card.className = 'card' + (state[i] === 'rejected' ? ' rejected' : '');
+  card.querySelector('.btn.no').className = 'btn no' + (state[i] === 'rejected' ? ' active' : '');
+  card.querySelector('.btn.yes').className = 'btn yes';
+  update();
+  save();
+}
+
+function exportCovers() {
+  const covers = [];
+  state.forEach((s, i) => {
+    if (s === 'approved') {
+      const card = document.getElementById('card-' + i);
+      covers.push({ id: card.dataset.id, coverUrl: card.dataset.url });
+    }
+  });
+  const blob = new Blob([JSON.stringify(covers, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'approved-covers-' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+}
+
+function save() { localStorage.setItem('cover-review', JSON.stringify(state)); }
+function load() {
+  const saved = localStorage.getItem('cover-review');
+  if (saved) {
+    try {
+      const parsed = JSON.parse(saved);
+      parsed.forEach((s, i) => {
+        if (s === 'approved') approve(i);
+        else if (s === 'rejected') reject(i);
+      });
+    } catch(e) {}
+  }
+}
+load();
+</script>
+</body>
+</html>
